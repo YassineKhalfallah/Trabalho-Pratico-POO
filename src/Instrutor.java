@@ -1,18 +1,11 @@
-public class Instrutor {
-    String nome;
+public class Instrutor extends Pessoa{
     String genero;
     String formacao;
     public Instrutor(String nome, String genero, String formacao){
-        this.nome = nome;
         this.genero = genero;
         this.formacao = formacao;
     }
-    public String getNome(){
-        return nome;
-    }
-    public void setNome(String nome){
-        this.nome = nome;
-    }
+    
     public String getGenero(){
         return genero;
     }
@@ -26,13 +19,13 @@ public class Instrutor {
         this.formacao = formacao;
     }
     public String toString() {
-        return "Instrutor{nome='" + nome + "', género=" + genero + ", formação=" + formacao + "}";
+        return "Instrutor{nome='" + getNomePessoa() + "', género=" + genero + ", formação=" + formacao + "}";
     }
     public Boolean equal (Object obj){
         if(obj == null || getClass() != obj.getClass()) return false;
         Instrutor outro = (Instrutor) obj;
         
-        return java.util.Objects.equals(nome, outro.nome) && java.util.Objects.equals(genero, outro.genero) && java.util.Objects.equals(formacao, outro.formacao);
+        return java.util.Objects.equals(getNomePessoa(), outro.getNomePessoa()) && java.util.Objects.equals(genero, outro.genero) && java.util.Objects.equals(formacao, outro.formacao);
     }
     //Fazer clone??????
 }
