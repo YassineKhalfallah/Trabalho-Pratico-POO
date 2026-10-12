@@ -21,7 +21,7 @@ public class SocioEmpresario extends Socio{
     }
 
     public String toString(){
-        return "Socio Empresario:\n Nome: "+getNomeSocio()+
+        return "Socio Empresario:\n Nome: "+getNomePessoa()+
                 "\n Numero: "+getNumeroSocio()+
                 "\n email: "+getEmailSocio()+
                 "\n Empresa: "+getNomeEmpresa()+

@@ -1,21 +1,15 @@
 
-public class Socio {
-    protected String nomeSocio;
+public class Socio extends Pessoa {
     protected int numeroSocio;
     protected String emailSocio;
 
     public Socio(){};
-    public Socio(String nomeSocio, int numeroSocio, String emailSocio) {
-        this.nomeSocio = nomeSocio;
+    public Socio(String nomePessoa, int numeroSocio, String emailSocio) {
+        super(nomePessoa);
         this.numeroSocio = numeroSocio;
         this.emailSocio = emailSocio;
     }
-    public String getNomeSocio() {
-        return nomeSocio;
-    }
-    public void setNomeSocio(String nomeSocio) {
-        this.nomeSocio = nomeSocio;
-    }
+
     public int getNumeroSocio() {
         return numeroSocio;
     }
