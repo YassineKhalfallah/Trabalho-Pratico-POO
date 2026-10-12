@@ -7,7 +7,7 @@ public class Pessoa {
     public String getNomePessoa() {
         return nomePessoa;
     }
-    public void setNomeSocio(String nomePessoa) {
+    public void setNomePessoa(String nomePessoa) {
         this.nomePessoa = nomePessoa;
     }
 }
