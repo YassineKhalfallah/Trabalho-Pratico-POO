@@ -1,6 +1,7 @@
 public class SocioEmpresario extends Socio{
     private String nomeEmpresa;
     private int nifEmpresa;
+
     public SocioEmpresario(){};
     public SocioEmpresario(String nomeEmpresa, int nifEmpresa, String nomeSocio, int numeroSocio, String emailSocio) {
         super(nomeSocio, numeroSocio, emailSocio);

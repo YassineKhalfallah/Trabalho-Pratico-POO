@@ -1,7 +1,7 @@
 public class Instrutor extends Pessoa{
     String genero;
-    String formacao;
-    public Instrutor(String nome, String genero, String formacao){
+    String formacao[];
+    public Instrutor(String nome, String genero, String formacao[]){
         this.genero = genero;
         this.formacao = formacao;
     }
@@ -12,10 +12,10 @@ public class Instrutor extends Pessoa{
     public void setGenero(String genero){
         this.genero = genero;
     }
-    public String getFormacao(){
+    public String[] getFormacao(){
         return formacao;
     }
-    public void setFormacao(String formacao){
+    public void setFormacao(String formacao[]){
         this.formacao = formacao;
     }
     public String toString() {

@@ -12,7 +12,7 @@ public class SociosIndividuais extends Socio {
         this.idadeSocio = idadeSocio;
     }
     public String toString() {
-        return "Socio Empresario:\n Nome: "+getNomePessoa()+
+        return "Socio Individual:\n Nome: "+getNomePessoa()+
                 "\n Numero: "+getNumeroSocio()+
                 "\n email: "+getEmailSocio()+
                 "\n Idade: "+getIdadeSocio();
