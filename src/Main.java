@@ -1,12 +1,15 @@
 import  java.util.Scanner;
 public class Main {
+    public void verificar_email(String email){
+
+    }
     public static void main(String[] args) {
         String tipoSocio, tipoPessoa,tipoInstrutor;
         Scanner input = new Scanner(System.in);
 
         boolean valid = true;
         while (valid) {
-            System.out.println("Indica se es um Socio ou Instrutor");
+            System.out.println("---Indica se es um Socio ou Instrutor---");
             tipoPessoa = input.nextLine();
             tipoPessoa = tipoPessoa.toUpperCase();
             if(tipoPessoa.equals("SOCIO")){
@@ -23,6 +26,12 @@ public class Main {
                     socioInd.setNumeroSocio(Integer.parseInt(input.nextLine()));
                     System.out.println("Indica o seu email:");
                     socioInd.setEmailSocio(input.nextLine());
+                    if(socioInd.getIdadeSocio()<18){
+                        socioInd.setDesconto(10);
+                    }
+                    if(socioInd.getIdadeSocio()>=65){
+                        socioInd.setDesconto(15);
+                    }
                     System.out.println(socioInd.toString());
                     valid = false;
                 }

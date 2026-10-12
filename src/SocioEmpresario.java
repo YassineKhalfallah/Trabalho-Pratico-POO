@@ -4,7 +4,7 @@ public class SocioEmpresario extends Socio{
 
     public SocioEmpresario(){};
     public SocioEmpresario(String nomeEmpresa, int nifEmpresa, String nomeSocio, int numeroSocio, String emailSocio) {
-        super(nomeSocio, numeroSocio, emailSocio);
+        super(nomeSocio, numeroSocio, emailSocio,20);
         this.nomeEmpresa = nomeEmpresa;
         this.nifEmpresa = nifEmpresa;
     }
@@ -26,6 +26,8 @@ public class SocioEmpresario extends Socio{
                 "\n Numero: "+getNumeroSocio()+
                 "\n email: "+getEmailSocio()+
                 "\n Empresa: "+getNomeEmpresa()+
-                "\n NIF: "+getNifEmpresa();
+                "\n NIF: "+getNifEmpresa()+
+                "\n Desconto: "+getDesconto()+"%"+
+                "\n Despesas: "+getDespesas();
     }
 }

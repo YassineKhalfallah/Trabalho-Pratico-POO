@@ -1,8 +1,8 @@
 public class SociosIndividuais extends Socio {
     private int idadeSocio ;
     public SociosIndividuais(){};
-    public SociosIndividuais(int idadeSocio,String nomeSocio, int numeroSocio, String emailSocio){
-        super(nomeSocio, numeroSocio, emailSocio);
+    public SociosIndividuais(int idadeSocio,String nomeSocio, int numeroSocio, String emailSocio,double desconto){
+        super(nomeSocio, numeroSocio, emailSocio,desconto);
         this.idadeSocio = idadeSocio;
     }
     public int getIdadeSocio() {
@@ -15,6 +15,8 @@ public class SociosIndividuais extends Socio {
         return "Socio Individual:\n Nome: "+getNomePessoa()+
                 "\n Numero: "+getNumeroSocio()+
                 "\n email: "+getEmailSocio()+
-                "\n Idade: "+getIdadeSocio();
+                "\n Idade: "+getIdadeSocio()+
+                "\n Desconto: "+getDesconto()+"%"+
+                "\n Despesas: "+getDespesas();
     }
 }
