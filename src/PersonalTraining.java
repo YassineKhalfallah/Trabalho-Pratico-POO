@@ -21,6 +21,6 @@ public class PersonalTraining extends Atividades{
         }
     }
     public String toString() {
-        return "Atividade marcada para " +this.hora + "h do tipo "+ getTipoTraining()+ ", custa "+getPreco();
+        return "Sessao de treino marcada para " +this.hora + "h do tipo "+ getTipoTraining()+ ", custa "+getPreco();
     }
 }
