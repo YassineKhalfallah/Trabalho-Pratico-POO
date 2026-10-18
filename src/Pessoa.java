@@ -1,6 +1,6 @@
 public class Pessoa {
     protected String nomePessoa;
-    public Pessoa(){};
+    public Pessoa(){}
     public Pessoa(String nomePessoa) {
         this.nomePessoa = nomePessoa;
     }
@@ -29,7 +29,7 @@ public class Pessoa {
             char c = nome.charAt(i);
 
             // Permite letras (incluindo com acentos), espaços e hífens
-            boolean isAllowed = (Character.isLetter(c)||(c == "  ")||(c == '-'));
+            boolean isAllowed = (Character.isLetter(c)||(c == ' ')||(c == '-'));
             if (!isAllowed) {
                 // Rejeita o que não é letra, espaço ou hífen
                 return false;
