@@ -1,8 +1,11 @@
 public class Atividades {
     /**
-     * Will I'll be using preco and hora in other class, I'll need it to be as protected
+     * Will I'll be using {@code preco} in other class, I'll need it to be as protected
      */
     protected double preco;
+    /**
+     * Will I'll be using {@code hora} in other class, I'll need it to be as protected
+     */
     protected int hora;
 
     /**
@@ -30,7 +33,7 @@ public class Atividades {
 
     /**
      * Once we did set the variable as protected in case of willing to change the value of this parameter
-     * in a class where we have no access to it, use this function {@code setPreco()}
+     * in a class where we have no access to it, use this function {@link setPreco(double preco)}
      * @param preco
      */
     public void setPreco(double preco) {
@@ -45,7 +48,7 @@ public class Atividades {
     }
     /**
      * Once we did set the variable as protected in case of willing to change the value of this parameter
-     * in a class where we have no access to it, use this function {@code setHora()}
+     * in a class where we have no access to it, use this function {@link setHora(int hora)}
      * @param hora
      */
     public void setHora(int hora) {

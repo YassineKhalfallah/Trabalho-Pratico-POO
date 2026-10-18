@@ -22,7 +22,7 @@ public class PersonalTraining extends Atividades{
     }
 
     /**
-     * Get's you the type of the session in this class
+     * Gets you the type of the session in this class
      * @return tipoTraining
      */
     public String getTipoTraining() {
@@ -49,8 +49,13 @@ public class PersonalTraining extends Atividades{
     }
 
     /**
-     * Get's the info about the scheduled session.
-     * @return message
+     * Gets the info about the scheduled session:
+     * <ul>
+     *     <li>Scheduled hour</li>
+     *     <li>Type of training</li>
+     *     <li>Lesson price</li>
+     *  </ul>
+     * @return info personal training
      */
     public String toString() {
         return "Sessao de treino marcada para " +this.hora + "h do tipo "+ getTipoTraining()+ ", custa "+getPreco();

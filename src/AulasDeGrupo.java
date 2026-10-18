@@ -3,10 +3,16 @@
  */
 public class AulasDeGrupo extends Atividades{
     /**
-     * I set {@code tipoAula}, {@code capacidadeMaxima} & {@code numeroDePessoasNaAtividade} as private because it's the last subclass
+     * I set {@code tipoAula} as private because it's in the last subclass
      */
     private String tipoAula;
+    /**
+     * I set {@code capacidadeMaxima} as private because it's in the last subclass
+     */
     private int capacidadeMaxima;
+    /**
+     * I set {@code numeroDePessoasNaAtividade} as private because it's in the last subclass
+     */
     private int numeroDePessoasNaAtividade;
     /**
      * The constructor of an empty class AulasDeGrupo
@@ -27,7 +33,7 @@ public class AulasDeGrupo extends Atividades{
         this.numeroDePessoasNaAtividade = numeroDePessoasNaAtividade;
     }
     /**
-     * Get's you the type of the group lesson in this class
+     * Gets you the type of the group lesson in this class
      * @return tipoAula
      */
     public String geTipoAula() {
@@ -50,7 +56,7 @@ public class AulasDeGrupo extends Atividades{
         }
     }
     /**
-     * Get's you the maxim capacity of the group lesson in this class
+     * Gets you the maxim capacity of the group lesson in this class
      * @return capacidadeMaxima
      */
     public int getCapacidadeMaxima() {
