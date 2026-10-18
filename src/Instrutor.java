@@ -1,8 +1,7 @@
 public class Instrutor extends Pessoa{
     private String genero;
     private String formacao[];
-
-    public Instrutor(){}
+    public Instrutor(){};
     public Instrutor(String nome, String genero, String formacao[]){
         super(nome);
         this.genero = genero;
