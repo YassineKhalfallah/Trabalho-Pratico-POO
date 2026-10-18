@@ -6,8 +6,8 @@ public class Socio extends Pessoa {
     protected double desconto;
 
     public Socio(){};
-    public Socio(String nomePessoa, int numeroSocio, String emailSocio, double desconto) {
-        super(nomePessoa);
+    public Socio(String nome, int numeroSocio, String emailSocio, double desconto) {
+        super(nome);
         this.numeroSocio = numeroSocio;
         this.emailSocio = emailSocio;
         this.despesas = 0;
