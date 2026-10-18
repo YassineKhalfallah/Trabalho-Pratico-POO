@@ -61,7 +61,7 @@ public class AulasDeGrupo extends Atividades{
         this.capacidadeMaxima = capacidadeMaxima;
     }
     /**
-     * Get's you the number of people in the group lesson in this class
+     * Gets you the number of people in the group lesson in this class
      * @return numeroDePessoasNaAtividade
      */
     public int getnumeroDePessoasNaAtividade() {
@@ -71,8 +71,15 @@ public class AulasDeGrupo extends Atividades{
         this.numeroDePessoasNaAtividade = numeroDePessoasNaAtividade;
     }
     /**
-     * Get's the info about the scheduled group lesson.
-     * @return message
+     * Gets the info about the scheduled group lesson:
+     * <ul>
+     *     <li>Scheduled hour</li>
+     *     <li>Type of lesson</li>
+     *     <li>Lesson price</li>
+     *     <li>Number of people registered </li>
+     *     <li>Maximum number for participants</li>
+     * </ul>
+     * @return info group lesson
      */
     public String toString() {
         return "Aula de grupo marcada para " +this.hora + "h do tipo "+ geTipoAula()+ ", custa "+getPreco()+
