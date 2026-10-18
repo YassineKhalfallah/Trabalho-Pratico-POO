@@ -64,5 +64,6 @@ public class Main {
                 System.out.println("---TIPO DE PESSOA ERRADA , TENTA NOVAMENTE---");
             }
         }
+        input.close();
     }
 }
