@@ -94,15 +94,9 @@ public class AulasDeGrupo extends Atividades{
      * @return info group lesson
      */
     public String toString() {
-<<<<<<< HEAD
-        return "Aula de grupo marcada para " +this.hora + "h do tipo "+ getTipoAula()+ ", custa "+getPreco()+
-                "€ faltam "+getnumeroDePessoasNaAtividade()+ "pessoas para chegar ao limite de"+getCapacidadeMaxima()+"pessoas";
-=======
-        return "Aula de grupo marcada para " +this.hora + "h do tipo "+ geTipoAula()+
-                ", custa "+getPreco()+
-                " faltam "+getnumeroDePessoasNaAtividade()+
-                "para chegar ao "+getCapacidadeMaxima();
->>>>>>> b6efd4df11cfef452c0156fd60a0b7e3b69dfd4d
+
+        return "Aula de grupo marcada para " + this.hora + "h do tipo " + getTipoAula() + ", custa " + getPreco() +
+                "€ faltam " + getNumeroDePessoasNaAtividade() + "pessoas para chegar ao limite de" + getCapacidadeMaxima() + "pessoas";
     }
 
     /**
