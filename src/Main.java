@@ -50,7 +50,8 @@ public class Main {
                     // set discount
                     if (socioInd.getIdadeSocio() < 18) {
                         socioInd.setDesconto(10);
-                    } else if (socioInd.getIdadeSocio() >= 65) {
+                    }
+                    else if (socioInd.getIdadeSocio() >= 65) {
                         socioInd.setDesconto(15);
                     }
                     // add the socio individual na list
@@ -75,13 +76,14 @@ public class Main {
                     System.out.println("Digite o NIF da sua  empresa: ");
                     socioEmp.setNifEmpresa(input.nextInt());
                     // set Identification Number
-
+                    socioEmp.setNumeroSocio(socioEmp.gerarNumSocio());
                     // add the socio individual na lista
                     socioEmpresario .add(socioEmp);
                     // Going to get you the info about Socio da Empresa
                     System.out.println(socioEmp.toString());
                     valid = false;
-                } else {
+                }
+                else {
                     System.out.println("---TIPO DE SOCIO ERRADO , TENTA NOVAMENTE---");
                 }
             }
@@ -161,28 +163,50 @@ public class Main {
         }
         input.close();
     }
+
     public static void addActivity(ArrayList<AulasDeGrupo> aulasDeGrupo,ArrayList<PersonalTraining> personalTraining) {
         Scanner input = new Scanner(System.in);
         String tipoAula;
-        System.out.println("--- Que tipo de Atividades quere adicionar ---");
-        tipoAula = input.nextLine();
-        tipoAula = tipoAula.toUpperCase();
-        if(tipoAula.equals("AULAS DE GRUPO")){
-            AulasDeGrupo aulaGrupo = new AulasDeGrupo();
+        boolean valid = true;
+        while (valid) {
+            System.out.println("--- Que tipo de Atividades quere adicionar ---");
 
-            // set tipo de aula
-            aulaGrupo.setTipoAula(aulaGrupo.setAula());
-            // set hora
-            aulaGrupo.setHora(aulaGrupo.setHoraDaAula());
-            // set capacidadeMaxima da aula
-            aulaGrupo.setCapacidadeMaxima(aulaGrupo.setCapDaAula());
+            tipoAula = input.nextLine();
+            tipoAula = tipoAula.toUpperCase();
+            if(tipoAula.equals("AULAS DE GRUPO")){
+                AulasDeGrupo aulaGrupo = new AulasDeGrupo();
 
+                // set tipo de aula
+                aulaGrupo.setTipoAula(aulaGrupo.setAula());
+                // set hora
+                aulaGrupo.setHora(aulaGrupo.setHoraDaAtividade());
+                // set capacidadeMaxima da aula
+                aulaGrupo.setCapacidadeMaxima(aulaGrupo.setCapDaAula());
+
+                //add the group lesson to the list of Group Lessons
+                aulasDeGrupo.add(aulaGrupo);
+                // Going to get you the info about the new Group Lesson created
+                System.out.println(aulaGrupo.toString());
+                valid = false;
+            }
+            else if(tipoAula.equals("PERSONAL TRAINING")){
+                PersonalTraining personalTrain = new PersonalTraining();
+
+                // set tipo de aula
+                personalTrain.setTipoTraining(personalTrain.setSessao());
+                // set hora
+                personalTrain.setHora(personalTrain.setHoraDaAtividade());
+                //add the group lesson to the list of Group Lessons
+                personalTraining.add(personalTrain);
+                // Going to get you the info about the new Group Lesson created
+                System.out.println(personalTrain.toString());
+                valid = false;
+            }
+            else {
+                System.out.println("--- TIPO DE ATIVIDADE ERRADO ---");
+            }
         }
-        else if(tipoAula.equals("PERSONAL TRAINING")){
-            PersonalTraining personalTrain = new PersonalTraining();
-
-        }
-
+        input.close();
     }
     /**
      * Asks the user to identify the type of activity and then lists all the elements in that list

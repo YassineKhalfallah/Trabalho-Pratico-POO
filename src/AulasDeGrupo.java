@@ -104,7 +104,7 @@ public class AulasDeGrupo extends Atividades{
      * @param tipoAula
      * @return true if type of lesson is one of the activities in the array
      */
-    public boolean isTipoaulaValido(String tipoAula) {
+    public boolean isTipoAulaValido(String tipoAula) {
         String aulasdesponiveis[]={"YOGA","SPINNING","ZUMBA","CROSSFIT"};
         tipoAula = tipoAula.trim().toUpperCase();
 
@@ -116,7 +116,7 @@ public class AulasDeGrupo extends Atividades{
         return false;
     }
 /**
- * Asks the user to give the type of lesson, However it will get checked at the function {@link isTipoaulaValido},
+ * Asks the user to give the type of lesson, However it will get checked at the function {@link isTipoAulaValido},
  * if after the verification the type of lesson is valid, you will get it at the return, otherwise it will keep asking you again.
  * @return String aula
  * */
@@ -127,10 +127,10 @@ public class AulasDeGrupo extends Atividades{
         int i = 0;
         do {
             if (i==0) System.out.println("Indica o tipo de aula que quere marcar: ");
-            else System.out.println("--NOME INVALIDO--\nIndica o tipo de aula que quere marcar: ");
+            else System.out.println("--AULA INVALIDO--\nIndica o tipo de aula que quere marcar: ");
 
             aula = input.nextLine();
-            validarAula = isTipoaulaValido(aula);
+            validarAula = isTipoAulaValido(aula);
             i++;
         }while (!validarAula);
         input.close();

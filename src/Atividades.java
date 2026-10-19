@@ -69,19 +69,28 @@ public class Atividades {
         this.data=data;
     }
 
-
+    /**
+     * The function makes sure that the activity hour is a valid one.
+     * @param hora
+     * @return true if the hour is valid
+     */
     public boolean isHoraValida(int hora){
-        if (hora<0 || hora>24)return false;
+        if (hora < 0 || hora > 24)return false;
         return true;
     }
-    public int setHoraDaAula(){
+    /**
+     * Asks the user to give the hour of the activity, However it will get checked at the function {@link isHoraValida},
+     * if after the verification the hour of the activity is valid, you will get it at the return, otherwise it will keep asking you again.
+     * @return int hora
+     * */
+    public int setHoraDaAtividade(){
         Scanner input = new Scanner(System.in);
         boolean validarHora = true;
         int hora;
         int i = 0;
         do {
             if (i==0) System.out.println("Digite a hora que quere marcar: ");
-            else System.out.println("--HORA INVALIDO--\nDigite a hora que quere marcar: ");
+            else System.out.println("--HORA INVALIDA--\nDigite a hora que quere marcar: ");
             hora = Integer.parseInt(input.nextLine());
             validarHora = isHoraValida(hora);
             i++;
