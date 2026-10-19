@@ -89,6 +89,7 @@ public class Pessoa {
             validarNome = isNomeSeguro(nome);
             i++;
         }while (!validarNome);
+        input.close();
         return nome;
     }
 }

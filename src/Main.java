@@ -158,5 +158,6 @@ public class Main {
         else {
             System.out.println("--- TIPO DE SOCIO ERRADO ---");
         }
+        input.close();
     }
 }
