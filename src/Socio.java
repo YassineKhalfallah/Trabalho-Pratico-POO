@@ -1,12 +1,12 @@
 import java.security.SecureRandom;
 public class Socio extends Pessoa {
-    protected int numeroSocio;
+    protected String numeroSocio;
     protected String emailSocio;
     protected double despesas;
     protected double desconto;
 
     public Socio(){};
-    public Socio(String nome, int numeroSocio, String emailSocio, double desconto) {
+    public Socio(String nome, String numeroSocio, String emailSocio, double desconto) {
         super(nome);
         this.numeroSocio = numeroSocio;
         this.emailSocio = emailSocio;
@@ -14,10 +14,10 @@ public class Socio extends Pessoa {
         this.desconto = desconto;
     }
 
-    public int getNumeroSocio() {
+    public String getNumeroSocio() {
         return numeroSocio;
     }
-    public void setNumeroSocio(int numeroSocio) {
+    public void setNumeroSocio(String numeroSocio) {
         this.numeroSocio = numeroSocio;
     }
     public String getEmailSocio() {
@@ -35,8 +35,14 @@ public class Socio extends Pessoa {
     public double getDesconto() {
         return desconto;
     }
-    public void setDesconto(int desconto) {
+    public void setDesconto(double desconto) {
         this.desconto = desconto;
+    }
+    public Boolean equal (Object obj){
+        if(obj == null || getClass() != obj.getClass()) return false;
+        Socio outro = (Socio) obj;
+        
+        return java.util.Objects.equals(getNumeroSocio(), outro.getNumeroSocio()) && java.util.Objects.equals(getEmailSocio(), outro.getEmailSocio()) && java.util.Objects.equals(getDespesas(), outro.getDespesas()) && java.util.Objects.equals(getDesconto(), outro.getDesconto());
     }
     /**
      * the function generates a random 6 digit number with a secure method:

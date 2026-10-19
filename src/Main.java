@@ -40,8 +40,7 @@ public class Main {
                     // set age
                     socioInd.setIdadeSocio(socioInd.setIdade());
                     // set Identification Number
-                    System.out.println("Digite o seu numero identificador:");
-                    socioInd.setNumeroSocio(Integer.parseInt(input.nextLine()));
+                    socioInd.setNumeroSocio(gerarNumSocio()); //Falta verif se o número já existe
                     // set email
                     System.out.println("Indica o seu email:");
                     socioInd.setEmailSocio(input.nextLine());

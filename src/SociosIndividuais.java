@@ -19,7 +19,7 @@ public class SociosIndividuais extends Socio {
      * @param emailSocio
      * @param desconto
      */
-    public SociosIndividuais(int idadeSocio,String nomeSocio, int numeroSocio, String emailSocio,double desconto){
+    public SociosIndividuais(int idadeSocio,String nomeSocio, String numeroSocio, String emailSocio,double desconto){
         super(nomeSocio, numeroSocio, emailSocio,desconto);
         this.idadeSocio = idadeSocio;
     }
