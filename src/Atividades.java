@@ -5,17 +5,21 @@ public class Atividades {
      * I'll be using {@code preco} in other class, I'll need it to be as protected
      */
     protected double preco;
+
     /**
      * I'll be using {@code hora} in other class, I'll need it to be as protected
      */
     protected int hora;
 
+    /**
+     * I'll be using {@code data} in other class, I'll need it to be as protected
+     */
     protected String data;
 
     /**
      * The constructor of an empty class Atividades
      */
-    public Atividades(){};
+    public Atividades(){}
 
     /**
      * The constructor of the class Atividades, where we give the parameters the given values
@@ -39,12 +43,13 @@ public class Atividades {
 
     /**
      * Once we did set the variable as protected in case of willing to change the value of this parameter
-     * in a class where we have no access to it, use this function {@link setPreco(double preco)}
+     * in a class where we have no access to it, use this function {@link setPreco}
      * @param preco
      */
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
     /**
      *Gets you the value of hora in this class
      * @return hora
@@ -52,21 +57,30 @@ public class Atividades {
     public int getHora() {
         return hora;
     }
+
     /**
      * Once we did set the variable as protected in case of willing to change the value of this parameter
-     * in a class where we have no access to it, use this function {@link setHora(int hora)}
+     * in a class where we have no access to it, use this function {@link setHora}
      * @param hora
      */
     public void setHora(int hora) {
         this.hora = hora;
     }
 
+    /**
+     * Gets you the value of data in this class
+     * @return data
+     */
     public String getData(){
         return data;
     }
 
+    /**Once we did set the variable as protected in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setData}
+     * @param data
+     */
     public void setData(String data){
-        this.data=data;
+        this.data = data;
     }
 
     /**
@@ -78,6 +92,7 @@ public class Atividades {
         if (hora < 0 || hora > 24)return false;
         return true;
     }
+
     /**
      * Asks the user to give the hour of the activity, However it will get checked at the function {@link isHoraValida},
      * if after the verification the hour of the activity is valid, you will get it at the return, otherwise it will keep asking you again.
@@ -97,4 +112,18 @@ public class Atividades {
         }while (!validarHora);
         return hora;
     }
+
+    /**
+     * The function makes sure that the activity date is a valid one.
+     * @param data
+     * @return true if the date is valid
+     */
+    public boolean isDataValida(String data){}
+
+    /**
+     * Asks the user to give the date of the activity, However it will get checked at the function {@link isDataValida},
+     * if after the verification the date of the activity is valid, you will get it at the return, otherwise it will keep asking you again.
+     * @return String data
+     * */
+    public String setDataDaAtividade(){}
 }

@@ -19,7 +19,29 @@ public class Main {
         listarAtividades(aulasDeGrupo,personalTraining);
     }
 
-
+    /**
+     * This function is mainly used to add people according to their type.
+     * {@code Socio}:
+     * <ul>
+     *     <li>Socio Individual</li>
+     *     or
+     *     <li>Socio Empresario</li>
+     * </ul>
+     * or<br>
+     * {@code Instrutor}
+     * <br>And after getting all the info about each person it will be added to the List pre-created.<br>
+     * For example:
+     * <pre>{@code
+     * // add the socio individual na list
+     * sociosIndividuais.add(socioInd);
+     * // Going to get you the info about Socio Individual
+     * System.out.println(socioInd.toString());
+     * }</pre>
+     * And at the end shows the info in the terminal{@link toString}.
+     * @param instrutores
+     * @param sociosIndividuais
+     * @param socioEmpresario
+     */
     public static void addPessoa(ArrayList<Instrutor> instrutores, ArrayList<SociosIndividuais> sociosIndividuais, ArrayList<SocioEmpresario> socioEmpresario){
         String tipoSocio, tipoPessoa;
         boolean valid = true;
@@ -55,7 +77,7 @@ public class Main {
                         socioInd.setDesconto(15);
                     }
                     // add the socio individual na list
-                    sociosIndividuais .add(socioInd);
+                    sociosIndividuais.add(socioInd);
                     // Going to get you the info about Socio Individual
                     System.out.println(socioInd.toString());
                     valid = false;
@@ -180,6 +202,8 @@ public class Main {
                 aulaGrupo.setTipoAula(aulaGrupo.setAula());
                 // set hora
                 aulaGrupo.setHora(aulaGrupo.setHoraDaAtividade());
+                //set data
+
                 // set capacidadeMaxima da aula
                 aulaGrupo.setCapacidadeMaxima(aulaGrupo.setCapDaAula());
 
@@ -196,6 +220,8 @@ public class Main {
                 personalTrain.setTipoTraining(personalTrain.setSessao());
                 // set hora
                 personalTrain.setHora(personalTrain.setHoraDaAtividade());
+                // set data
+
                 //add the group lesson to the list of Group Lessons
                 personalTraining.add(personalTrain);
                 // Going to get you the info about the new Group Lesson created

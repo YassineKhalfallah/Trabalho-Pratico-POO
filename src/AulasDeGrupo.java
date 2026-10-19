@@ -9,18 +9,22 @@ public class AulasDeGrupo extends Atividades{
      * I set {@code tipoAula} as private because it's in the last subclass
      */
     private String tipoAula;
+
     /**
      * I set {@code capacidadeMaxima} as private because it's in the last subclass
      */
     private int capacidadeMaxima;
+
     /**
      * I set {@code numeroDePessoasNaAtividade} as private because it's in the last subclass
      */
     private int numeroDePessoasNaAtividade;
+
     /**
      * The constructor of an empty class AulasDeGrupo
      */
     public AulasDeGrupo(){};
+
     /**
      * The constructor of the class AulasDeGrupo, where we set the given values to each parameter
      * @param tipoAula
@@ -34,6 +38,7 @@ public class AulasDeGrupo extends Atividades{
         this.capacidadeMaxima = capacidadeMaxima;
         this.numeroDePessoasNaAtividade = 0;
     }
+
     /**
      * Gets you the type of the group lesson in this class
      * @return tipoAula
@@ -43,7 +48,9 @@ public class AulasDeGrupo extends Atividades{
     }
 
     /**
-     *
+     * Once we did set the variable as private, in case of willing to change the value of this paramater
+     * in a class where we have no access to it, use this function {@link setTipoAula}.<br>
+     * Also depending on the input we are setting the cost of the lesson.
      * @param tipoAula
      */
     public void setTipoAula(String tipoAula) {
@@ -61,6 +68,7 @@ public class AulasDeGrupo extends Atividades{
             setPreco(12.0);
         }
     }
+
     /**
      * Gets you the maximum capacity of the group lesson in this class
      * @return capacidadeMaxima
@@ -69,9 +77,15 @@ public class AulasDeGrupo extends Atividades{
         return capacidadeMaxima;
     }
 
+    /**
+     * Once we did set the variable as private, in case of willing to change the value of this paramater
+     *in a class where we have no access to it, use this function {@link setCapacidadeMaxima}.
+     *@param capacidadeMaxima
+     */
     public void setCapacidadeMaxima(int capacidadeMaxima) {
         this.capacidadeMaxima = capacidadeMaxima;
     }
+
     /**
      * Gets you the number of people in the group lesson in this class
      * @return numeroDePessoasNaAtividade
@@ -79,6 +93,12 @@ public class AulasDeGrupo extends Atividades{
     public int getNumeroDePessoasNaAtividade() {
         return numeroDePessoasNaAtividade;
     }
+
+    /**
+     * Once we did set the variable as private, in case of willing to change the value of this paramater
+     * in a class where we have no access to it, use this function {@link setNumeroDePessoasNaAtividade}.
+     * @param numeroDePessoasNaAtividade
+     */
     public void setNumeroDePessoasNaAtividade(int numeroDePessoasNaAtividade) {
         this.numeroDePessoasNaAtividade = numeroDePessoasNaAtividade;
     }
