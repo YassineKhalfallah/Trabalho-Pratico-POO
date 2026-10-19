@@ -43,7 +43,7 @@ public class Main {
                     // set age
                     socioInd.setIdadeSocio(socioInd.setIdade());
                     // set Identification Number
-                    socioInd.setNumeroSocio(gerarNumSocio()); //Falta verif se o número já existe
+                    socioInd.setNumeroSocio(socioInd.gerarNumSocio()); //Falta verif se o número já existe
                     // set email
                     System.out.println("Indica o seu email:");
                     socioInd.setEmailSocio(input.nextLine());
@@ -75,8 +75,7 @@ public class Main {
                     System.out.println("Digite o NIF da sua  empresa: ");
                     socioEmp.setNifEmpresa(input.nextInt());
                     // set Identification Number
-                    System.out.println("Digite o seu numero identificador: ");
-                    socioEmp.setNumeroSocio(input.nextInt());
+
                     // add the socio individual na lista
                     socioEmpresario .add(socioEmp);
                     // Going to get you the info about Socio da Empresa
