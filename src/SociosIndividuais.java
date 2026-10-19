@@ -88,6 +88,7 @@ public class SociosIndividuais extends Socio {
             validarIdade = isIdadeNaoNega(idade);
             i++;
         }while (!validarIdade);
-        return 0;
+        input.close();
+        return idade;
     }
 }
