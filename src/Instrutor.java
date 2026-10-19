@@ -80,7 +80,8 @@ public class Instrutor extends Pessoa{
      * @return true if the gender was M or F
      */
     public boolean isGeneroValido(String genero){
-        if (genero.equals("M") || genero.equals("F") ||  genero.equals("MASCULINO") ||  genero.equals("FEMININO")) return true;
+        if (genero.equals("M") || genero.equals("F") ||  genero.equals("MASCULINO") ||  genero.equals("FEMININO") 
+            || genero.equals("OUTRO")) return true;
         else return false;
     }
 

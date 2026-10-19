@@ -38,7 +38,7 @@ public class AulasDeGrupo extends Atividades{
      * Gets you the type of the group lesson in this class
      * @return tipoAula
      */
-    public String geTipoAula() {
+    public String getTipoAula() {
         return tipoAula;
     }
 
@@ -62,7 +62,7 @@ public class AulasDeGrupo extends Atividades{
         }
     }
     /**
-     * Gets you the maxim capacity of the group lesson in this class
+     * Gets you the maximum capacity of the group lesson in this class
      * @return capacidadeMaxima
      */
     public int getCapacidadeMaxima() {
@@ -76,7 +76,7 @@ public class AulasDeGrupo extends Atividades{
      * Gets you the number of people in the group lesson in this class
      * @return numeroDePessoasNaAtividade
      */
-    public int getnumeroDePessoasNaAtividade() {
+    public int getNumeroDePessoasNaAtividade() {
         return numeroDePessoasNaAtividade;
     }
     public void setNumeroDePessoasNaAtividade(int numeroDePessoasNaAtividade) {
@@ -94,10 +94,15 @@ public class AulasDeGrupo extends Atividades{
      * @return info group lesson
      */
     public String toString() {
+<<<<<<< HEAD
+        return "Aula de grupo marcada para " +this.hora + "h do tipo "+ getTipoAula()+ ", custa "+getPreco()+
+                "€ faltam "+getnumeroDePessoasNaAtividade()+ "pessoas para chegar ao limite de"+getCapacidadeMaxima()+"pessoas";
+=======
         return "Aula de grupo marcada para " +this.hora + "h do tipo "+ geTipoAula()+
                 ", custa "+getPreco()+
                 " faltam "+getnumeroDePessoasNaAtividade()+
                 "para chegar ao "+getCapacidadeMaxima();
+>>>>>>> b6efd4df11cfef452c0156fd60a0b7e3b69dfd4d
     }
 
     /**
