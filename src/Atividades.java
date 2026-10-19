@@ -1,12 +1,14 @@
 public class Atividades {
     /**
-     * Will I'll be using {@code preco} in other class, I'll need it to be as protected
+     * I'll be using {@code preco} in other class, I'll need it to be as protected
      */
     protected double preco;
     /**
-     * Will I'll be using {@code hora} in other class, I'll need it to be as protected
+     * I'll be using {@code hora} in other class, I'll need it to be as protected
      */
     protected int hora;
+
+    protected String data;
 
     /**
      * The constructor of an empty class Atividades
@@ -17,10 +19,12 @@ public class Atividades {
      * The constructor of the class Atividades, where we give the parameters the given values
      * @param preco
      * @param hora
+     * @param data
      */
-    public Atividades(double preco, int hora){
+    public Atividades(double preco, int hora, String data){
         this.preco = preco;
         this.hora = hora;
+        this.data = data;
     }
 
     /**
@@ -53,6 +57,14 @@ public class Atividades {
      */
     public void setHora(int hora) {
         this.hora = hora;
+    }
+
+    public String getData(){
+        return data;
+    }
+
+    public void setData(String data){
+        this.data=data;
     }
 
 
