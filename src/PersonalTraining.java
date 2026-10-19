@@ -58,6 +58,6 @@ public class PersonalTraining extends Atividades{
      * @return info personal training
      */
     public String toString() {
-        return "Sessao de treino marcada para " +this.hora + "h do tipo "+ getTipoTraining()+ ", custa "+getPreco();
+        return "Sessao de treino marcada para " +this.hora + "h do tipo "+ getTipoTraining()+ ", custa "+getPreco()+"€";
     }
 }
