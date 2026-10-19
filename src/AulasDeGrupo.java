@@ -28,8 +28,8 @@ public class AulasDeGrupo extends Atividades{
      * @param hora
      * @param capacidadeMaxima
      */
-    public AulasDeGrupo(String tipoAula, double preco, int hora, int capacidadeMaxima) {
-        super(preco, hora);
+    public AulasDeGrupo(String tipoAula,String data, double preco, int hora, int capacidadeMaxima) {
+        super(preco, hora,data);
         this.tipoAula = tipoAula;
         this.capacidadeMaxima = capacidadeMaxima;
         this.numeroDePessoasNaAtividade = 0;

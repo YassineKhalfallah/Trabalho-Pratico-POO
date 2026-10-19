@@ -16,8 +16,8 @@ public class PersonalTraining extends Atividades{
      * @param hora
      * @param tipoTraining
      */
-    public PersonalTraining(String tipoTraining,double preco, int hora){
-        super(preco,hora);
+    public PersonalTraining(String tipoTraining,double preco, int hora, String data){
+        super(preco,hora,data);
         this.tipoTraining = tipoTraining;
     }
 
