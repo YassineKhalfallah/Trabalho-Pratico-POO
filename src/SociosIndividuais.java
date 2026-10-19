@@ -67,7 +67,7 @@ public class SociosIndividuais extends Socio {
      * @return true if the age is positive
      */
     public boolean isIdadeNaoNega(int idade){
-        if (idade<0) return false;
+        if ((idade<14) || (idade>130)) return false;
         else return true;
     }
 
@@ -88,6 +88,7 @@ public class SociosIndividuais extends Socio {
             validarIdade = isIdadeNaoNega(idade);
             i++;
         }while (!validarIdade);
+        close.input();
         return 0;
     }
 }

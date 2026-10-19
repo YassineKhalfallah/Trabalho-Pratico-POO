@@ -1,4 +1,4 @@
-
+import java.security.SecureRandom;
 public class Socio extends Pessoa {
     protected int numeroSocio;
     protected String emailSocio;
@@ -37,5 +37,22 @@ public class Socio extends Pessoa {
     }
     public void setDesconto(int desconto) {
         this.desconto = desconto;
+    }
+    /**
+     * the function generates a random 6 digit number with a secure method:
+     * <ol>
+     * <li>Constructs a secure random number generator</li>
+     * <li>Generates a number from 0 to 999999</li>
+     * <li>formats the number to always have 6 digits (ex: 0 becomes 000000)</li>
+     * </ol>
+     * @return random 6 digit number
+     */
+    public static String gerarNumSocio() {
+        SecureRandom random = new SecureRandom();
+        // Gera um número aleatório entre 0 e 999999
+        int numero = random.nextInt(1000000); 
+
+        // Formata para 6 dígitos
+        return String.format("%06d", numero);
     }
 }
