@@ -103,6 +103,7 @@ public class Instrutor extends Pessoa{
             validarGender = isGeneroValido(gender);
             i++;
         }while (!validarGender);
+        input.close();
         return gender;
     }
 
