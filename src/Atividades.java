@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Atividades {
     /**
      * I'll be using {@code preco} in other class, I'll need it to be as protected
@@ -68,4 +70,22 @@ public class Atividades {
     }
 
 
+    public boolean isHoraValida(int hora){
+        if (hora<0 || hora>24)return false;
+        return true;
+    }
+    public int setHoraDaAula(){
+        Scanner input = new Scanner(System.in);
+        boolean validarHora = true;
+        int hora;
+        int i = 0;
+        do {
+            if (i==0) System.out.println("Digite a hora que quere marcar: ");
+            else System.out.println("--HORA INVALIDO--\nDigite a hora que quere marcar: ");
+            hora = Integer.parseInt(input.nextLine());
+            validarHora = isHoraValida(hora);
+            i++;
+        }while (!validarHora);
+        return hora;
+    }
 }

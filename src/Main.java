@@ -8,12 +8,15 @@ public class Main {
         ArrayList<Instrutor> instrutores = new ArrayList<>();
         ArrayList<SociosIndividuais> sociosIndividuais = new ArrayList<>();
         ArrayList<SocioEmpresario> socioEmpresario = new ArrayList<>();
-        //addPessoa(instrutores,sociosIndividuais,socioEmpresario);
+        ArrayList<AulasDeGrupo>  aulasDeGrupo = new ArrayList<>();
+        ArrayList<PersonalTraining>  personalTraining = new ArrayList<>();
+        addPessoa(instrutores,sociosIndividuais,socioEmpresario);
         String[] formacoes1 = {"Engenharia", "Mestrado", "Doutorado"};
         Instrutor instrutor1 = new Instrutor("Yassine","M", formacoes1);
         instrutores.add(instrutor1);
         listaInstrutores(instrutores);
         listarSocios(sociosIndividuais,socioEmpresario);
+        listarAtividades(aulasDeGrupo,personalTraining);
     }
 
 
@@ -40,7 +43,7 @@ public class Main {
                     // set age
                     socioInd.setIdadeSocio(socioInd.setIdade());
                     // set Identification Number
-                    socioInd.setNumeroSocio(gerarNumSocio()); //Falta verif se o número já existe
+                    socioInd.setNumeroSocio(socioInd.gerarNumSocio()); //Falta verif se o número já existe
                     // set email
                     System.out.println("Indica o seu email:");
                     socioInd.setEmailSocio(input.nextLine());
@@ -72,8 +75,7 @@ public class Main {
                     System.out.println("Digite o NIF da sua  empresa: ");
                     socioEmp.setNifEmpresa(input.nextInt());
                     // set Identification Number
-                    System.out.println("Digite o seu numero identificador: ");
-                    socioEmp.setNumeroSocio(input.nextInt());
+
                     // add the socio individual na lista
                     socioEmpresario .add(socioEmp);
                     // Going to get you the info about Socio da Empresa
@@ -156,6 +158,58 @@ public class Main {
         }
         else {
             System.out.println("--- TIPO DE SOCIO ERRADO ---");
+        }
+        input.close();
+    }
+    public static void addActivity(ArrayList<AulasDeGrupo> aulasDeGrupo,ArrayList<PersonalTraining> personalTraining) {
+        Scanner input = new Scanner(System.in);
+        String tipoAula;
+        System.out.println("--- Que tipo de Atividades quere adicionar ---");
+        tipoAula = input.nextLine();
+        tipoAula = tipoAula.toUpperCase();
+        if(tipoAula.equals("AULAS DE GRUPO")){
+            AulasDeGrupo aulaGrupo = new AulasDeGrupo();
+
+            // set tipo de aula
+            aulaGrupo.setTipoAula(aulaGrupo.setAula());
+            // set hora
+            aulaGrupo.setHora(aulaGrupo.setHoraDaAula());
+            // set capacidadeMaxima da aula
+            aulaGrupo.setCapacidadeMaxima(aulaGrupo.setCapDaAula());
+
+        }
+        else if(tipoAula.equals("PERSONAL TRAINING")){
+            PersonalTraining personalTrain = new PersonalTraining();
+
+        }
+
+    }
+    /**
+     * Asks the user to identify the type of activity and then lists all the elements in that list
+     * using {@link toString} created in the specified type of activity ({@code AulasDeGrupo} or {@code PersonalTraining}).
+     * @param aulasDeGrupo
+     * @param personalTraining
+     */
+    public static void listarAtividades(ArrayList<AulasDeGrupo> aulasDeGrupo, ArrayList<PersonalTraining> personalTraining) {
+        Scanner input = new Scanner(System.in);
+        String tipoAula;
+        System.out.println("--- Que tipo de Atividades quere listar ---");
+        tipoAula = input.nextLine();
+        tipoAula =  tipoAula.toUpperCase();
+        if(tipoAula.equals("AULAS DE GRUPO")){
+            if (aulasDeGrupo.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
+            else {
+                for (AulasDeGrupo aulaG : aulasDeGrupo) System.out.println(aulaG.toString());
+            }
+        }
+        else if(tipoAula.equals("PERSONAL TRAINING")){
+            if (personalTraining.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
+            else {
+                for (PersonalTraining personalT : personalTraining) System.out.println(personalT.toString());
+            }
+        }
+        else{
+            System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
         }
         input.close();
     }
