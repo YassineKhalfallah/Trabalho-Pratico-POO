@@ -68,7 +68,7 @@ public class Hora {
             i++;
         }while (!validarMin);
         tempo.setMinutos(min);
-
+        input.close();
         return tempo;
     }
 }
