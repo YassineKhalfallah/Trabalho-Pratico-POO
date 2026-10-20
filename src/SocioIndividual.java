@@ -8,11 +8,11 @@ public class SocioIndividual extends Socio {
      */
     private int idadeSocio ;
     /**
-     * The constructor of an empty class SociosIndividuais
+     * The constructor of an empty class SocioIndividual
      */
     public SocioIndividual(){}
     /**
-     * The constructor of the class SociosIndividuais, where we give the parameters the given values
+     * The constructor of the class SocioIndividual, where we give the parameters the given values
      * @param idadeSocio
      * @param nomeSocio
      * @param numeroSocio
