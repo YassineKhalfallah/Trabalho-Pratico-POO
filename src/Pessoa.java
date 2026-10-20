@@ -16,7 +16,7 @@ public class Pessoa {
         this.nomePessoa = nomePessoa;
     }
     /**
-     * Get's you a string with the name in this class
+     * Gets you a string with the name in this class
      * @return nomePessoa
      */
     public String getNomePessoa() {

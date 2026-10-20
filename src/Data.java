@@ -40,5 +40,5 @@ public class Data {
      * if after the verification the date of the activity is valid, you will get it at the return, otherwise it will keep asking you again.
      * @return String data
      * */
-    //public String setDataDaAtividade(){}
+    public Data setDataDaAtividade(){}
 }

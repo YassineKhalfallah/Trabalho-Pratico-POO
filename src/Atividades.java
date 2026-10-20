@@ -64,10 +64,10 @@ public class Atividades {
 
     /**
      * Once we did set the variable as protected in case of willing to change the value of this parameter
-     * in a class where we have no access to it, use this function {@link setHora}
+     * in a class where we have no access to it, use this function {@link setTempo}
      * @param tempo
      */
-    public void setHora(Hora tempo) {
+    public void setTempo(Hora tempo) {
         this.tempo = tempo;
     }
 

@@ -205,9 +205,9 @@ public class Main {
                 // set tipo de aula
                 aulaGrupo.setTipoAula(aulaGrupo.setAula());
                 // set hora
-                aulaGrupo.setHora(aulaGrupo.tempo.setHoraDaAtividade());
+                aulaGrupo.setTempo(aulaGrupo.tempo.setHoraDaAtividade());
                 //set data
-
+                aulaGrupo.setDate(aulaGrupo.date.setDataDaAtividade());
                 // set capacidadeMaxima da aula
                 aulaGrupo.setCapacidadeMaxima(aulaGrupo.setCapDaAula());
 
@@ -223,7 +223,7 @@ public class Main {
                 // set tipo de aula
                 personalTrain.setTipoTraining(personalTrain.setSessao());
                 // set hora
-                personalTrain.setHora(personalTrain.tempo.setHoraDaAtividade());
+                personalTrain.setTempo(personalTrain.tempo.setHoraDaAtividade());
                 // set data
 
                 //add the group lesson to the list of Group Lessons
