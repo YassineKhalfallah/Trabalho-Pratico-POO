@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Instrutor> instrutores = new ArrayList<>();
-        ArrayList<SociosIndividuais> sociosIndividuais = new ArrayList<>();
+        ArrayList<SocioIndividual> sociosIndividuais = new ArrayList<>();
         ArrayList<SocioEmpresario> socioEmpresario = new ArrayList<>();
         ArrayList<AulasDeGrupo>  aulasDeGrupo = new ArrayList<>();
         ArrayList<PersonalTraining>  personalTraining = new ArrayList<>();
@@ -46,7 +46,7 @@ public class Main {
      * @param sociosIndividuais
      * @param socioEmpresario
      */
-    public static void addPessoa(ArrayList<Instrutor> instrutores, ArrayList<SociosIndividuais> sociosIndividuais, ArrayList<SocioEmpresario> socioEmpresario){
+    public static void addPessoa(ArrayList<Instrutor> instrutores, ArrayList<SocioIndividual> sociosIndividuais, ArrayList<SocioEmpresario> socioEmpresario){
         String tipoSocio, tipoPessoa;
         boolean valid = true;
         Scanner input = new Scanner(System.in);
@@ -63,7 +63,7 @@ public class Main {
 
                 // Socio Individual
                 if (tipoSocio.equals("INDIVIDUAL")) {
-                    SociosIndividuais socioInd = new SociosIndividuais();
+                    SocioIndividual socioInd = new SocioIndividual();
                     // set name
                     socioInd.setNomePessoa(socioInd.setNome());
                     // set age
@@ -163,7 +163,7 @@ public class Main {
      * @param sociosIndividuais
      * @param socioEmpresario
      */
-    public static void listarSocios(ArrayList<SociosIndividuais> sociosIndividuais,ArrayList<SocioEmpresario> socioEmpresario) {
+    public static void listarSocios(ArrayList<SocioIndividual> sociosIndividuais,ArrayList<SocioEmpresario> socioEmpresario) {
         Scanner input = new Scanner(System.in);
         String tipoSocio;
         System.out.println("--- Que tipo de Socio quere listar ---");
@@ -172,7 +172,7 @@ public class Main {
         if (tipoSocio.equals("INDIVIDUAL")){
             if (sociosIndividuais.isEmpty()) System.out.println("--- AINDA NAO TEM SOCIOS INDIVIDUAIS ---");
             else {
-                for (SociosIndividuais socioInd : sociosIndividuais) System.out.println(socioInd.toString());
+                for (SocioIndividual socioInd : sociosIndividuais) System.out.println(socioInd.toString());
             }
 
         }
