@@ -33,7 +33,35 @@ public class Data {
      * @param date
      * @return true if the date is valid
      */
-    //public boolean isDataValida(Data date){}
+    public boolean isDataValida(Data date){
+        if (date == null) {
+            return false;
+        }
+        int d = date.getDia();
+        int m = date.getMes();
+        int a = date.getAno();  
+        if ( d<1 || d>31 || m < 1 || m > 12 || a < 2025 || a>3000) {
+            return false;
+        }
+
+        int maxDias;
+
+        if (m==2){
+            if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0)){
+                maxDias = 29;
+            }
+            else{
+                maxDias = 28;
+            }
+        }
+        else if (m == 4 || m == 6 || m == 9 || m == 11) {
+            maxDias = 30;
+        }
+        else{
+            maxDias = 31; 
+        }
+        return d>=1 && maxDias>=d;
+    }
 
     /**
      * Asks the user to give the date of the activity, However it will get checked at the function {@link isDataValida},
