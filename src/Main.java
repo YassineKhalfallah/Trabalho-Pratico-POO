@@ -10,13 +10,17 @@ public class Main {
         ArrayList<SocioEmpresario> socioEmpresario = new ArrayList<>();
         ArrayList<AulasDeGrupo>  aulasDeGrupo = new ArrayList<>();
         ArrayList<PersonalTraining>  personalTraining = new ArrayList<>();
-        addPessoa(instrutores,sociosIndividuais,socioEmpresario);
+        //addPessoa(instrutores,sociosIndividuais,socioEmpresario);
         String[] formacoes1 = {"Engenharia", "Mestrado", "Doutorado"};
         Instrutor instrutor1 = new Instrutor("Yassine","M", formacoes1);
         instrutores.add(instrutor1);
-        listaInstrutores(instrutores);
-        listarSocios(sociosIndividuais,socioEmpresario);
+        //listaInstrutores(instrutores);
+        //listarSocios(sociosIndividuais,socioEmpresario);
         listarAtividades(aulasDeGrupo,personalTraining);
+        Hora tmp = new Hora(12,12);
+        Data dat1 = new Data(12,12,34);
+        PersonalTraining Pt1 = new PersonalTraining("Iniciacao", 90,tmp,dat1);
+        System.out.println(Pt1.toString());
     }
 
     /**
@@ -201,7 +205,7 @@ public class Main {
                 // set tipo de aula
                 aulaGrupo.setTipoAula(aulaGrupo.setAula());
                 // set hora
-                aulaGrupo.setHora(aulaGrupo.setHoraDaAtividade());
+                aulaGrupo.setHora(aulaGrupo.tempo.setHoraDaAtividade());
                 //set data
 
                 // set capacidadeMaxima da aula
@@ -219,7 +223,7 @@ public class Main {
                 // set tipo de aula
                 personalTrain.setTipoTraining(personalTrain.setSessao());
                 // set hora
-                personalTrain.setHora(personalTrain.setHoraDaAtividade());
+                personalTrain.setHora(personalTrain.tempo.setHoraDaAtividade());
                 // set data
 
                 //add the group lesson to the list of Group Lessons
@@ -246,7 +250,7 @@ public class Main {
         System.out.println("--- Que tipo de Atividades quere listar ---");
         tipoAula = input.nextLine();
         tipoAula =  tipoAula.toUpperCase();
-        if(tipoAula.equals("AULAS DE GRUPO")){
+        if(tipoAula.equals("AULA DE GRUPO")){
             if (aulasDeGrupo.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
             else {
                 for (AulasDeGrupo aulaG : aulasDeGrupo) System.out.println(aulaG.toString());

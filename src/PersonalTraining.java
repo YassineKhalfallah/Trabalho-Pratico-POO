@@ -16,11 +16,12 @@ public class PersonalTraining extends Atividades{
     /**
      * The constructor of the class PersonalTraining, where we give the paramaters the given values
      * @param preco
-     * @param hora
+     * @param tempo
      * @param tipoTraining
+     * @param date
      */
-    public PersonalTraining(String tipoTraining,double preco, int hora, String data){
-        super(preco,hora,data);
+    public PersonalTraining(String tipoTraining , double preco , Hora tempo , Data date){
+        super(preco , tempo , date);
         this.tipoTraining = tipoTraining;
     }
 
@@ -54,14 +55,18 @@ public class PersonalTraining extends Atividades{
     /**
      * Gets the info about the scheduled session:
      * <ul>
-     *     <li>Scheduled hour</li>
+     *     <li>Scheduled hour : minutes</li>
      *     <li>Type of training</li>
      *     <li>Lesson price</li>
      *  </ul>
      * @return info personal training
      */
     public String toString() {
-        return "Sessao de treino marcada para " +this.hora + "h do tipo "+ getTipoTraining()+ ", custa "+getPreco()+"€";
+        return "Sessao de treino marcada para " + getTempo().getHoras() +
+                "h e " + getTempo().getMinutos() +
+                "min no dia " + getDate().getDia() + "/" + getDate().getMes() + "/" + getDate().getAno() +
+                " do tipo "+ getTipoTraining()+
+                ", custa "+getPreco()+"€";
     }
 
     /**

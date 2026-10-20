@@ -1,4 +1,3 @@
-import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -29,11 +28,11 @@ public class AulasDeGrupo extends Atividades{
      * The constructor of the class AulasDeGrupo, where we set the given values to each parameter
      * @param tipoAula
      * @param preco
-     * @param hora
+     * @param tempo
      * @param capacidadeMaxima
      */
-    public AulasDeGrupo(String tipoAula,String data, double preco, int hora, int capacidadeMaxima) {
-        super(preco, hora,data);
+    public AulasDeGrupo(String tipoAula,Data data, double preco, Hora tempo, int capacidadeMaxima) {
+        super(preco, tempo, data);
         this.tipoAula = tipoAula;
         this.capacidadeMaxima = capacidadeMaxima;
         this.numeroDePessoasNaAtividade = 0;
@@ -105,7 +104,7 @@ public class AulasDeGrupo extends Atividades{
     /**
      * Gets the info about the scheduled group lesson:
      * <ul>
-     *     <li>Scheduled hour</li>
+     *     <li>Scheduled hour : minutes</li>
      *     <li>Type of lesson</li>
      *     <li>Lesson price</li>
      *     <li>Number of people registered </li>
@@ -114,9 +113,12 @@ public class AulasDeGrupo extends Atividades{
      * @return info group lesson
      */
     public String toString() {
-
-        return "Aula de grupo marcada para " + this.hora + "h do tipo " + getTipoAula() + ", custa " + getPreco() +
-                "€ faltam " + getNumeroDePessoasNaAtividade() + "pessoas para chegar ao limite de" + getCapacidadeMaxima() + "pessoas";
+        return "Aula de grupo marcada para " + getTempo().getHoras() +
+                "h e " + getTempo().getMinutos() +
+                "min do tipo " + getTipoAula() +
+                ", custa " + getPreco() +
+                "€ faltam " + getNumeroDePessoasNaAtividade() +
+                "pessoas para chegar ao limite de" + getCapacidadeMaxima() + "pessoas";
     }
 
     /**
