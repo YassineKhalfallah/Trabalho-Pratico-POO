@@ -69,7 +69,14 @@ public class Main {
                     // set age
                     socioInd.setIdadeSocio(socioInd.setIdade());
                     // set Identification Number
-                    socioInd.setNumeroSocio(socioInd.gerarNumSocio()); //Falta verif se o número já existe
+                    boolean validade = true;
+                    int num;
+                    while(validade) {
+                        num = socioInd.gerarNumSocio();
+                        validade = socioInd.doesItExisteInList(tipoSocio, num, socioEmpresario, sociosIndividuais);
+                        socioInd.setNumeroSocio(num);
+                    }
+                    System.out.println("--- Numero de Socio esta dado ---");
                     // set email
                     System.out.println("Indica o seu email:");
                     socioInd.setEmailSocio(input.nextLine());
@@ -102,7 +109,14 @@ public class Main {
                     System.out.println("Digite o NIF da sua  empresa: ");
                     socioEmp.setNifEmpresa(input.nextInt());
                     // set Identification Number
-                    socioEmp.setNumeroSocio(socioEmp.gerarNumSocio());
+                    boolean validade = true;
+                    int num;
+                    while(validade) {
+                        num = socioEmp.gerarNumSocio();
+                        validade = socioEmp.doesItExisteInList(tipoSocio, num, socioEmpresario, sociosIndividuais);
+                        socioEmp.setNumeroSocio(num);
+                    }
+                    System.out.println("--- Numero de Socio esta dado ---");
                     // add the socio individual na lista
                     socioEmpresario .add(socioEmp);
                     // Going to get you the info about Socio da Empresa
@@ -225,7 +239,7 @@ public class Main {
                 // set hora
                 personalTrain.setTempo(personalTrain.tempo.setHoraDaAtividade());
                 // set data
-
+                personalTrain.setDate(personalTrain.date.setDataDaAtividade());
                 //add the group lesson to the list of Group Lessons
                 personalTraining.add(personalTrain);
                 // Going to get you the info about the new Group Lesson created
