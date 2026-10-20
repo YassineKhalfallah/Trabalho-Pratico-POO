@@ -2,24 +2,24 @@ import java.util.Scanner;
 /**
  * @see Socio
  */
-public class SociosIndividuais extends Socio {
+public class SocioIndividual extends Socio {
     /**
      * I set {@code idadeSocio} as private because it's in the last subclass
      */
     private int idadeSocio ;
     /**
-     * The constructor of an empty class SociosIndividuais
+     * The constructor of an empty class SocioIndividual
      */
-    public SociosIndividuais(){}
+    public SocioIndividual(){}
     /**
-     * The constructor of the class SociosIndividuais, where we give the parameters the given values
+     * The constructor of the class SocioIndividual, where we give the parameters the given values
      * @param idadeSocio
      * @param nomeSocio
      * @param numeroSocio
      * @param emailSocio
      * @param desconto
      */
-    public SociosIndividuais(int idadeSocio,String nomeSocio, String numeroSocio, String emailSocio,double desconto){
+    public SocioIndividual(int idadeSocio,String nomeSocio, String numeroSocio, String emailSocio,double desconto){
         super(nomeSocio, numeroSocio, emailSocio,desconto);
         this.idadeSocio = idadeSocio;
     }
