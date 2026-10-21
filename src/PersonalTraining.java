@@ -1,8 +1,8 @@
 import java.util.Scanner;
 /**
- * @see Atividades
+ * @see Atividade
  */
-public class PersonalTraining extends Atividades{
+public class PersonalTraining extends Atividade{
     /**
      * I set tipoTraining as private because it's the last subclass
      */

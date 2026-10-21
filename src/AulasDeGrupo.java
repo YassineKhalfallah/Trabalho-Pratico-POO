@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 /**
- * @see Atividades
+ * @see Atividade
  */
-public class AulasDeGrupo extends Atividades{
+public class AulasDeGrupo extends Atividade{
     /**
      * I set {@code tipoAula} as private because it's in the last subclass
      */

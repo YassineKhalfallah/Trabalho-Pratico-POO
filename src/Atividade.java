@@ -1,10 +1,8 @@
-import java.util.Scanner;
-
 /**
  * @see Hora
  * @see Data
  */
-public class Atividades {
+public class Atividade {
     /**
      * I'll be using {@code preco} in other class, I'll need it to be as protected
      */
@@ -23,7 +21,7 @@ public class Atividades {
     /**
      * The constructor of an empty class Atividades
      */
-    public Atividades(){}
+    public Atividade(){}
 
     /**
      * The constructor of the class Atividades, where we give the parameters the given values
@@ -31,7 +29,7 @@ public class Atividades {
      * @param tempo
      * @param date
      */
-    public Atividades(double preco, Hora tempo, Data date){
+    public Atividade(double preco, Hora tempo, Data date){
         this.preco = preco;
         this.tempo = tempo;
         this.date = date;

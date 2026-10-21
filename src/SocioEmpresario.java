@@ -22,7 +22,7 @@ public class SocioEmpresario extends Socio{
      * @param numeroSocio
      * @param emailSocio
      */
-    public SocioEmpresario(String nomeEmpresa, int nifEmpresa, String nomeSocio, String numeroSocio, String emailSocio) {
+    public SocioEmpresario(String nomeEmpresa, int nifEmpresa, String nomeSocio, int numeroSocio, String emailSocio) {
         super(nomeSocio, numeroSocio, emailSocio,20);
         this.nomeEmpresa = nomeEmpresa;
         this.nifEmpresa = nifEmpresa;
