@@ -53,12 +53,11 @@ public class Socio extends Pessoa {
      * </ol>
      * @return random 6 digit number
      */
-    public static String gerarNumSocio() {
+    public String gerarNumSocio() {
         SecureRandom random = new SecureRandom();
-        // Gera um número aleatório entre 0 e 999999
-        int numero = random.nextInt(1000000); 
+        // Gera um número aleatório entre 100000 e 999999
+        int numero = random.nextInt(100000,1000000); 
 
-        // Formata para 6 dígitos
-        return String.format("%06d", numero);
+        return numero;
     }
 }
