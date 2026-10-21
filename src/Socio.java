@@ -55,7 +55,7 @@ public class Socio extends Pessoa {
      * </ol>
      * @return random 6 digit number
      */
-    public static int gerarNumSocio() {
+    public int gerarNumSocio() {
         SecureRandom random = new SecureRandom();
         // Gera um número aleatório entre 0 e 999999
         int numero = random.nextInt(100000,1000000);
@@ -72,7 +72,7 @@ public class Socio extends Pessoa {
      * @param listaInd
      * @return true if the number already exists in the list
      */
-    public static boolean doesItExisteInList (String tipoSocio,int numeroSocio,ArrayList<SocioEmpresario> listaEmp,ArrayList<SocioIndividual> listaInd){
+    public boolean doesItExisteInList (String tipoSocio,int numeroSocio,ArrayList<SocioEmpresario> listaEmp,ArrayList<SocioIndividual> listaInd){
         if(tipoSocio.equals("EMPRESA")){
             for (SocioEmpresario socioEmpresario : listaEmp) {
                 if (socioEmpresario.getNumeroSocio() ==numeroSocio) {

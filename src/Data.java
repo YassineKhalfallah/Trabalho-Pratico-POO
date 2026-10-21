@@ -138,7 +138,18 @@ public class Data {
 
         public Hora() {
         }
+        public Hora(int horas, int minutos) {
+            this.horas = horas;
+            this.minutos = minutos;
+        }
 
+        /**
+         * Gets you the value of hours of the time in this class
+         * @return horas
+         */
+        public int getHoras() {
+            return horas;
+        }
 
         /**
          * Once we did set the variable as private, in case of willing to change the value of this paramater
@@ -148,6 +159,7 @@ public class Data {
         public void setHoras(int horas) {
             this.horas = horas;
         }
+
 
         /**
          * Gets you the value of minutes of the time in this class
