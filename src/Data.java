@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Data {
     private int dia;
     private int mes;
@@ -27,6 +29,14 @@ public class Data {
     public void setAno(int ano) {
         this.ano = ano;
     }
+    public Data getDate() {
+        return new Data(dia, mes, ano);
+    }
+    public void setDate(int dia, int mes, int ano) {
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+    }
 
     /**
      * The function makes sure that the activity date is a valid one.
@@ -37,9 +47,9 @@ public class Data {
         if (date == null) {
             return false;
         }
-        int d = date.getDia();
-        int m = date.getMes();
-        int a = date.getAno();  
+        int d = this.dia;
+        int m = this.mes;
+        int a = this.ano;
         if ( d<1 || d>31 || m < 1 || m > 12 || a < 2025 || a>3000) {
             return false;
         }
@@ -68,5 +78,24 @@ public class Data {
      * if after the verification the date of the activity is valid, you will get it at the return, otherwise it will keep asking you again.
      * @return String data
      * */
-    public Data setDataDaAtividade(){}
+    public Data setDataDaAtividade(){
+        Scanner input = new Scanner(System.in);
+        boolean validarDate ;
+        Data date = new Data();
+        int i = 0;
+        do {
+            if (i==0) System.out.println("Digite a data na qual quer marcar atividade: ");
+            else System.out.println("--DATA INVALIDA--\nDigite a data na qual quer marcar atividade: ");
+            System.out.print("Digite ano: ");
+            date.setAno(Integer.parseInt(input.nextLine()));
+            System.out.print("Digite mes: ");
+            date.setMes(Integer.parseInt(input.nextLine()));
+            System.out.print("Digite dia: ");
+            date.setDia(Integer.parseInt(input.nextLine()));
+            validarDate = date.isDataValida(date);
+            i++;
+        }while (!validarDate);
+        input.close();
+        return date;
+    }
 }

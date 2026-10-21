@@ -52,8 +52,8 @@ public class Hora {
         int hora , min;
         int i = 0;
         do {
-            if (i==0) System.out.println("Digite a hora que quere marcar: ");
-            else System.out.println("--HORA INVALIDA--\nDigite a hora que quere marcar: ");
+            if (i==0) System.out.println("Digite a hora que quer marcar: ");
+            else System.out.println("--HORA INVALIDA--\nDigite a hora que quer marcar: ");
             hora = Integer.parseInt(input.nextLine());
             validarHora = tempo.isHoraValida(hora);
             i++;
@@ -61,8 +61,8 @@ public class Hora {
         tempo.setHoras(hora);
         i = 0;
         do {
-            if (i==0) System.out.println("Digite em que minutos quere marcar: ");
-            else System.out.println("--MINUTOS INVALIDOS--\nDigite em que minutos quere marcar: ");
+            if (i==0) System.out.println("Digite em que minutos quer marcar: ");
+            else System.out.println("--MINUTOS INVALIDOS--\nDigite em que minutos quer marcar: ");
             min = Integer.parseInt(input.nextLine());
             validarMin = tempo.isMinutoValida(min);
             i++;

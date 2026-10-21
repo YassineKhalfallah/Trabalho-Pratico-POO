@@ -1,12 +1,14 @@
 import java.security.SecureRandom;
+import java.util.ArrayList;
+
 public class Socio extends Pessoa {
-    protected String numeroSocio;
+    protected int numeroSocio;
     protected String emailSocio;
     protected double despesas;
     protected double desconto;
 
     public Socio(){};
-    public Socio(String nome, String numeroSocio, String emailSocio, double desconto) {
+    public Socio(String nome, int numeroSocio, String emailSocio, double desconto) {
         super(nome);
         this.numeroSocio = numeroSocio;
         this.emailSocio = emailSocio;
@@ -14,10 +16,10 @@ public class Socio extends Pessoa {
         this.desconto = desconto;
     }
 
-    public String getNumeroSocio() {
+    public int getNumeroSocio() {
         return numeroSocio;
     }
-    public void setNumeroSocio(String numeroSocio) {
+    public void setNumeroSocio(int numeroSocio) {
         this.numeroSocio = numeroSocio;
     }
     public String getEmailSocio() {
@@ -53,11 +55,40 @@ public class Socio extends Pessoa {
      * </ol>
      * @return random 6 digit number
      */
-    public String gerarNumSocio() {
+    public static int gerarNumSocio() {
         SecureRandom random = new SecureRandom();
-        // Gera um número aleatório entre 100000 e 999999
-        int numero = random.nextInt(100000,1000000); 
+        // Gera um número aleatório entre 0 e 999999
+        int numero = random.nextInt(100000,1000000);
 
+        // Formata para 6 dígitos
         return numero;
+    }
+
+    /**
+     *This func will be used to check if the randomly generated number exists in the list of the specified type of member.
+     * @param tipoSocio
+     * @param numeroSocio
+     * @param listaEmp
+     * @param listaInd
+     * @return true if the number already exists in the list
+     */
+    public static boolean doesItExisteInList (String tipoSocio,int numeroSocio,ArrayList<SocioEmpresario> listaEmp,ArrayList<SocioIndividual> listaInd){
+        if(tipoSocio.equals("EMPRESA")){
+            for (SocioEmpresario socioEmpresario : listaEmp) {
+                if (socioEmpresario.getNumeroSocio() ==numeroSocio) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        else if(tipoSocio.equals("INDIVIDUAL")){
+            for (SocioIndividual socioIndividual : listaInd) {
+                if (socioIndividual.getNumeroSocio() ==numeroSocio) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        else return false;
     }
 }

@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Instrutor> instrutores = new ArrayList<>();
-        ArrayList<SociosIndividuais> sociosIndividuais = new ArrayList<>();
+        ArrayList<SocioIndividual> sociosIndividuais = new ArrayList<>();
         ArrayList<SocioEmpresario> socioEmpresario = new ArrayList<>();
         ArrayList<AulasDeGrupo>  aulasDeGrupo = new ArrayList<>();
         ArrayList<PersonalTraining>  personalTraining = new ArrayList<>();
@@ -46,7 +46,7 @@ public class Main {
      * @param sociosIndividuais
      * @param socioEmpresario
      */
-    public static void addPessoa(ArrayList<Instrutor> instrutores, ArrayList<SociosIndividuais> sociosIndividuais, ArrayList<SocioEmpresario> socioEmpresario){
+    public static void addPessoa(ArrayList<Instrutor> instrutores, ArrayList<SocioIndividual> sociosIndividuais, ArrayList<SocioEmpresario> socioEmpresario){
         String tipoSocio, tipoPessoa;
         boolean valid = true;
         Scanner input = new Scanner(System.in);
@@ -63,13 +63,20 @@ public class Main {
 
                 // Socio Individual
                 if (tipoSocio.equals("INDIVIDUAL")) {
-                    SociosIndividuais socioInd = new SociosIndividuais();
+                    SocioIndividual socioInd = new SocioIndividual();
                     // set name
                     socioInd.setNomePessoa(socioInd.setNome());
                     // set age
                     socioInd.setIdadeSocio(socioInd.setIdade());
                     // set Identification Number
-                    socioInd.setNumeroSocio(socioInd.gerarNumSocio()); //Falta verif se o número já existe
+                    boolean validade = true;
+                    int num;
+                    while(validade) {
+                        num = socioInd.gerarNumSocio();
+                        validade = socioInd.doesItExisteInList(tipoSocio, num, socioEmpresario, sociosIndividuais);
+                        socioInd.setNumeroSocio(num);
+                    }
+                    System.out.println("--- Numero de Socio esta dado ---");
                     // set email
                     System.out.println("Indica o seu email:");
                     socioInd.setEmailSocio(input.nextLine());
@@ -102,7 +109,14 @@ public class Main {
                     System.out.println("Digite o NIF da sua  empresa: ");
                     socioEmp.setNifEmpresa(input.nextInt());
                     // set Identification Number
-                    socioEmp.setNumeroSocio(socioEmp.gerarNumSocio());
+                    boolean validade = true;
+                    int num;
+                    while(validade) {
+                        num = socioEmp.gerarNumSocio();
+                        validade = socioEmp.doesItExisteInList(tipoSocio, num, socioEmpresario, sociosIndividuais);
+                        socioEmp.setNumeroSocio(num);
+                    }
+                    System.out.println("--- Numero de Socio esta dado ---");
                     // add the socio individual na lista
                     socioEmpresario .add(socioEmp);
                     // Going to get you the info about Socio da Empresa
@@ -163,7 +177,7 @@ public class Main {
      * @param sociosIndividuais
      * @param socioEmpresario
      */
-    public static void listarSocios(ArrayList<SociosIndividuais> sociosIndividuais,ArrayList<SocioEmpresario> socioEmpresario) {
+    public static void listarSocios(ArrayList<SocioIndividual> sociosIndividuais,ArrayList<SocioEmpresario> socioEmpresario) {
         Scanner input = new Scanner(System.in);
         String tipoSocio;
         System.out.println("--- Que tipo de Socio quere listar ---");
@@ -172,7 +186,7 @@ public class Main {
         if (tipoSocio.equals("INDIVIDUAL")){
             if (sociosIndividuais.isEmpty()) System.out.println("--- AINDA NAO TEM SOCIOS INDIVIDUAIS ---");
             else {
-                for (SociosIndividuais socioInd : sociosIndividuais) System.out.println(socioInd.toString());
+                for (SocioIndividual socioInd : sociosIndividuais) System.out.println(socioInd.toString());
             }
 
         }
@@ -225,7 +239,7 @@ public class Main {
                 // set hora
                 personalTrain.setTempo(personalTrain.tempo.setHoraDaAtividade());
                 // set data
-
+                personalTrain.setDate(personalTrain.date.setDataDaAtividade());
                 //add the group lesson to the list of Group Lessons
                 personalTraining.add(personalTrain);
                 // Going to get you the info about the new Group Lesson created
