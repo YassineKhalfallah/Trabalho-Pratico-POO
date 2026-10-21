@@ -76,8 +76,7 @@ public class Pessoa {
      * @return String nomePessoa
      */
 
-    public String setNome() {
-        Scanner input = new Scanner(System.in);
+    public String setNome(Scanner input) {
         boolean validarNome = true;
         String nome;
         int i = 0;
@@ -89,7 +88,6 @@ public class Pessoa {
             validarNome = isNomeSeguro(nome);
             i++;
         }while (!validarNome);
-        input.close();
         return nome;
     }
 }

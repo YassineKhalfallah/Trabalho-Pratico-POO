@@ -76,8 +76,7 @@ public class SocioIndividual extends Socio {
      * if after the verification the age is valid, you will get it at the return, otherwise it will keep asking you again.
      * @return int idadeSocio
      */
-    public int setIdade(){
-        Scanner input = new Scanner(System.in);
+    public int setIdade(Scanner input){
         boolean validarIdade = true;
         int idade;
         int i = 0;
@@ -88,7 +87,6 @@ public class SocioIndividual extends Socio {
             validarIdade = isIdadeNaoNega(idade);
             i++;
         }while (!validarIdade);
-        input.close();
         return idade;
     }
 }

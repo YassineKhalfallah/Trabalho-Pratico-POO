@@ -1,12 +1,30 @@
 import  java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+ * This class {@code Gym}
+ */
 public class Gym {
-    private ArrayList<Instrutor> instrutores ;
-    private ArrayList<SocioIndividual> sociosIndividuais;
-    private ArrayList<SocioEmpresario> socioEmpresario;
-    private ArrayList<AulasDeGrupo> aulasDeGrupo;
-    private ArrayList<PersonalTraining> personalTraining = new ArrayList<>();
+    /**
+     * I set {@code instrutores} as protected because it will be used in other classes
+     */
+    protected ArrayList<Instrutor> instrutores ;
+    /**
+     * I set {@code sociosIndividuais} as protected because it will be used in other classes
+     */
+    protected ArrayList<SocioIndividual> sociosIndividuais;
+    /**
+     * I set {@code socioEmpresario} as protected because it will be used in other classes
+     */
+    protected ArrayList<SocioEmpresario> socioEmpresario;
+    /**
+     * I set {@code aulasDeGrupo} as protected because it will be used in other classes
+     */
+    protected ArrayList<AulasDeGrupo> aulasDeGrupo;
+    /**
+     * I set {@code personalTraining} as protected because it will be used in other classes
+     */
+    protected ArrayList<PersonalTraining> personalTraining;
 
     public Gym() {
         this.instrutores = new ArrayList<>();
@@ -15,7 +33,21 @@ public class Gym {
         this.aulasDeGrupo = new ArrayList<>();
         this.personalTraining = new ArrayList<>();
     }
-    public void menu(){}
+
+    public void menu(Scanner input, Gym gym) {
+        System.out.println("---- MENU ----");
+        System.out.println("1 - Add Pessoa");
+        System.out.println("2 - Add Atividade");
+        System.out.println("3 - Listar Socios");
+        System.out.println("4 - Listar Aulas de Grupos");
+        int n = input.nextInt();
+        if(n == 1) gym.addPessoa(input);
+        else if(n == 2) gym.addActivity(input);
+        else if (n == 3) gym.listarSocios(input);
+        else if (n == 4) gym.listarAtividades(input);
+        else System.out.println("--- NUMERO INVALIDO ----");
+
+    }
     /**
      * This function is mainly used to add people according to their type.
      * {@code Socio}:
@@ -36,7 +68,7 @@ public class Gym {
      * }</pre>
      * And at the end shows the info in the terminal{@link toString}.
      */
-    public void addPessoa(){
+    public void addPessoa(Scanner input){
         String tipoSocio, tipoPessoa;
         boolean valid = true;
         while (valid) {
@@ -54,9 +86,9 @@ public class Gym {
                 if (tipoSocio.equals("INDIVIDUAL")) {
                     SocioIndividual socioInd = new SocioIndividual();
                     // set name
-                    socioInd.setNomePessoa(socioInd.setNome());
+                    socioInd.setNomePessoa(socioInd.setNome(input));
                     // set age
-                    socioInd.setIdadeSocio(socioInd.setIdade());
+                    socioInd.setIdadeSocio(socioInd.setIdade(input));
                     // set Identification Number
                     boolean validade = true;
                     int num;
@@ -87,7 +119,7 @@ public class Gym {
                 else if (tipoSocio.equals("EMPRESA")) {
                     SocioEmpresario socioEmp = new SocioEmpresario();
                     // set name
-                    socioEmp.setNomePessoa(socioEmp.setNome());
+                    socioEmp.setNomePessoa(socioEmp.setNome(input));
                     // set email
                     System.out.println("Indica o seu email:");
                     socioEmp.setEmailSocio(input.nextLine());
@@ -96,9 +128,14 @@ public class Gym {
                     socioEmp.setNomeEmpresa(input.nextLine());
                     // set company's NIF
                     System.out.println("Digite o NIF da sua  empresa: ");
-                    socioEmp.setNifEmpresa(input.nextInt());
-                    // set Identification Number
                     boolean validade = true;
+                    while(validade) {
+                        socioEmp.setNifEmpresa(input.nextInt());
+                        validade = !socioEmp.isNIFValido();
+                    }
+
+                    // set Identification Number
+                    validade = true;
                     int num;
                     while(validade) {
                         num = socioEmp.gerarNumSocio();
@@ -121,9 +158,9 @@ public class Gym {
             else if (tipoPessoa.equals("INSTRUTOR")) {
                 Instrutor instrutor = new Instrutor();
                 // set name
-                instrutor.setNomePessoa(instrutor.setNome());
+                instrutor.setNomePessoa(instrutor.setNome(input));
                 // set sex
-                instrutor.setGenero(instrutor.setSex());
+                instrutor.setGenero(instrutor.setSex(input));
                 // set formacoes
                 System.out.println("Indica 3 formacoes do instrutor:");
                 String[] formacoes = new String[3]; // create array to hold 3 values
@@ -143,7 +180,6 @@ public class Gym {
                 System.out.println("---TIPO DE PESSOA ERRADA , TENTA NOVAMENTE---");
             }
         }
-        input.close();
     }
 
     /**
@@ -152,11 +188,11 @@ public class Gym {
     public  void listaInstrutores() {
         if (instrutores.isEmpty()) System.out.println("---AINDA NAO TEM INSTRUTORES---");
         else {
+            System.out.println("--- Lista de  instrutores ---");
             for (Instrutor instrutor : instrutores) {
                 System.out.println(instrutor.toString());
             }
         }
-        input.close();
     }
 
     /**
@@ -164,7 +200,7 @@ public class Gym {
      * Asks the user to identify the type of member and then lists all the elements in that list
      * using {@link toString} created in the specified type of member({@code SociosIndividuais} or {@code SocioEmpresario}).
      */
-    public void listarSocios() {
+    public void listarSocios(Scanner input) {
         String tipoSocio;
         System.out.println("--- Que tipo de Socio quere listar ---");
         tipoSocio = input.nextLine();
@@ -187,7 +223,6 @@ public class Gym {
         else {
             System.out.println("--- TIPO DE SOCIO ERRADO ---");
         }
-        input.close();
     }
 
     public void addActivity(Scanner input) {
@@ -202,13 +237,13 @@ public class Gym {
                 AulasDeGrupo aulaGrupo = new AulasDeGrupo();
 
                 // set tipo de aula
-                aulaGrupo.setTipoAula(aulaGrupo.setAula());
+                aulaGrupo.setTipoAula(aulaGrupo.setAula(input));
                 // set hora
-                aulaGrupo.setTempo(aulaGrupo.tempo.setHoraDaAtividade());
+                aulaGrupo.setTempo(aulaGrupo.getTempo().setHoraDaAtividade(input));
                 //set data
-                aulaGrupo.setDate(aulaGrupo.date.setDataDaAtividade());
+                aulaGrupo.setDate(aulaGrupo.date.setDataDaAtividade(input));
                 // set capacidadeMaxima da aula
-                aulaGrupo.setCapacidadeMaxima(aulaGrupo.setCapDaAula());
+                aulaGrupo.setCapacidadeMaxima(aulaGrupo.setCapDaAula(input));
 
                 //add the group lesson to the list of Group Lessons
                 aulasDeGrupo.add(aulaGrupo);
@@ -220,11 +255,11 @@ public class Gym {
                 PersonalTraining personalTrain = new PersonalTraining();
 
                 // set tipo de aula
-                personalTrain.setTipoTraining(personalTrain.setSessao());
+                personalTrain.setTipoTraining(personalTrain.setSessao(input));
                 // set hora
-                personalTrain.setTempo(personalTrain.tempo.setHoraDaAtividade());
+                personalTrain.setTempo(personalTrain.tempo.setHoraDaAtividade(input));
                 // set data
-                personalTrain.setDate(personalTrain.date.setDataDaAtividade());
+                personalTrain.setDate(personalTrain.date.setDataDaAtividade(input));
                 //add the group lesson to the list of Group Lessons
                 personalTraining.add(personalTrain);
                 // Going to get you the info about the new Group Lesson created
@@ -235,13 +270,12 @@ public class Gym {
                 System.out.println("--- TIPO DE ATIVIDADE ERRADO ---");
             }
         }
-        input.close();
     }
     /**
      * Asks the user to identify the type of activity and then lists all the elements in that list
      * using {@link toString} created in the specified type of activity ({@code AulasDeGrupo} or {@code PersonalTraining}).
      */
-    public void listarAtividades() {
+    public void listarAtividades(Scanner input) {
         String tipoAula;
         System.out.println("--- Que tipo de Atividades quere listar ---");
         tipoAula = input.nextLine();
@@ -261,7 +295,6 @@ public class Gym {
         else{
             System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
         }
-        input.close();
     }
 
 }

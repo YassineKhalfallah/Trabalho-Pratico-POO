@@ -45,8 +45,7 @@ public class Hora {
      * if after the verification the hours and the minutes of the activity are valid, you will get it at the return, otherwise it will keep asking you again.
      * @return Hour tempo
      * */
-    public Hora setHoraDaAtividade(){
-        Scanner input = new Scanner(System.in);
+    public Hora setHoraDaAtividade(Scanner input){
         boolean validarHora , validarMin ;
         Hora tempo = new Hora();
         int hora , min;
@@ -68,7 +67,6 @@ public class Hora {
             i++;
         }while (!validarMin);
         tempo.setMinutos(min);
-        input.close();
         return tempo;
     }
 }

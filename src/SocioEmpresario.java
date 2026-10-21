@@ -79,4 +79,18 @@ public class SocioEmpresario extends Socio{
                 "\n Desconto: "+getDesconto()+"%"+
                 "\n Despesas: "+getDespesas();
     }
+
+    /**
+     *
+     * @return true in case companies contains
+     */
+    public boolean isNIFValido() {
+        if (nifEmpresa < 100000000 || nifEmpresa > 999999999) {
+            System.out.println("NIF Valido");
+            return true;
+        } else {
+            System.out.println("NIF Invalido, digite outra vez o NIF da sua empresa");
+            return false;
+        }
+    }
 }

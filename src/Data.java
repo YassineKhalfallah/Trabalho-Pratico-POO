@@ -104,12 +104,11 @@ public class Data {
     /**
      * Asks the user to give the date of the activity, However it will get checked at the function {@link isDataValida},
      * if after the verification the date of the activity is valid, you will get it at the return, otherwise it will keep asking you again.
-     *
+     * @param  input
      * @return String data
      *
      */
-    public Data setDataDaAtividade() {
-        Scanner input = new Scanner(System.in);
+    public Data setDataDaAtividade(Scanner input) {
         boolean validarDate;
         Data date = new Data();
         int i = 0;
@@ -207,8 +206,7 @@ public class Data {
          * @return Hour tempo
          *
          */
-        public Hora setHoraDaAtividade() {
-            Scanner input = new Scanner(System.in);
+        public Hora setHoraDaAtividade(Scanner input) {
             boolean validarHora, validarMin;
             Hora tempo = new Hora();
             int hora, min;

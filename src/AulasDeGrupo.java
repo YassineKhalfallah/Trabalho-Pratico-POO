@@ -142,8 +142,7 @@ public class AulasDeGrupo extends Atividade{
  * if after the verification the type of lesson is valid, you will get it at the return, otherwise it will keep asking you again.
  * @return String aula
  * */
-    public String setAula(){
-        Scanner input = new Scanner(System.in);
+    public String setAula(Scanner input){
         boolean validarAula = true;
         String aula = null;
         int i = 0;
@@ -174,8 +173,7 @@ public class AulasDeGrupo extends Atividade{
      * if after the verification the maximum capacity is valid, you will get it at the return, otherwise it will keep asking you again.
      * @return
      */
-    public int setCapDaAula(){
-        Scanner input = new Scanner(System.in);
+    public int setCapDaAula(Scanner input){
         boolean validarCap = true;
         int capacidade;
         int i = 0;

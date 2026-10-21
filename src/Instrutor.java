@@ -90,8 +90,7 @@ public class Instrutor extends Pessoa{
      * if after the verification the gender is valid, you will get it at the return, otherwise it will keep asking you again.
      * @return String genero
      */
-    public String setSex(){
-        Scanner input = new Scanner(System.in);
+    public String setSex(Scanner input){
         boolean validarGender = true;
         String gender;
         int i = 0;
@@ -104,7 +103,6 @@ public class Instrutor extends Pessoa{
             validarGender = isGeneroValido(gender);
             i++;
         }while (!validarGender);
-        input.close();
         return gender;
     }
 

@@ -89,10 +89,10 @@ public class PersonalTraining extends Atividade{
     /**
      * Asks the user to give the type of session, However it will get checked at the function {@link isTipoSessaoValido},
      * if after the verification the type of session is valid, you will get it at the return, otherwise it will keep asking you again.
+     * @param input
      * @return String sessao
-     * */
-    public String setSessao(){
-        Scanner input = new Scanner(System.in);
+     */
+    public String setSessao(Scanner input){
         boolean validarSessao = true;
         String sessao = null;
         int i = 0;

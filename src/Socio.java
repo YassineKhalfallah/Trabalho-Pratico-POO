@@ -75,7 +75,7 @@ public class Socio extends Pessoa {
     public boolean doesItExisteInList (String tipoSocio,int numeroSocio,ArrayList<SocioEmpresario> listaEmp,ArrayList<SocioIndividual> listaInd){
         if(tipoSocio.equals("EMPRESA")){
             for (SocioEmpresario socioEmpresario : listaEmp) {
-                if (socioEmpresario.getNumeroSocio() ==numeroSocio) {
+                if (socioEmpresario.getNumeroSocio() == numeroSocio) {
                     return true;
                 }
             }
