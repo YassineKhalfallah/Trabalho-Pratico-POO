@@ -116,7 +116,7 @@ public class Gym {
 
                 }
                 // Socio da Empresa
-                else if (tipoSocio.equals("EMPRESA")) {
+                else if (tipoSocio.equals("EMPRESARIO")) {
                     SocioEmpresario socioEmp = new SocioEmpresario();
                     // set name
                     socioEmp.setNomePessoa(socioEmp.setNome(input));
@@ -127,9 +127,10 @@ public class Gym {
                     System.out.println("Indica o nome da sua empresa: ");
                     socioEmp.setNomeEmpresa(input.nextLine());
                     // set company's NIF
-                    System.out.println("Digite o NIF da sua  empresa: ");
+
                     boolean validade = true;
                     while(validade) {
+                        System.out.println("Digite o NIF da sua  empresa: ");
                         socioEmp.setNifEmpresa(Integer.parseInt(input.nextLine()));
                         validade = !socioEmp.isNIFValido();
                     }
@@ -279,22 +280,19 @@ public class Gym {
         String tipoAula;
         System.out.println("--- Que tipo de Atividades quere listar ---");
         tipoAula = input.nextLine();
-        tipoAula =  tipoAula.toUpperCase();
-        if(tipoAula.equals("AULA DE GRUPO")){
+        tipoAula = tipoAula.toUpperCase();
+        if (tipoAula.equals("AULA DE GRUPO")) {
             if (aulasDeGrupo.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
             else {
                 for (AulasDeGrupo aulaG : aulasDeGrupo) System.out.println(aulaG.toString());
             }
-        }
-        else if(tipoAula.equals("PERSONAL TRAINING")){
+        } else if (tipoAula.equals("PERSONAL TRAINING")) {
             if (personalTraining.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
             else {
                 for (PersonalTraining personalT : personalTraining) System.out.println(personalT.toString());
             }
-        }
-        else{
+        } else {
             System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
         }
     }
-
 }
