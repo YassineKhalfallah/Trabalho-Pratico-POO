@@ -40,6 +40,7 @@ public class Gym {
         System.out.println("2 - Add Atividade");
         System.out.println("3 - Listar Socios");
         System.out.println("4 - Listar Aulas de Grupos");
+        System.out.println("5 - Listar Marcaçoes");
         int n = Integer.parseInt(input.nextLine());
         if(n == 1) gym.addPessoa(input);
         else if(n == 2) gym.addActivity(input);
@@ -294,5 +295,107 @@ public class Gym {
         } else {
             System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
         }
+    }
+
+    /**
+     * Depending on the type of
+     * @param input
+     */
+    public void marcarAtividade(Scanner input) {
+        String tipoAula, tipoSocio;
+        boolean valid = true;
+        System.out.println("--Indica se es um Socio Individual ou Empresarial--");
+        tipoSocio = input.nextLine();
+        tipoSocio = tipoSocio.toUpperCase();
+        while (valid) {
+            if (tipoSocio.equals("INDIVIDUAL")) {
+                //Pedir o numero de socio
+                int numID = pedirIdNumInd(input);
+
+                boolean vld = true;
+                while (vld) {
+                    System.out.println("--- Que tipo de Atividades quer marcar ---");
+                    tipoAula = input.nextLine();
+                    tipoAula = tipoAula.toUpperCase();
+                    if (tipoAula.equals("AULAS DE GRUPO")) {
+                        // listar aulas de grupo
+                        System.out.println("Aulas de grupo disponiveis :");
+                        for (AulasDeGrupo aulaG : aulasDeGrupo) {
+                            System.out.println(aulaG.toString());
+                        }
+
+                    }
+
+
+                }
+                valid = false;
+            }
+            else if(tipoSocio.equals("EMPRESARIO")){}
+            else System.out.println("--- TIPO DE SOCIO INVALIDO ---");
+        }
+    }
+
+    /**
+     * Makes sure that the Id number given exists in the list of Individual members
+     * @param numID
+     * @return true if number exists in the list of Individual members
+     */
+    public boolean doesIdExistInd(int numID) {
+        for (SocioIndividual sociosInd : sociosIndividuais) {
+            if(sociosInd.numeroSocio == numID){
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * Makes sure that the Id number given exists in the list of Company members
+     * @param numID
+     * @return true if number exists in the list of Company members
+     */
+    public boolean doesIdExistEmp(int numID) {
+        for (SocioEmpresario sociosEmp : socioEmpresario) {
+            if(sociosEmp.numeroSocio == numID){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Asks the user to give his Id number, However this info will get checked at the functions {@link doesIdExistInd}
+     * if after the verification the Id number given exist in the list of Individual members, you will get it at the return, otherwise it will keep asking you again.
+     * @return Id number of socio Individual
+     * */
+    public int pedirIdNumInd(Scanner input) {
+        boolean valid = true;
+        int numID = 0;
+        int i = 0;
+        while (valid) {
+            if(i == 0) System.out.println("Indica o seu numero identificador :");
+            else {System.out.println("Numero nao existe na lista de socio!!!");}
+            numID = Integer.parseInt(input.nextLine());
+            valid = !doesIdExistInd(numID);
+            i++;
+        }
+        return numID;
+    }
+    /**
+     * Asks the user to give his Id number, However this info will get checked at the functions {@link doesIdExistEmp}
+     * if after the verification the Id number given exist in the list of members that work in a Company, you will get it at the return, otherwise it will keep asking you again.
+     * @return Id number of socio Individual
+     * */
+    public int pedirIdNumEmp(Scanner input) {
+        boolean valid = true;
+        int numID = 0;
+        int i = 0;
+        while (valid) {
+            if(i == 0) System.out.println("Indica o seu numero identificador :");
+            else {System.out.println("Numero nao existe na lista de socio!!!");}
+            numID = Integer.parseInt(input.nextLine());
+            valid = !doesIdExistEmp(numID);
+            i++;
+        }
+        return numID;
     }
 }

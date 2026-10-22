@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Hora {
     private int horas;
     private  int minutos;
+
     public Hora(){}
     public Hora(int horas, int minutos) {
         this.horas = horas;

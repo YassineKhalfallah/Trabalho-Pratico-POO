@@ -22,7 +22,7 @@ public class AulasDeGrupo extends Atividade{
     /**
      * The constructor of an empty class AulasDeGrupo
      */
-    public AulasDeGrupo(){};
+    public AulasDeGrupo(){}
 
     /**
      * The constructor of the class AulasDeGrupo, where we set the given values to each parameter
