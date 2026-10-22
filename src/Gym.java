@@ -40,7 +40,7 @@ public class Gym {
         System.out.println("2 - Add Atividade");
         System.out.println("3 - Listar Socios");
         System.out.println("4 - Listar Aulas de Grupos");
-        int n = input.nextInt();
+        int n = Integer.parseInt(input.nextLine());
         if(n == 1) gym.addPessoa(input);
         else if(n == 2) gym.addActivity(input);
         else if (n == 3) gym.listarSocios(input);
@@ -130,7 +130,7 @@ public class Gym {
                     System.out.println("Digite o NIF da sua  empresa: ");
                     boolean validade = true;
                     while(validade) {
-                        socioEmp.setNifEmpresa(input.nextInt());
+                        socioEmp.setNifEmpresa(Integer.parseInt(input.nextLine()));
                         validade = !socioEmp.isNIFValido();
                     }
 
