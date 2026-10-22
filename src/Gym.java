@@ -100,8 +100,19 @@ public class Gym {
                     }
                     System.out.println("--- Numero de Socio esta dado ---");
                     // set email
-                    System.out.println("Indica o seu email:");
-                    socioInd.setEmailSocio(input.nextLine());
+                    String email = "";
+                    boolean emailValido = false;
+                    while (!emailValido) {
+                        System.out.println("Indica o teu email (apenas contas @gmail.com):");
+                        email = input.nextLine().trim().toLowerCase(); 
+                        if (email.endsWith("@gmail.com") && email.length() > 10) {//verifica se acaba com aquele segmento e tem nº de caracteres apropriado
+                            emailValido = true;
+                        } else {
+                        System.out.println("Apenas são aceites endereços de Gmail(nome@gmail.com).");
+                        }
+                    }
+                    socioInd.setEmailSocio(email);
+                    System.out.println("--- Email esta dado ---");
                     // set discount
                     if (socioInd.getIdadeSocio() < 18) {
                         socioInd.setDesconto(10);
@@ -122,8 +133,19 @@ public class Gym {
                     // set name
                     socioEmp.setNomePessoa(socioEmp.setNome(input));
                     // set email
-                    System.out.println("Indica o seu email:");
-                    socioEmp.setEmailSocio(input.nextLine());
+                    String email = "";
+                    boolean emailValido = false;
+                    while (!emailValido) {
+                        System.out.println("Indica o teu email (apenas contas @gmail.com):");
+                        email = input.nextLine().trim().toLowerCase(); 
+                        if (email.endsWith("@gmail.com") && email.length() > 10) {//verifica se acaba com aquele segmento e tem nº de caracteres apropriado
+                            emailValido = true;
+                        } else {
+                        System.out.println("Apenas são aceites endereços de Gmail(nome@gmail.com).");
+                        }
+                    }
+                    socioEmp.setEmailSocio(email);
+                    System.out.println("--- Email esta dado ---");
                     // set company name
                     System.out.println("Indica o nome da sua empresa: ");
                     socioEmp.setNomeEmpresa(input.nextLine());
