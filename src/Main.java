@@ -5,9 +5,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Gym gym = new Gym();
+        gym.addPessoa(input);
         gym.menu(input , gym);
-
-        //gym.addPessoa(input);
         String[] formacoes1 = {"Engenharia", "Mestrado", "Doutorado"};
         Instrutor instrutor1 = new Instrutor("Yassine","M", formacoes1);
         gym.instrutores.add(instrutor1);
