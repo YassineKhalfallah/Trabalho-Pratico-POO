@@ -7,9 +7,11 @@ public class MarcacaoAGInd extends Marcacao {
         this.Aula = Aula;
         this.socioInd = socioInd;
     }
+
     public AulasDeGrupo getAula() {
         return Aula;
     }
+
     public void setAulaG(AulasDeGrupo Aula) {
         this.Aula = Aula;
     }
