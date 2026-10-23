@@ -16,7 +16,7 @@ public class Gym {
     /**
      * I set {@code socioEmpresario} as protected because it will be used in other classes
      */
-    protected ArrayList<SocioEmpresario> socioEmpresario;
+    protected ArrayList<SocioEmpresario> sociosEmpresarios;
     /**
      * I set {@code aulasDeGrupo} as protected because it will be used in other classes
      */
@@ -25,13 +25,33 @@ public class Gym {
      * I set {@code personalTraining} as protected because it will be used in other classes
      */
     protected ArrayList<PersonalTraining> personalTraining;
+    /**
+     * I set {@code marcacaoAGEmp} as protected because it will be used in other classes
+     */
+    protected ArrayList<MarcacaoAGEmp> marcacaoAGEmp;
+    /**
+     * I set {@code marcacaoAGInd} as protected because it will be used in other classes
+     */
+    protected ArrayList<MarcacaoAGInd> marcacaoAGInd;
+    /**
+     * I set {@code marcacaoPTEmp} as protected because it will be used in other classes
+     */
+    protected ArrayList<MarcacaoPTEmp> marcacaoPTEmp;
+    /**
+     * I set {@code marcacaoPTInd} as protected because it will be used in other classes
+     */
+    protected ArrayList<MarcacaoPTInd> marcacaoPTInd;
 
     public Gym() {
         this.instrutores = new ArrayList<>();
         this.sociosIndividuais = new ArrayList<>();
-        this.socioEmpresario = new ArrayList<>();
+        this.sociosEmpresarios = new ArrayList<>();
         this.aulasDeGrupo = new ArrayList<>();
         this.personalTraining = new ArrayList<>();
+        this.marcacaoAGEmp = new ArrayList<>();
+        this.marcacaoAGInd = new ArrayList<>();
+        this.marcacaoPTEmp = new ArrayList<>();
+        this.marcacaoPTInd = new ArrayList<>();
     }
 
     public void menu(Scanner input, Gym gym) {
@@ -40,7 +60,8 @@ public class Gym {
         System.out.println("2 - Add Atividade");
         System.out.println("3 - Listar Socios");
         System.out.println("4 - Listar Aulas de Grupos");
-        System.out.println("5 - Listar Marcaçoes");
+        System.out.println("5 - Fazer Marcaçao numa atividade");
+        System.out.println("6 - Listar Marcaçoes");
         int n = Integer.parseInt(input.nextLine());
         if(n == 1) gym.addPessoa(input);
         else if(n == 2) gym.addActivity(input);
@@ -95,7 +116,7 @@ public class Gym {
                     int num;
                     while(validade) {
                         num = socioInd.gerarNumSocio();
-                        validade = socioInd.doesItExisteInList(tipoSocio, num, socioEmpresario, sociosIndividuais);
+                        validade = socioInd.doesItExisteInList(tipoSocio, num, sociosEmpresarios, sociosIndividuais);
                         socioInd.setNumeroSocio(num);
                     }
                     System.out.println("--- Numero de Socio esta dado ---");
@@ -163,12 +184,12 @@ public class Gym {
                     int num;
                     while(validade) {
                         num = socioEmp.gerarNumSocio();
-                        validade = socioEmp.doesItExisteInList(tipoSocio, num, socioEmpresario, sociosIndividuais);
+                        validade = socioEmp.doesItExisteInList(tipoSocio, num, sociosEmpresarios, sociosIndividuais);
                         socioEmp.setNumeroSocio(num);
                     }
                     System.out.println("--- Numero de Socio esta dado ---");
                     // add the socio individual na lista
-                    socioEmpresario .add(socioEmp);
+                    sociosEmpresarios.add(socioEmp);
                     // Going to get you the info about Socio da Empresa
                     System.out.println(socioEmp.toString());
                     valid = false;
@@ -237,9 +258,9 @@ public class Gym {
 
         }
         else if (tipoSocio.equals("EMPRESA")){
-            if (socioEmpresario.isEmpty()) System.out.println("--- AINDA NAO TEM SOCIOS EMPRESARIOS ---");
+            if (sociosEmpresarios.isEmpty()) System.out.println("--- AINDA NAO TEM SOCIOS EMPRESARIOS ---");
             else {
-                for (SocioEmpresario socioEmp : socioEmpresario){
+                for (SocioEmpresario socioEmp : sociosEmpresarios){
                     System.out.println(socioEmp.toString());
                 }
             }
@@ -301,7 +322,7 @@ public class Gym {
      */
     public void listarAtividades(Scanner input) {
         String tipoAula;
-        System.out.println("--- Que tipo de Atividades quere listar ---");
+        System.out.println("--- Que tipo de Atividades quer listar ---");
         tipoAula = input.nextLine();
         tipoAula = tipoAula.toUpperCase();
         if (tipoAula.equals("AULA DE GRUPO")) {
@@ -332,29 +353,127 @@ public class Gym {
         while (valid) {
             if (tipoSocio.equals("INDIVIDUAL")) {
                 //Pedir o numero de socio
-                int numID = pedirIdNumInd(input);
-
+                int numIDInd = pedirIdNumInd(input);
+                SocioIndividual socioInd = infoSocioInd(numIDInd);
                 boolean vld = true;
                 while (vld) {
+                    //
                     System.out.println("--- Que tipo de Atividades quer marcar ---");
                     tipoAula = input.nextLine();
                     tipoAula = tipoAula.toUpperCase();
                     if (tipoAula.equals("AULAS DE GRUPO")) {
+                        MarcacaoAGInd aulaG1 = new MarcacaoAGInd();
                         // listar aulas de grupo
                         System.out.println("Aulas de grupo disponiveis :");
                         for (AulasDeGrupo aulaG : aulasDeGrupo) {
                             System.out.println(aulaG.toString());
                         }
-
+                        System.out.print("Indique o índice da atividade desejada: ");
+                        int idx = Integer.parseInt(input.nextLine().trim()) - 1;
+                        AulasDeGrupo atividadeEscolhida = aulasDeGrupo.get(idx);
+                        //atribuir informacoes
+                        aulaG1.setAulaG(atividadeEscolhida);
+                        aulaG1.setSocioInd(socioInd);
+                        marcacaoAGInd.add(aulaG1);
+                        break;
+                    } else if (tipoAula.equals("PERSONAL TRAINING")) {
+                        MarcacaoPTInd sessaoP1 = new MarcacaoPTInd();
+                        // listar aulas de grupo
+                        System.out.println("Sessoes de Personal Training disponiveis :");
+                        for (PersonalTraining aulaP : personalTraining) {
+                            System.out.println(aulaP.toString());
+                        }
+                        System.out.print("Indique o indice da atividade desejada: ");
+                        int idx = Integer.parseInt(input.nextLine().trim()) - 1;
+                        PersonalTraining SessaoEscolhida = personalTraining.get(idx);
+                        //atribuir informacoes
+                        sessaoP1.setSessaoP(SessaoEscolhida);
+                        sessaoP1.setSocioInd(socioInd);
+                        //guardar marcaçao na lista de marcacoes
+                        marcacaoPTInd.add(sessaoP1);
+                        break;
+                    } else {
+                        System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
                     }
-
-
                 }
-                valid = false;
+                break;
             }
-            else if(tipoSocio.equals("EMPRESARIO")){}
+            else if(tipoSocio.equals("EMPRESARIO")){//Pedir o numero de socio
+                int numIDEmp = pedirIdNumInd(input);
+                SocioEmpresario socioEmp = infoSocioEmp(numIDEmp);
+                boolean v = true;
+                while (v) {
+                    //
+                    System.out.println("--- Que tipo de Atividades quer marcar ---");
+                    tipoAula = input.nextLine();
+                    tipoAula = tipoAula.toUpperCase();
+                    if (tipoAula.equals("AULAS DE GRUPO")) {
+                        MarcacaoAGEmp aulaG1 = new MarcacaoAGEmp();
+                        // listar aulas de grupo
+                        System.out.println("Aulas de grupo disponiveis :");
+                        for (AulasDeGrupo aulaG : aulasDeGrupo) {
+                            System.out.println(aulaG.toString());
+                        }
+                        System.out.print("Indique o índice da atividade desejada: ");
+                        int idx = Integer.parseInt(input.nextLine().trim()) - 1;
+                        AulasDeGrupo atividadeEscolhida = aulasDeGrupo.get(idx);
+                        //atribuir informacoes
+                        aulaG1.setAulaG(atividadeEscolhida);
+                        aulaG1.setSocioEmp(socioEmp);
+                        marcacaoAGEmp.add(aulaG1);
+                        break;
+                    } else if (tipoAula.equals("PERSONAL TRAINING")) {
+                        MarcacaoPTEmp SessaoP1 = new MarcacaoPTEmp();
+                        // listar aulas de grupo
+                        System.out.println("Sessoes de Personal Training disponiveis :");
+                        for (PersonalTraining aulaP : personalTraining) {
+                            System.out.println(aulaP.toString());
+                        }
+                        System.out.print("Indique o indice da atividade desejada: ");
+                        int idx = Integer.parseInt(input.nextLine().trim()) - 1;
+                        PersonalTraining SessaoEscolhida = personalTraining.get(idx);
+                        //atribuir informacoes
+                        SessaoP1.setSessaoP(SessaoEscolhida);
+                        SessaoP1.setSocioEmp(socioEmp);
+                        //guardar marcaçao na lista de marcacoes
+                        marcacaoPTEmp.add(SessaoP1);
+                        break;
+                    } else {
+                        System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
+                    }
+                }
+                break;
+            }
             else System.out.println("--- TIPO DE SOCIO INVALIDO ---");
         }
+    }
+
+    /**
+     * Runs the list of Individual members and gets the information of that member if he actually exist
+     * @param numId
+     * @return if the IdNumber exist in the list the info of that person will be provided
+     */
+    public SocioIndividual infoSocioInd(int numId){
+        for (SocioIndividual sociosInd : sociosIndividuais) {
+            if(sociosInd.numeroSocio == numId){
+                return sociosInd;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Runs the list of Company members and gets the information of that member if he actually exist.
+     * @param numId
+     * @return if the IdNumber exist in the list the info of that person will be provided
+     */
+    public SocioEmpresario infoSocioEmp(int numId){
+        for (SocioEmpresario sociosEmp : sociosEmpresarios) {
+            if(sociosEmp.numeroSocio == numId){
+                return sociosEmp;
+            }
+        }
+        return null;
     }
 
     /**
@@ -376,7 +495,7 @@ public class Gym {
      * @return true if number exists in the list of Company members
      */
     public boolean doesIdExistEmp(int numID) {
-        for (SocioEmpresario sociosEmp : socioEmpresario) {
+        for (SocioEmpresario sociosEmp : sociosEmpresarios) {
             if(sociosEmp.numeroSocio == numID){
                 return true;
             }
