@@ -68,6 +68,7 @@ public class Gym {
         else if (n == 3) gym.listarSocios(input);
         else if (n == 4) gym.listarAtividades(input);
         else if (n == 5) gym.marcarAtividade(input);
+        else if (n == 6) gym.listarMarcacoes(input);
         else System.out.println("--- NUMERO INVALIDO ----");
 
     }
@@ -189,6 +190,8 @@ public class Gym {
                         socioEmp.setNumeroSocio(num);
                     }
                     System.out.println("--- Numero de Socio esta dado ---");
+                    //set socio empresario discount
+                    socioEmp.setDesconto(20);
                     // add the socio individual na lista
                     sociosEmpresarios.add(socioEmp);
                     // Going to get you the info about Socio da Empresa
@@ -268,7 +271,7 @@ public class Gym {
                 }
                 valid = false;
             }
-            else if (tipoSocio.equals("EMPRESA")) {
+            else if (tipoSocio.equals("EMPRESARIO")) {
                 if (sociosEmpresarios.isEmpty()) System.out.println("--- AINDA NAO TEM SOCIOS EMPRESARIOS ---");
                 else {
                     for (SocioEmpresario socioEmp : sociosEmpresarios) {
@@ -341,14 +344,14 @@ public class Gym {
             tipoAtividade = input.nextLine();
             tipoAtividade = tipoAtividade.toUpperCase();
             if (tipoAtividade.equals("AULA DE GRUPO")) {
-                if (aulasDeGrupo.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
+                if (aulasDeGrupo.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADAS ---");
                 else {
                     for (AulasDeGrupo aulaG : aulasDeGrupo) System.out.println(aulaG.toString());
                 }
                 valid = false;
             }
             else if (tipoAtividade.equals("PERSONAL TRAINING")) {
-                if (personalTraining.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
+                if (personalTraining.isEmpty()) System.out.println("--- AINDA NAO TEM SESSOES DE PT MARCADAS ---");
                 else {
                     for (PersonalTraining personalT : personalTraining) System.out.println(personalT.toString());
                 }
