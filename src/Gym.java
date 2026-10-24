@@ -406,8 +406,8 @@ public class Gym {
                             //indicar que ha mais uma pessoa na atividade escolhida
                             atividadeEscolhida.setNumeroDePessoasNaAtividade(atividadeEscolhida.getNumeroDePessoasNaAtividade()+1);
                             marcacaoAGInd.add(aulaG1);
+                            vld = false;
                         }
-                        break;
                     }
                     else if (tipoAtividade.equals("PERSONAL TRAINING")) {
                         if (personalTraining.isEmpty()) {
@@ -431,13 +431,12 @@ public class Gym {
                             //guardar marcaçao na lista de marcacoes
                             marcacaoPTInd.add(sessaoP1);
                         }
-                        break;
+                        vld = false;
                     }
                     else {
                         vld = tipoAtividadeErrada(input,tipoAtividade);
                     }
                 }
-                break;
             }
             else if(tipoSocio.equals("EMPRESARIO")){
                 //Pedir o numero de socio
@@ -468,8 +467,9 @@ public class Gym {
                         atividadeEscolhida.setNumeroDePessoasNaAtividade(atividadeEscolhida.getNumeroDePessoasNaAtividade()+1);
 
                         marcacaoAGEmp.add(aulaG1);
-                        break;
-                    } else if (tipoAtividade.equals("PERSONAL TRAINING")) {
+                        vld = false;
+                    }
+                    else if (tipoAtividade.equals("PERSONAL TRAINING")) {
                         MarcacaoPTEmp sessaoP1 = new MarcacaoPTEmp();
                         // listar aulas de grupo
                         System.out.println("Sessoes de Personal Training disponiveis :");
@@ -487,12 +487,12 @@ public class Gym {
 
                         //guardar marcaçao na lista de marcacoes
                         marcacaoPTEmp.add(sessaoP1);
-                        break;
+                        vld= false;
                     } else {
                         vld = tipoAtividadeErrada(input,tipoAtividade);
                     }
                 }
-                break;
+                valid = false;
             }
             else {
                 valid = tipoSocioErrado(input, tipoSocio);
@@ -501,7 +501,10 @@ public class Gym {
     }
 
     /**
-     *
+     * Asks the user to identify the type of member he is ({@code Individual} or {@code Empresario}) ,
+     * and then to identify what kind of activities he is willing to check({@code AulasDeGrupo} or {@code PersonalTraining}).
+     * Depending on having elements in the list wanted or not, the user will get to see the list asked.
+     * @param input
      */
     public void listarMarcacoes(Scanner input) {
         String tipoSocio,tipoAtividade;
@@ -576,6 +579,7 @@ public class Gym {
         }
 
     }
+
     /**
      * Runs the list of Individual members and gets the information of that member if he actually exist
      * @param numId
@@ -667,6 +671,14 @@ public class Gym {
         }
         return numID;
     }
+
+    /**
+     * This function will tell the user that his input was wrong and asks him if he is  willing to get out of the function.
+     * If user types SIM or S user get out from the method.
+     * @param input
+     * @param tipoSocio
+     * @return true if user willing to continue
+     */
     public boolean tipoSocioErrado(Scanner input,String tipoSocio) {
         System.out.println("--- TIPO DE SOCIO ERRADO ---");
         System.out.println("-- Quer sair de este metodo--");
@@ -689,5 +701,13 @@ public class Gym {
         } else {
             return true;
         }
+    }
+
+    public void resumoAtividades(){
+        System.out.println("--- RESUMO DE ATIVIDADES ---");
+        System.out.println("No nosso ginasio existem:\nSocios Individuais: "+sociosIndividuais.size()+
+                "\nSocios Empresarios: "+sociosEmpresarios.size()+
+                "\nAulas de Grupo: "+aulasDeGrupo.size()+
+                "\nSessões de Personal Training: "+personalTraining.size());
     }
 }
