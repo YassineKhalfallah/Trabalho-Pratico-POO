@@ -721,7 +721,7 @@ public class Gym {
     }
 
     /**
-     * This function will tell the user that his input was wrong and asks him if he is  willing to get out of the function.
+     * This function will tell the user that his input for the type of member was wrong and asks him if he is  willing to get out of the function.
      * If user types SIM or S user get out from the method.
      * @param input
      * @param tipoSocio
@@ -739,6 +739,13 @@ public class Gym {
         }
     }
 
+    /**
+     * This function will tell the user that his input for the type of activity was wrong and asks him if he is  willing to get out of the function.
+     * If user types SIM or S user get out from the method.
+     * @param input
+     * @param tipoAtividade
+     * @return
+     */
     public boolean tipoAtividadeErrada(Scanner input,String tipoAtividade) {
         System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
         System.out.println("-- Quer sair de este metodo--");
@@ -751,6 +758,10 @@ public class Gym {
         }
     }
 
+    /**
+     * This function is mainly used to get a hole idea and view about number of merber of the two kinds({@link SocioIndividual}&{@link SocioEmpresario}).<br>
+     * And also and idea of the numbers of all the activities of the two kind ({@link AulasDeGrupo} & {@link PersonalTraining}).
+     */
     public void resumoAtividades(){
         System.out.println("--- RESUMO DE ATIVIDADES ---");
         System.out.println("No nosso ginasio existem:\nSocios Individuais: "+sociosIndividuais.size()+
