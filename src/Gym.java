@@ -56,18 +56,21 @@ public class Gym {
 
     public void menu(Scanner input, Gym gym) {
         System.out.println("---- MENU ----");
-        System.out.println("1 - Add Pessoa");
+        System.out.println("1 - Add Pessoa");// pessoa serve para socios e instrutores
         System.out.println("2 - Add Atividade");
         System.out.println("3 - Listar Socios");
         System.out.println("4 - Listar Aulas de Grupos");
         System.out.println("5 - Fazer Marcaçao numa atividade");
         System.out.println("6 - Listar Marcaçoes");
+        System.out.println("7 - Resumo De Atividades");
         int n = Integer.parseInt(input.nextLine());
         if(n == 1) gym.addPessoa(input);
         else if(n == 2) gym.addActivity(input);
         else if (n == 3) gym.listarSocios(input);
         else if (n == 4) gym.listarAtividades(input);
         else if (n == 5) gym.marcarAtividade(input);
+        else if (n == 6) gym.listarMarcacoes(input);
+        else if (n == 7) gym.res
         else System.out.println("--- NUMERO INVALIDO ----");
 
     }
