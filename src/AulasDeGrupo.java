@@ -117,8 +117,8 @@ public class AulasDeGrupo extends Atividade{
                 "h e " + getTempo().getMinutos() +
                 "min do tipo " + getTipoAula() +
                 ", custa " + getPreco() +
-                "€ faltam " + getNumeroDePessoasNaAtividade() +
-                "pessoas para chegar ao limite de" + getCapacidadeMaxima() + "pessoas";
+                "€ esta na aula " + getNumeroDePessoasNaAtividade() +
+                "pessoas e o limite maximo de pessoas é " + getCapacidadeMaxima();
     }
 
     /**
