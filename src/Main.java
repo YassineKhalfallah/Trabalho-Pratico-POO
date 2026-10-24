@@ -5,7 +5,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Gym gym = new Gym();
-        gym.addPessoa(input);
+        //gym.addPessoa(input);
+        gym.resumoAtividades();
         gym.menu(input , gym);
         String[] formacoes1 = {"Engenharia", "Mestrado", "Doutorado"};
         Instrutor instrutor1 = new Instrutor("Yassine","M", formacoes1);
@@ -17,6 +18,7 @@ public class Main {
         Data dat1 = new Data(12,12,2034);
         PersonalTraining Pt1 = new PersonalTraining("Iniciacao", 90,tmp,dat1);
         System.out.println(Pt1.toString());
+        gym.resumoAtividades();
         input.close();
     }
 }
