@@ -62,6 +62,8 @@ public class Gym {
         System.out.println("4 - Listar Aulas de Grupos");
         System.out.println("5 - Fazer Marcaçao numa atividade");
         System.out.println("6 - Listar Marcaçoes");
+        System.out.println("7 - Resumo De Atividades");
+        System.out.println("8 - Atividade mais popular");
         int n = Integer.parseInt(input.nextLine());
         if(n == 1) gym.addPessoa(input);
         else if(n == 2) gym.addActivity(input);
@@ -69,6 +71,8 @@ public class Gym {
         else if (n == 4) gym.listarAtividades(input);
         else if (n == 5) gym.marcarAtividade(input);
         else if (n == 6) gym.listarMarcacoes(input);
+        else if (n == 7) gym.resumoAtividades(input);
+        else if (n == 8) gym.maisPopular();
         else System.out.println("--- NUMERO INVALIDO ----");
 
     }
@@ -342,14 +346,14 @@ public class Gym {
             tipoAtividade = input.nextLine();
             tipoAtividade = tipoAtividade.toUpperCase();
             if (tipoAtividade.equals("AULA DE GRUPO")) {
-                if (aulasDeGrupo.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADAS ---");
+                if (aulasDeGrupo.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
                 else {
                     for (AulasDeGrupo aulaG : aulasDeGrupo) System.out.println(aulaG.toString());
                 }
                 valid = false;
             }
             else if (tipoAtividade.equals("PERSONAL TRAINING")) {
-                if (personalTraining.isEmpty()) System.out.println("--- AINDA NAO TEM SESSOES DE PT MARCADAS ---");
+                if (personalTraining.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
                 else {
                     for (PersonalTraining personalT : personalTraining) System.out.println(personalT.toString());
                 }
@@ -579,6 +583,49 @@ public class Gym {
             }
         }
 
+    }
+
+    /**
+     *
+     */
+    public void maisPopular() {
+        System.out.println("--- Atividade mais popular ---");
+        if (aulasDeGrupo.isEmpty() && personalTraining.isEmpty()) {
+            System.out.println("Nao há atividades registadas.");
+            return;
+        }
+        String atividadeMaisPopular = "Nenhuma";
+        int maxMarcacoes = -1; //sempre menor que 0
+        for (AulasDeGrupo aula : aulasDeGrupo){
+            int count = aula.getNumeroDePessoasNaAtividade();
+            if (count > maxMarcacoes){
+                maxMarcacoes = count;
+                atividadeMaisPopular = "Aula de Grupo: " + aula.getTipoAula() + " (Participantes: " + maxMarcacoes + ")";
+            }
+        }
+        for (PersonalTraining pt : personalTraining) {
+            int contagemPT = 0;
+            for (MarcacaoPTInd m : marcacaoPTInd) {
+                if (m.getAula() == pt) {
+                    contagemPT++;
+                }
+            }
+            for (MarcacaoPTEmp m : marcacaoPTEmp){
+                if (m.getAula() == m){
+                    contagemPT++;
+                }
+            }
+            if (contagemPT > maxMarcacoes){
+                maxMarcacoes = contagemPT;
+                atividadeMaisPopular = "Personal Training" + pt.getTipoTraining() + " (Marcacoes:" + maxMarcacoes + ")";
+            }
+        }
+        if (maxMarcacoes <= 0){
+            System.out.println("Ainda nao existem marcacoes.");
+        }
+        else{
+            System.out.println("A atividade mais popular e" + atividadeMaisPopular);
+        }
     }
 
     /**
