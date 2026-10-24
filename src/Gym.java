@@ -71,7 +71,7 @@ public class Gym {
         else if (n == 4) gym.listarAtividades(input);
         else if (n == 5) gym.marcarAtividade(input);
         else if (n == 6) gym.listarMarcacoes(input);
-        else if (n == 7) gym.resumoAtividades(input);
+        else if (n == 7) gym.resumoAtividades();
         else if (n == 8) gym.maisPopular();
         else System.out.println("--- NUMERO INVALIDO ----");
 
@@ -611,7 +611,7 @@ public class Gym {
                 }
             }
             for (MarcacaoPTEmp m : marcacaoPTEmp){
-                if (m.getAula() == m){
+                if (m.getAula() == pt){
                     contagemPT++;
                 }
             }
