@@ -56,7 +56,7 @@ public class Gym {
 
     public void menu(Scanner input, Gym gym) {
         System.out.println("---- MENU ----");
-        System.out.println("1 - Add Pessoa");
+        System.out.println("1 - Add Pessoa");// pessoa serve para socios e instrutores
         System.out.println("2 - Add Atividade");
         System.out.println("3 - Listar Socios");
         System.out.println("4 - Listar Aulas de Grupos");
@@ -190,8 +190,6 @@ public class Gym {
                         socioEmp.setNumeroSocio(num);
                     }
                     System.out.println("--- Numero de Socio esta dado ---");
-                    //set socio empresario discount
-                    socioEmp.setDesconto(20);
                     // add the socio individual na lista
                     sociosEmpresarios.add(socioEmp);
                     // Going to get you the info about Socio da Empresa
@@ -271,7 +269,7 @@ public class Gym {
                 }
                 valid = false;
             }
-            else if (tipoSocio.equals("EMPRESARIO")) {
+            else if (tipoSocio.equals("EMPRESA")) {
                 if (sociosEmpresarios.isEmpty()) System.out.println("--- AINDA NAO TEM SOCIOS EMPRESARIOS ---");
                 else {
                     for (SocioEmpresario socioEmp : sociosEmpresarios) {
