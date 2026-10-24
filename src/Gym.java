@@ -71,7 +71,7 @@ public class Gym {
         else if (n == 4) gym.listarAtividades(input);
         else if (n == 5) gym.marcarAtividade(input);
         else if (n == 6) gym.listarMarcacoes(input);
-        else if (n == 7) gym.resumoAtividades(input);
+        else if (n == 7) gym.resumoAtividades();
         else if (n == 8) gym.maisPopular();
         else System.out.println("--- NUMERO INVALIDO ----");
 
@@ -584,7 +584,7 @@ public class Gym {
         }
 
     }
-    
+
     /**
      * Checks the lists of Group Classes and Personal Training to find and print 
      * the most popular activity based on the total number of bookings or participants.
@@ -597,7 +597,6 @@ public class Gym {
         }
         String atividadeMaisPopular = "Nenhuma";
         int maxMarcacoes = -1; //sempre menor que 0
-
         for (AulasDeGrupo aula : aulasDeGrupo){
             int count = aula.getNumeroDePessoasNaAtividade();
             if (count > maxMarcacoes){
@@ -613,7 +612,7 @@ public class Gym {
                 }
             }
             for (MarcacaoPTEmp m : marcacaoPTEmp){
-                if (m.getAula() == m){
+                if (m.getAula() == pt){
                     contagemPT++;
                 }
             }
@@ -723,7 +722,7 @@ public class Gym {
     }
 
     /**
-     * This function will tell the user that his input was wrong and asks him if he is  willing to get out of the function.
+     * This function will tell the user that his input for the type of member was wrong and asks him if he is  willing to get out of the function.
      * If user types SIM or S user get out from the method.
      * @param input
      * @param tipoSocio
@@ -741,6 +740,13 @@ public class Gym {
         }
     }
 
+    /**
+     * This function will tell the user that his input for the type of activity was wrong and asks him if he is  willing to get out of the function.
+     * If user types SIM or S user get out from the method.
+     * @param input
+     * @param tipoAtividade
+     * @return
+     */
     public boolean tipoAtividadeErrada(Scanner input,String tipoAtividade) {
         System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
         System.out.println("-- Quer sair de este metodo--");
@@ -753,6 +759,10 @@ public class Gym {
         }
     }
 
+    /**
+     * This function is mainly used to get a hole idea and view about number of merber of the two kinds({@link SocioIndividual}&{@link SocioEmpresario}).<br>
+     * And also and idea of the numbers of all the activities of the two kind ({@link AulasDeGrupo} & {@link PersonalTraining}).
+     */
     public void resumoAtividades(){
         System.out.println("--- RESUMO DE ATIVIDADES ---");
         System.out.println("No nosso ginasio existem:\nSocios Individuais: "+sociosIndividuais.size()+

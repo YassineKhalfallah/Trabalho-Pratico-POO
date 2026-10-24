@@ -85,7 +85,7 @@ public class SocioEmpresario extends Socio{
      * @return true in case companies contains
      */
     public boolean isNIFValido() {
-        if (nifEmpresa < 100000000 || nifEmpresa > 999999999) {
+        if (nifEmpresa > 100000000 || nifEmpresa < 999999999) {
             System.out.println("NIF Valido");
             return true;
         } else {

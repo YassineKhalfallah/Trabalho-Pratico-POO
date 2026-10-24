@@ -18,6 +18,8 @@ public class Main {
         Data dat1 = new Data(12,12,2034);
         PersonalTraining Pt1 = new PersonalTraining("Iniciacao", 90,tmp,dat1);
         System.out.println(Pt1.toString());
+        // when the object is created at the main class we should introduce to the lis
+        gym.personalTraining.add(Pt1);
         gym.resumoAtividades();
         input.close();
     }
