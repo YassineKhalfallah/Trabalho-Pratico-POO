@@ -28,10 +28,10 @@ public class Socio extends Pessoa {
 
     /**
      * The constructor of the class Socio, where we give the parameters the given values
-     * @param nome
-     * @param numeroSocio
-     * @param emailSocio
-     * @param desconto
+     * @param nome name
+     * @param numeroSocio Id number of member
+     * @param emailSocio email of member
+     * @param desconto discount
      */
     public Socio(String nome, int numeroSocio, String emailSocio, double desconto) {
         super(nome);
@@ -52,7 +52,7 @@ public class Socio extends Pessoa {
     /**
      * Once we did set the variable as protected, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setNumeroSocio}
-     * @param numeroSocio
+     * @param numeroSocio member Id number
      */
     public void setNumeroSocio(int numeroSocio) {
         this.numeroSocio = numeroSocio;
@@ -69,7 +69,7 @@ public class Socio extends Pessoa {
     /**
      * Once we did set the variable as protected, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setEmailSocio}
-     * @param emailSocio
+     * @param emailSocio member email
      */
     public void setEmailSocio(String emailSocio) {
         this.emailSocio = emailSocio;
@@ -86,7 +86,7 @@ public class Socio extends Pessoa {
     /**
      * Once we did set the variable as protected, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setDespesas}
-     * @param despesas
+     * @param despesas discount
      */
     public void setDespesas(double despesas) {
         this.despesas = despesas;
@@ -103,7 +103,7 @@ public class Socio extends Pessoa {
     /**
      * Once we did set the variable as protected, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setDesconto}
-     * @param desconto
+     * @param desconto discount
      */
     public void setDesconto(double desconto) {
         this.desconto = desconto;
@@ -129,10 +129,10 @@ public class Socio extends Pessoa {
 
     /**
      *This func will be used to check if the randomly generated number exists in the list of the specified type of member.
-     * @param tipoSocio
-     * @param numeroSocio
-     * @param listaEmp
-     * @param listaInd
+     * @param tipoSocio Type of member
+     * @param numeroSocio Id number of member
+     * @param listaEmp list of Corporate Members
+     * @param listaInd list of Individual Members
      * @return true if the number already exists in the list
      */
     public boolean doesItExisteInList (String tipoSocio,int numeroSocio,ArrayList<SocioEmpresario> listaEmp,ArrayList<SocioIndividual> listaInd){

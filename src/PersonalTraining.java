@@ -15,10 +15,10 @@ public class PersonalTraining extends Atividade{
 
     /**
      * The constructor of the class PersonalTraining, where we give the parameters the given values
-     * @param preco
-     * @param tempo
-     * @param tipoTraining
-     * @param date
+     * @param preco price
+     * @param tempo time
+     * @param tipoTraining Training type
+     * @param date date
      */
     public PersonalTraining(String tipoTraining , double preco , Hora tempo , Data date){
         super(preco , tempo , date);
@@ -37,7 +37,7 @@ public class PersonalTraining extends Atividade{
      * Once we did set the variable as private, in case of willing to change the value of this paramater
      * in a class where we have no access to it, use this function {@link setTipoTraining}.<br>
      * Also depending on the input we are setting the cost of the session.
-     * @param tipoTraining
+     * @param tipoTraining Training type
      */
     public void setTipoTraining(String tipoTraining) {
         this.tipoTraining = tipoTraining;
@@ -72,7 +72,7 @@ public class PersonalTraining extends Atividade{
 
     /**
      * The function makes sure that the type session is one of the activities that they have in the gym.
-     * @param tipoSessao
+     * @param tipoSessao Type of session
      * @return true if type of session is one of the activities in the array
      */
     public boolean isTipoSessaoValido(String tipoSessao) {
@@ -90,7 +90,7 @@ public class PersonalTraining extends Atividade{
     /**
      * Asks the user to give the type of session, However it will get checked at the function {@link isTipoSessaoValido},
      * if after the verification the type of session is valid, you will get it at the return, otherwise it will keep asking you again.
-     * @param input
+     * @param input Scanner name
      * @return String sessao
      */
     public String setSessao(Scanner input){

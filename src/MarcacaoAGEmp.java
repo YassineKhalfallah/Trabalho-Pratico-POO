@@ -18,11 +18,11 @@ public class MarcacaoAGEmp extends Marcacao{
 
     /**
      * The constructor of the class Marcacao, where we set the given values to each parameter
-     * @param data
-     * @param hora
-     * @param custoFinal
-     * @param aula
-     * @param socioEmp
+     * @param data date
+     * @param hora time
+     * @param custoFinal final cost
+     * @param aula group lesson
+     * @param socioEmp corporate member
      */
     public MarcacaoAGEmp(Data data, Hora hora, double custoFinal,AulasDeGrupo aula,SocioEmpresario socioEmp) {
         super(data, hora, custoFinal);
@@ -41,7 +41,7 @@ public class MarcacaoAGEmp extends Marcacao{
     /**
      * Once we did set the variable as private, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setAulaG}
-     * @param aula
+     * @param aula group lesson
      */
     public void setAulaG(AulasDeGrupo aula) {
         this.aula = aula;
@@ -58,7 +58,7 @@ public class MarcacaoAGEmp extends Marcacao{
     /**
      * Once we did set the variable as private, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setSocioEmp}
-     * @param socioEmp
+     * @param socioEmp corporate member
      */
     public void setSocioEmp(SocioEmpresario socioEmp) {
         this.socioEmp = socioEmp;

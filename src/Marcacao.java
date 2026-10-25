@@ -21,9 +21,9 @@ public class Marcacao {
 
     /**
      * The constructor of the class Marcacao, where we set the given values to each parameter
-     * @param data
-     * @param hora
-     * @param custoFinal
+     * @param data date
+     * @param hora time
+     * @param custoFinal final cost
      */
     public Marcacao( Data data, Hora hora, double custoFinal) {
         this.data = data;
@@ -34,7 +34,7 @@ public class Marcacao {
     /**
      * Once we did set the variable as protected, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setData}
-     * @param data
+     * @param data date
      */
     public void setData(Data data) {
         this.data = data;
@@ -43,7 +43,7 @@ public class Marcacao {
     /**
      * Once we did set the variable as protected, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setHora}
-     * @param hora
+     * @param hora time
      */
     public void setHora(Hora hora) {
         this.hora = hora;
@@ -76,7 +76,7 @@ public class Marcacao {
     /**
      * Once we did set the variable as protected, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setCustoFinal}
-     * @param custoFinal
+     * @param custoFinal final price
      */
     public void setCustoFinal(double custoFinal) {
         this.custoFinal = custoFinal;

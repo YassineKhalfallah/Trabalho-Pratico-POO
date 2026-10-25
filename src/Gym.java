@@ -270,7 +270,7 @@ public class Gym {
      *
      * Asks the user to identify the type of member and then lists all the elements in that list
      * using {@link toString} created in the specified type of member({@code SociosIndividuais} or {@code SocioEmpresario}).
-     * @param input
+     * @param input Scanner name
      */
     public void listarSocios(Scanner input) {
         String tipoSocio;
@@ -303,7 +303,7 @@ public class Gym {
     /**
      * This method is mainly responsible to add activities in a list depending on the type of the activity({@code AulasDeGrupo} or {@code PersonalTraining}).
      * <br>The user will be asked to give name, the hours and minutes of the activity and then the date, and finally the maximum capacity of that activity in case of being a group lesson.
-     * @param input
+     * @param input Scanner name
      */
     public void addActivity(Scanner input) {
         String tipoAtividade;
@@ -394,7 +394,7 @@ public class Gym {
     /**
      * Depending on the type of Socio and depending on the type of the lesson willing to make the registration,
      * the user will get to see all the activities available and enter the index of activity that he liked most and make his registration.
-     * @param input
+     * @param input Scanner name
      */
     public void marcarAtividade(Scanner input) {
         String tipoAtividade, tipoSocio;
@@ -547,7 +547,7 @@ public class Gym {
      * Asks the user to identify the type of member he is ({@code Individual} or {@code Empresario}) ,
      * and then to identify what kind of activities he is willing to check({@code AulasDeGrupo} or {@code PersonalTraining}).
      * Depending on having elements in the list wanted or not, the user will get to see the list asked.
-     * @param input
+     * @param input Scanner name
      */
     public void listarMarcacoes(Scanner input) {
         String tipoSocio,tipoAtividade;
@@ -669,7 +669,7 @@ public class Gym {
 
     /**
      * Runs the list of Individual members and gets the information of that member if he actually exist
-     * @param numId
+     * @param numId ID number of individual member
      * @return if the IdNumber exist in the list the info of that person will be provided
      */
     private SocioIndividual infoSocioInd(int numId){
@@ -682,8 +682,8 @@ public class Gym {
     }
 
     /**
-     * Runs the list of Company members and gets the information of that member if he actually exist.
-     * @param numId
+     * Runs the list of Corporate members and gets the information of that member if he actually exist.
+     * @param numId ID number of individual member
      * @return if the IdNumber exist in the list the info of that person will be provided
      */
     private SocioEmpresario infoSocioEmp(int numId){
@@ -697,7 +697,7 @@ public class Gym {
 
     /**
      * Makes sure that the Id number given exists in the list of Individual members
-     * @param numID
+     * @param numID ID number of individual member
      * @return true if number exists in the list of Individual members
      */
     private boolean doesIdExistInd(int numID) {
@@ -710,8 +710,8 @@ public class Gym {
     }
 
     /**
-     * Makes sure that the Id number given exists in the list of Company members
-     * @param numID
+     * Makes sure that the Id number given exists in the list of Corporate members
+     * @param numID ID number of Corporate member
      * @return true if number exists in the list of Company members
      */
     private boolean doesIdExistEmp(int numID) {
@@ -764,8 +764,8 @@ public class Gym {
     /**
      * This function will tell the user that his input for the type of member was wrong and asks him if he is  willing to get out of the function.
      * If user types SIM or S user get out from the method.
-     * @param input
-     * @param tipoSocio
+     * @param input Scanner name
+     * @param tipoSocio type of member
      * @return true if user willing to continue
      */
     private boolean tipoSocioErrado(Scanner input,String tipoSocio) {
@@ -783,8 +783,8 @@ public class Gym {
     /**
      * This function will tell the user that his input for the type of activity was wrong and asks him if he is  willing to get out of the function.
      * If user types SIM or S user get out from the method.
-     * @param input
-     * @param tipoAtividade
+     * @param input Scanner name
+     * @param tipoAtividade type of activity
      * @return
      */
     private boolean tipoAtividadeErrada(Scanner input,String tipoAtividade) {
@@ -824,7 +824,7 @@ public class Gym {
      *   <li>Total number of bookings made</li>
      * </ul>
      * Results are printed in a formatted summary including the member's name and ID.</p>
-     * @param input
+     * @param input Scanner name
      */
     public void valoresSocio(Scanner input) {
         System.out.print("Indica o seu numero identificador : ");

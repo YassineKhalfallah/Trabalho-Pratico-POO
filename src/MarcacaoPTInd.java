@@ -18,11 +18,11 @@ public class MarcacaoPTInd extends Marcacao {
 
     /**
      * The constructor of the class Marcacao, where we set the given values to each parameter
-     * @param data
-     * @param hora
-     * @param custoFinal
-     * @param aula
-     * @param socioInd
+     * @param data date
+     * @param hora time
+     * @param custoFinal Final coast
+     * @param aula  PT session
+     * @param socioInd Individual member
      */
     public MarcacaoPTInd(Data data, Hora hora, double custoFinal,PersonalTraining aula,SocioIndividual socioInd) {
         super(data, hora, custoFinal);
@@ -41,7 +41,7 @@ public class MarcacaoPTInd extends Marcacao {
     /**
      * Once we did set the variable as private, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setSessaoP}
-     * @param aula
+     * @param aula PT Session
      */
     public void setSessaoP(PersonalTraining aula) {
         this.aula = aula;
@@ -58,7 +58,7 @@ public class MarcacaoPTInd extends Marcacao {
     /**
      * Once we did set the variable as private, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setSocioInd}
-     * @param socioInd
+     * @param socioInd Individual member
      */
     public void setSocioInd(SocioIndividual socioInd) {
         this.socioInd = socioInd;

@@ -17,11 +17,11 @@ public class MarcacaoAGInd extends Marcacao {
     public MarcacaoAGInd(){}
     /**
      * The constructor of the class Marcacao, where we set the given values to each parameter
-     * @param data
-     * @param hora
-     * @param custoFinal
-     * @param aula
-     * @param socioInd
+     * @param data date
+     * @param hora time
+     * @param custoFinal final cost
+     * @param aula group lesson
+     * @param socioInd Individual lesson
      */
     public MarcacaoAGInd(Data data, Hora hora, double custoFinal,AulasDeGrupo aula,SocioIndividual socioInd) {
         super(data, hora, custoFinal);
@@ -40,7 +40,7 @@ public class MarcacaoAGInd extends Marcacao {
     /**
      * Once we did set the variable as private, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setAulaG}
-     * @param aula
+     * @param aula group lesson
      */
     public void setAulaG(AulasDeGrupo aula) {
         this.aula = aula;
@@ -57,7 +57,7 @@ public class MarcacaoAGInd extends Marcacao {
     /**
      * Once we did set the variable as private, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setSocioInd}
-     * @param socioInd
+     * @param socioInd Individual member
      */
     public void setSocioInd(SocioIndividual socioInd) {
         this.socioInd = socioInd;
