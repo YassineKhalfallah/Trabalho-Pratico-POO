@@ -196,6 +196,8 @@ public class Gym {
                         socioEmp.setNumeroSocio(num);
                     }
                     System.out.println("--- Numero de Socio esta dado ---");
+                    // atribuir o desconto para socioEmpresario
+                    socioEmp.setDesconto(20);
                     // add the socio individual na lista
                     sociosEmpresarios.add(socioEmp);
                     // Going to get you the info about Socio da Empresa
