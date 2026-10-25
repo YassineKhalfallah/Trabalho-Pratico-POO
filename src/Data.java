@@ -131,7 +131,6 @@ public class Data {
             validarDate = date.isDataValida(date);
             i++;
         } while (!validarDate);
-        input.close();
         return date;
     }
 }

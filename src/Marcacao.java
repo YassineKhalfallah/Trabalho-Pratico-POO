@@ -1,15 +1,15 @@
 public class Marcacao {
     protected Data data;
     protected Hora hora;
-    protected double custoFinal;
+    protected double custo;
     /**
      * The constructor of an empty class AulasDeGrupo
      */
     public Marcacao() {}
-    public Marcacao( Data data, Hora hora, double custoFinal) {
+    public Marcacao( Data data, Hora hora, double custo) {
         this.data = data;
         this.hora = hora;
-        this.custoFinal = custoFinal;
+        this.custo = custo;
     }
     public void setData(Data data) {
         this.data = data;
@@ -17,8 +17,8 @@ public class Marcacao {
     public void setHora(Hora hora) {
         this.hora = hora;
     }
-    public void setCustoFinal(double custoFinal) {
-        this.custoFinal = custoFinal;
+    public void setCusto(double custo) {
+        this.custo = custo;
     }
     public Data getData() {
         return data;
@@ -26,7 +26,7 @@ public class Marcacao {
     public Hora getHora() {
         return hora;
     }
-    public double getCustoFinal() {
-        return custoFinal;
+    public double getCusto() {
+        return custo;
     }
 }

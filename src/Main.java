@@ -7,7 +7,10 @@ public class Main {
         Gym gym = new Gym();
         //gym.addPessoa(input);
         gym.resumoAtividades();
-        gym.menu(input , gym);
+        for (int i = 0 ; i<3 ;i++) {
+            gym.menu(input, gym);
+        }
+        gym.resumoAtividades();
         String[] formacoes1 = {"Engenharia", "Mestrado", "Doutorado"};
         Instrutor instrutor1 = new Instrutor("Yassine","M", formacoes1);
         gym.instrutores.add(instrutor1);

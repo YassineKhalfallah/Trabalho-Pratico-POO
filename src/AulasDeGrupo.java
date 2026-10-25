@@ -57,7 +57,7 @@ public class AulasDeGrupo extends Atividade{
         if(tipoAula.equals("Yoga")){
             setPreco(8.0);
         }
-        if(tipoAula.equals("Spining")){
+        if(tipoAula.equals("Spinning")){
             setPreco(9.0);
         }
         if(tipoAula.equals("Zumba")){
@@ -113,10 +113,11 @@ public class AulasDeGrupo extends Atividade{
      * @return info group lesson
      */
     public String toString() {
-        return "Aula de grupo marcada para " + getTempo().getHoras() +
-                "h e " + getTempo().getMinutos() +
-                "min do tipo " + getTipoAula() +
-                ", custa " + getPreco() +
+        return "Aula de grupo marcada para " + tempo.getHoras() +
+                "h e " + tempo.getMinutos() +
+                "min\nno dia :"+date.getDia()+"/"+date.getMes()+"/"+date.getAno()+
+                "\ndo tipo " + getTipoAula() +
+                ",\ncusta " + getPreco() +
                 "€ esta na aula " + getNumeroDePessoasNaAtividade() +
                 "pessoas e o limite maximo de pessoas é " + getCapacidadeMaxima();
     }
@@ -147,14 +148,13 @@ public class AulasDeGrupo extends Atividade{
         String aula = null;
         int i = 0;
         do {
-            if (i==0) System.out.println("Indica o tipo de aula que quere marcar: ");
-            else System.out.println("--AULA INVALIDO--\nIndica o tipo de aula que quere marcar: ");
+            if (i==0) System.out.println("Indica o tipo de aula que quer marcar: ");
+            else System.out.println("--AULA INVALIDA--\nIndica o tipo de aula que quer marcar: ");
 
             aula = input.nextLine();
             validarAula = isTipoAulaValido(aula);
             i++;
         }while (!validarAula);
-        input.close();
         return aula;
     }
 
@@ -184,7 +184,6 @@ public class AulasDeGrupo extends Atividade{
             validarCap = isCapacidadeValida(capacidade);
             i++;
         }while (!validarCap);
-        input.close();
         return capacidade;
     }
 

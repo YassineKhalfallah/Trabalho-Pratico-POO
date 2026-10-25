@@ -104,7 +104,6 @@ public class PersonalTraining extends Atividade{
             validarSessao = isTipoSessaoValido(sessao);
             i++;
         }while (!validarSessao);
-        input.close();
         return sessao;
     }
 

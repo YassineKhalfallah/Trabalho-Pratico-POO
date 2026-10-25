@@ -2,8 +2,8 @@ public class MarcacaoAGInd extends Marcacao {
     private AulasDeGrupo aula;
     private SocioIndividual socioInd;
     public MarcacaoAGInd(){}
-    public MarcacaoAGInd(Data data, Hora hora, double custoFinal,AulasDeGrupo Aula,SocioIndividual socioInd) {
-        super(data, hora, custoFinal);
+    public MarcacaoAGInd(Data data, Hora hora, double custo,AulasDeGrupo Aula,SocioIndividual socioInd) {
+        super(data, hora, custo);
         this.aula = Aula;
         this.socioInd = socioInd;
     }
@@ -12,8 +12,8 @@ public class MarcacaoAGInd extends Marcacao {
         return aula;
     }
 
-    public void setAulaG(AulasDeGrupo Aula) {
-        this.aula = Aula;
+    public void setAulaG(AulasDeGrupo aula) {
+        this.aula = aula;
     }
     public SocioIndividual getSocioInd() {
         return socioInd;
@@ -21,6 +21,7 @@ public class MarcacaoAGInd extends Marcacao {
     public void setSocioInd(SocioIndividual socioInd) {
         this.socioInd = socioInd;
     }
+
     public String toString(){
         return "A aula de grupo marcada tem este informacao:\n"+aula.toString()+
                 "\nE tem o socio com as informcaoes seguintes:\n"+socioInd.toString()+

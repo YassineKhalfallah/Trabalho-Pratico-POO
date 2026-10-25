@@ -55,15 +55,16 @@ public class Gym {
     }
 
     public void menu(Scanner input, Gym gym) {
-        System.out.println("---- MENU ----");
+        System.out.println("\n---- MENU ----\n");
         System.out.println("1 - Add Pessoa");// pessoa serve para socios e instrutores
         System.out.println("2 - Add Atividade");
         System.out.println("3 - Listar Socios");
-        System.out.println("4 - Listar Aulas de Grupos");
+        System.out.println("4 - Listar Atividades");
         System.out.println("5 - Fazer Marcaçao numa atividade");
         System.out.println("6 - Listar Marcaçoes");
         System.out.println("7 - Resumo De Atividades");
         System.out.println("8 - Atividade mais popular");
+        System.out.println("9 - Vantagens que tem com o desconto");
         int n = Integer.parseInt(input.nextLine());
         if(n == 1) gym.addPessoa(input);
         else if(n == 2) gym.addActivity(input);
@@ -73,6 +74,7 @@ public class Gym {
         else if (n == 6) gym.listarMarcacoes(input);
         else if (n == 7) gym.resumoAtividades();
         else if (n == 8) gym.maisPopular();
+        else if (n == 9) gym.valoresSocio(input);
         else System.out.println("--- NUMERO INVALIDO ----");
 
     }
@@ -288,11 +290,16 @@ public class Gym {
         }
     }
 
+    /**
+     * This method is mainly responsible to add activities in a list depending on the type of the activity({@code AulasDeGrupo} or {@code PersonalTraining}).
+     * <br>The user will be asked to give name, the hours and minutes of the activity and then the date, and finally the maximum capacity of that activity in case of being a group lesson.
+     * @param input
+     */
     public void addActivity(Scanner input) {
         String tipoAtividade;
         boolean valid = true;
         while (valid) {
-            System.out.println("--- Que tipo de Atividades quere adicionar ---");
+            System.out.println("--- Que tipo de Atividades quer adicionar ---");
 
             tipoAtividade = input.nextLine();
             tipoAtividade = tipoAtividade.toUpperCase();
@@ -302,9 +309,13 @@ public class Gym {
                 // set tipo de aula
                 aulaGrupo.setTipoAula(aulaGrupo.setAula(input));
                 // set hora
-                aulaGrupo.setTempo(aulaGrupo.getTempo().setHoraDaAtividade(input));
+                Hora nhora = new Hora();
+                nhora = nhora.setHoraDaAtividade(input);
+                aulaGrupo.setTempo(nhora);
                 //set data
-                aulaGrupo.setDate(aulaGrupo.date.setDataDaAtividade(input));
+                Data ndata = new Data();
+                ndata = ndata.setDataDaAtividade(input);
+                aulaGrupo.setDate(ndata);
                 // set capacidadeMaxima da aula
                 aulaGrupo.setCapacidadeMaxima(aulaGrupo.setCapDaAula(input));
 
@@ -320,9 +331,13 @@ public class Gym {
                 // set tipo de aula
                 personalTrain.setTipoTraining(personalTrain.setSessao(input));
                 // set hora
-                personalTrain.setTempo(personalTrain.tempo.setHoraDaAtividade(input));
-                // set data
-                personalTrain.setDate(personalTrain.date.setDataDaAtividade(input));
+                Hora nhora = new Hora();
+                nhora = nhora.setHoraDaAtividade(input);
+                personalTrain.setTempo(nhora);
+                //set data
+                Data ndata = new Data();
+                ndata = ndata.setDataDaAtividade(input);
+                personalTrain.setDate(ndata);
                 //add the group lesson to the list of Group Lessons
                 personalTraining.add(personalTrain);
                 // Going to get you the info about the new Group Lesson created
@@ -345,7 +360,7 @@ public class Gym {
             System.out.println("--- Que tipo de Atividades quer listar ---");
             tipoAtividade = input.nextLine();
             tipoAtividade = tipoAtividade.toUpperCase();
-            if (tipoAtividade.equals("AULA DE GRUPO")) {
+            if (tipoAtividade.equals("AULAS DE GRUPO")) {
                 if (aulasDeGrupo.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
                 else {
                     for (AulasDeGrupo aulaG : aulasDeGrupo) System.out.println(aulaG.toString());
@@ -407,7 +422,7 @@ public class Gym {
                             aulaG1.setAulaG(atividadeEscolhida);
                             aulaG1.setSocioInd(socioInd);
                             //inserir o valor final
-                            aulaG1.setCustoFinal(atividadeEscolhida.getPreco()-(atividadeEscolhida.getPreco()*((socioInd.getDesconto())/100)));
+                            aulaG1.setCusto(atividadeEscolhida.getPreco());
                             //indicar que ha mais uma pessoa na atividade escolhida
                             atividadeEscolhida.setNumeroDePessoasNaAtividade(atividadeEscolhida.getNumeroDePessoasNaAtividade()+1);
                             marcacaoAGInd.add(aulaG1);
@@ -431,8 +446,7 @@ public class Gym {
                             sessaoP1.setSessaoP(SessaoEscolhida);
                             sessaoP1.setSocioInd(socioInd);
                             //inserir o valor final
-                            sessaoP1.setCustoFinal(SessaoEscolhida.getPreco()-(SessaoEscolhida.getPreco()*((socioInd.getDesconto())/100)));
-
+                            sessaoP1.setCusto(SessaoEscolhida.getPreco());
                             //guardar marcaçao na lista de marcacoes
                             marcacaoPTInd.add(sessaoP1);
                         }
@@ -442,6 +456,7 @@ public class Gym {
                         vld = tipoAtividadeErrada(input,tipoAtividade);
                     }
                 }
+                valid = false;
             }
             else if(tipoSocio.equals("EMPRESARIO")){
                 //Pedir o numero de socio
@@ -467,7 +482,7 @@ public class Gym {
                         aulaG1.setAulaG(atividadeEscolhida);
                         aulaG1.setSocioEmp(socioEmp);
                         //inserir o valor final
-                        aulaG1.setCustoFinal(atividadeEscolhida.getPreco()-(atividadeEscolhida.getPreco()*((socioEmp.getDesconto())/100)));
+                        aulaG1.setCusto(atividadeEscolhida.getPreco());
                         //indicar que ha mais uma pessoa na atividade escolhida
                         atividadeEscolhida.setNumeroDePessoasNaAtividade(atividadeEscolhida.getNumeroDePessoasNaAtividade()+1);
 
@@ -488,7 +503,7 @@ public class Gym {
                         sessaoP1.setSessaoP(SessaoEscolhida);
                         sessaoP1.setSocioEmp(socioEmp);
                         //inserir o valor final
-                        sessaoP1.setCustoFinal(SessaoEscolhida.getPreco()-(SessaoEscolhida.getPreco()*((socioEmp.getDesconto())/100)));
+                        sessaoP1.setCusto(SessaoEscolhida.getPreco());
 
                         //guardar marcaçao na lista de marcacoes
                         marcacaoPTEmp.add(sessaoP1);
@@ -763,10 +778,60 @@ public class Gym {
      * And also and idea of the numbers of all the activities of the two kind ({@link AulasDeGrupo} & {@link PersonalTraining}).
      */
     public void resumoAtividades(){
-        System.out.println("--- RESUMO DE ATIVIDADES ---");
+        System.out.println("\n--- RESUMO DE ATIVIDADES ---\n");
         System.out.println("No nosso ginasio existem:\nSocios Individuais: "+sociosIndividuais.size()+
                 "\nSocios Empresarios: "+sociosEmpresarios.size()+
                 "\nAulas de Grupo: "+aulasDeGrupo.size()+
                 "\nSessões de Personal Training: "+personalTraining.size());
+    }
+
+    public void valoresSocio(Scanner input){
+        System.out.print("Indica o seu numero identificador : ");
+        int numSocio = Integer.parseInt(input.nextLine());
+        Socio socioEncontrado = encontrarSocioPorNumero(numSocio);
+        if (socioEncontrado == null) {
+            System.out.println("--- SÓCIO NÃO ENCONTRADO ---");
+            return;
+        }
+        double totalGasto = 0.0;
+        double totalPoupado = 0.0;
+        int contadorMarcacoes = 0;
+        //pesguisar em marcacoes do socio individual
+        for (MarcacaoAGInd m : marcacaoAGInd) {
+            if (m.getSocioInd().getNumeroSocio() == numSocio) {
+                totalGasto += m.custo;
+                totalPoupado += m.custo - (m.custo * (socioEncontrado.desconto/100));
+                contadorMarcacoes++;
+            }
+        }
+        for (MarcacaoPTInd m : marcacaoPTInd) {
+            if (m.getSocioInd().getNumeroSocio() == numSocio) {
+                totalGasto += m.custo;
+                totalPoupado += m.custo - (m.custo * (socioEncontrado.desconto/100));
+                contadorMarcacoes++;
+            }
+        }
+        // Imprimir Resultado
+        System.out.print("\n=== VALORES DO SÓCIO ===\n");
+        System.out.println("Nome: " + socioEncontrado.getNomePessoa()+
+                "\nNúmero: " + numSocio +
+                "\nTotal de marcações: "+contadorMarcacoes+
+                "\nTotal de gastos: "+totalGasto+
+                "\nTotal de poupados: "+totalPoupado);
+    }
+
+    /**
+     * Looks in both lists {@link sociosIndividuais} and {@link sociosEmpresarios} if there is a member with his identification number.
+     * @param num
+     * @return in case of finding the person in a list, all of his information will get passed down
+     */
+    public Socio encontrarSocioPorNumero(int num) {
+        for (SocioIndividual s : sociosIndividuais) {
+            if (s.getNumeroSocio() == num) return s;
+        }
+        for (SocioEmpresario s : sociosEmpresarios) {
+            if (s.getNumeroSocio() == num) return s;
+        }
+        return null;
     }
 }

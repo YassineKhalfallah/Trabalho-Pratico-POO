@@ -1,22 +1,27 @@
 public class MarcacaoAGEmp extends Marcacao{
-    private AulasDeGrupo Aula;
+    private AulasDeGrupo aula;
     private SocioEmpresario socioEmp;
     public MarcacaoAGEmp(){}
-    public MarcacaoAGEmp(Data data, Hora hora, double custoFinal,AulasDeGrupo Aula,SocioEmpresario socioEmp) {
-        super(data, hora, custoFinal);
-        this.Aula = Aula;
-        this.socioEmp = new SocioEmpresario();
+    public MarcacaoAGEmp(Data data, Hora hora, double custo,AulasDeGrupo aula,SocioEmpresario socioEmp) {
+        super(data, hora, custo);
+        this.aula = aula;
+        this.socioEmp = socioEmp;
     }
     public AulasDeGrupo getAula() {
-        return Aula;
+        return aula;
     }
     public void setAulaG(AulasDeGrupo Aula) {
-        this.Aula = Aula;
+        this.aula = Aula;
     }
     public SocioEmpresario getSocioEmp() {
         return socioEmp;
     }
     public void setSocioEmp(SocioEmpresario socioEmp) {
         this.socioEmp = socioEmp;
+    }
+    public String toString(){
+        return "A aula de grupo marcada tem este informacao:\n"+aula.toString()+
+                "\nE tem o socio com as informcaoes seguintes:\n"+aula.toString()+
+                "e o socio vai pagar no final :"+(aula.getPreco()-(aula.getPreco()*((socioEmp.getDesconto())/100)));
     }
 }
