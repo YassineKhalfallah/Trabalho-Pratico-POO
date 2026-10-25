@@ -22,9 +22,9 @@ public class SocioEmpresario extends Socio{
      * The constructor of the class SocioEmpresario, where we give the parameters the given values
      * @param nomeEmpresa company name
      * @param nifEmpresa company taxpayer number
-     * @param nomeSocio name
-     * @param numeroSocio id number
-     * @param emailSocio email
+     * @param nomeSocio name of member
+     * @param numeroSocio id number of member
+     * @param emailSocio email of member
      */
     public SocioEmpresario(String nomeEmpresa, int nifEmpresa, String nomeSocio, int numeroSocio, String emailSocio) {
         super(nomeSocio, numeroSocio, emailSocio,20);

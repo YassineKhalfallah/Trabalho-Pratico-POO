@@ -12,7 +12,7 @@ public class Pessoa {
 
     /**
      * The constructor of the class Pessoa, where we give the parameters the given values
-     * @param nomePessoa name
+     * @param nomePessoa name of person
      */
     public Pessoa(String nomePessoa) {
         this.nomePessoa = nomePessoa;
@@ -29,7 +29,7 @@ public class Pessoa {
     /**
      * Once we did set the variable as protected in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@code setNomePessoa()}
-     * @param nomePessoa name
+     * @param nomePessoa name of person
      */
     public void setNomePessoa(String nomePessoa) {
         this.nomePessoa = nomePessoa;
@@ -43,7 +43,7 @@ public class Pessoa {
      * <li>The String doesn't have unacceptable spaces between the first and the last name</li>
      * <li>The String doesn't have unacceptable characters
      *</ol>
-     * @param nome name
+     * @param nome name of person
      * @return true if all key fields match
      */
     public boolean isNomeSeguro(String nome) {
