@@ -34,7 +34,7 @@ public class MarcacaoPTEmp extends Marcacao {
      * Gets you all info of the Personal Session in this class
      * @return aula
      */
-    public PersonalTraining getAula() {
+    public PersonalTraining getSessaoP() {
         return aula;
     }
     public void setSessaoP(PersonalTraining aula) {

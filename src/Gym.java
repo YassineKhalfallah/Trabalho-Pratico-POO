@@ -624,12 +624,12 @@ public class Gym {
         for (PersonalTraining pt : personalTraining) {
             int contagemPT = 0;
             for (MarcacaoPTInd m : marcacaoPTInd) {
-                if (m.getAula() == pt) {
+                if (m.getSessaoP() == pt) {
                     contagemPT++;
                 }
             }
             for (MarcacaoPTEmp m : marcacaoPTEmp){
-                if (m.getAula() == pt){
+                if (m.getSessaoP() == pt){
                     contagemPT++;
                 }
             }
@@ -821,14 +821,14 @@ public class Gym {
             for (MarcacaoAGInd m : marcacaoAGInd) {
                 if (m.getSocioInd().getNumeroSocio() == numSocio) {
                     totalGasto += m.custoFinal;
-                    totalPoupado += m.getAula().preco - m.custoFinal;
+                    totalPoupado += m.getAulaG().preco - m.custoFinal;
                     contadorMarcacoes++;
                 }
             }
             for (MarcacaoPTInd m : marcacaoPTInd) {
                 if (m.getSocioInd().getNumeroSocio() == numSocio) {
                     totalGasto += m.custoFinal;
-                    totalPoupado += m.getAula().preco - m.custoFinal;
+                    totalPoupado += m.getSessaoP().preco - m.custoFinal;
                     contadorMarcacoes++;
                 }
             }
@@ -845,14 +845,14 @@ public class Gym {
             for (MarcacaoAGEmp m : marcacaoAGEmp) {
                 if (m.getSocioEmp().getNumeroSocio() == numSocio) {
                     totalGasto += m.custoFinal;
-                    totalPoupado += m.getAula().preco - m.custoFinal;
+                    totalPoupado += m.getAulaG().preco - m.custoFinal;
                     contadorMarcacoes++;
                 }
             }
             for (MarcacaoPTEmp m : marcacaoPTEmp) {
                 if (m.getSocioInd().getNumeroSocio() == numSocio) {
                     totalGasto += m.custoFinal;
-                    totalPoupado += m.getAula().preco - m.custoFinal;
+                    totalPoupado += m.getSessaoP().preco - m.custoFinal;
                     contadorMarcacoes++;
                 }
             }

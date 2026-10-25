@@ -33,7 +33,7 @@ public class MarcacaoAGEmp extends Marcacao{
      * Gets you all info of the group lesson in this class
      * @return aula
      */
-    public AulasDeGrupo getAula() {
+    public AulasDeGrupo getAulaG() {
         return aula;
     }
 
