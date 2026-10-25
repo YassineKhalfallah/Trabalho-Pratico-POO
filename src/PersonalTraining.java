@@ -41,13 +41,14 @@ public class PersonalTraining extends Atividade{
      */
     public void setTipoTraining(String tipoTraining) {
         this.tipoTraining = tipoTraining;
-        if(tipoTraining.equals("Iniciacao")){
+        tipoTraining = tipoTraining.toUpperCase();
+        if(tipoTraining.equals("INICIACAO")){
             setPreco(18.0);
         }
-        if(tipoTraining.equals("Intermédio")){
+        if(tipoTraining.equals("INTERMEDIO")){
             setPreco(22.0);
         }
-        if(tipoTraining.equals("Avançado")){
+        if(tipoTraining.equals("AVANCADO")){
             setPreco(28.0);
         }
     }

@@ -54,16 +54,17 @@ public class AulasDeGrupo extends Atividade{
      */
     public void setTipoAula(String tipoAula) {
         this.tipoAula = tipoAula;
-        if(tipoAula.equals("Yoga")){
+        tipoAula = tipoAula.toUpperCase();
+        if(tipoAula.equals("YOGA")){
             setPreco(8.0);
         }
-        if(tipoAula.equals("Spinning")){
+        if(tipoAula.equals("SPINNING")){
             setPreco(9.0);
         }
-        if(tipoAula.equals("Zumba")){
+        if(tipoAula.equals("ZUMBA")){
             setPreco(8.5);
         }
-        if (tipoAula.equals("CrossFit")){
+        if (tipoAula.equals("CROSSFIT")){
             setPreco(12.0);
         }
     }
@@ -115,11 +116,11 @@ public class AulasDeGrupo extends Atividade{
     public String toString() {
         return "Aula de grupo marcada para " + tempo.getHoras() +
                 "h e " + tempo.getMinutos() +
-                "min\nno dia :"+date.getDia()+"/"+date.getMes()+"/"+date.getAno()+
+                "min\nno dia : "+date.getDia()+"/"+date.getMes()+"/"+date.getAno()+
                 "\ndo tipo " + getTipoAula() +
                 ",\ncusta " + getPreco() +
                 "€ esta na aula " + getNumeroDePessoasNaAtividade() +
-                "pessoas e o limite maximo de pessoas é " + getCapacidadeMaxima();
+                " pessoas e o limite maximo de pessoas é " + getCapacidadeMaxima();
     }
 
     /**

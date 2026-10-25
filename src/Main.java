@@ -7,7 +7,7 @@ public class Main {
         Gym gym = new Gym();
         //gym.addPessoa(input);
         gym.resumoAtividades();
-        for (int i = 0 ; i<3 ;i++) {
+        for (int i = 0 ; i<5 ;i++) {
             gym.menu(input, gym);
         }
         gym.resumoAtividades();

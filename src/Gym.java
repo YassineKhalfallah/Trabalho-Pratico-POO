@@ -277,7 +277,7 @@ public class Gym {
                 }
                 valid = false;
             }
-            else if (tipoSocio.equals("EMPRESA")) {
+            else if (tipoSocio.equals("EMPRESARIO")) {
                 if (sociosEmpresarios.isEmpty()) System.out.println("--- AINDA NAO TEM SOCIOS EMPRESARIOS ---");
                 else {
                     for (SocioEmpresario socioEmp : sociosEmpresarios) {
@@ -365,14 +365,14 @@ public class Gym {
             if (tipoAtividade.equals("AULAS DE GRUPO")) {
                 if (aulasDeGrupo.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
                 else {
-                    for (AulasDeGrupo aulaG : aulasDeGrupo) System.out.println(aulaG.toString());
+                    for (AulasDeGrupo aulaG : aulasDeGrupo) System.out.println(aulaG.toString()+"\n");
                 }
                 valid = false;
             }
             else if (tipoAtividade.equals("PERSONAL TRAINING")) {
                 if (personalTraining.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
                 else {
-                    for (PersonalTraining personalT : personalTraining) System.out.println(personalT.toString());
+                    for (PersonalTraining personalT : personalTraining) System.out.println(personalT.toString()+"\n");
                 }
                 valid = false;
             }
@@ -401,7 +401,7 @@ public class Gym {
                 boolean vld = true;
                 while (vld) {
                     //
-                    System.out.println("--- Que tipo de Atividades quer marcar ---");
+                    System.out.println("--- Que tipo de Atividades quer listar ---");
                     tipoAtividade = input.nextLine();
                     tipoAtividade = tipoAtividade.toUpperCase();
                     if (tipoAtividade.equals("AULAS DE GRUPO")) {
