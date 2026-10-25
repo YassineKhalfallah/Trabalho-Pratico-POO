@@ -601,7 +601,8 @@ public class Gym {
     }
 
     /**
-     *
+     * Checks the lists of Group Classes and Personal Training to find and print 
+     * the most popular activity based on the total number of bookings or participants.
      */
     public void maisPopular() {
         System.out.println("--- Atividade mais popular ---");
