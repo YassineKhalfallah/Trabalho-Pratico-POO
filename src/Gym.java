@@ -401,7 +401,7 @@ public class Gym {
                 boolean vld = true;
                 while (vld) {
                     //
-                    System.out.println("--- Que tipo de Atividades quer listar ---");
+                    System.out.println("--- Que tipo de Atividades quer se inscrever ---");
                     tipoAtividade = input.nextLine();
                     tipoAtividade = tipoAtividade.toUpperCase();
                     if (tipoAtividade.equals("AULAS DE GRUPO")) {
@@ -415,7 +415,7 @@ public class Gym {
 
                             for (AulasDeGrupo aulaG : aulasDeGrupo) {
 
-                                System.out.println(aulaG.toString());
+                                System.out.println(aulaG.toString()+"\n");
                             }
                             System.out.print("Indique o índice da atividade desejada: ");
                             int idx = Integer.parseInt(input.nextLine().trim()) - 1;
@@ -439,7 +439,7 @@ public class Gym {
                             // listar aulas de grupo
                             System.out.println("Sessoes de Personal Training disponiveis :");
                             for (PersonalTraining aulaP : personalTraining) {
-                                System.out.println(aulaP.toString());
+                                System.out.println(aulaP.toString()+"\n");
                             }
                             System.out.print("Indique o indice da atividade desejada: ");
                             int idx = Integer.parseInt(input.nextLine().trim()) - 1;

@@ -14,6 +14,11 @@ public class Main {
         String[] formacoes1 = {"Engenharia", "Mestrado", "Doutorado"};
         Instrutor instrutor1 = new Instrutor("Yassine","M", formacoes1);
         gym.instrutores.add(instrutor1);
+        SocioIndividual soInd = new SocioIndividual(17,"Sal",909909,"sal@gmail.com",10);
+        gym.sociosIndividuais.add(soInd);
+        Data dat2 = new Data(12,12,2034);
+        Hora tmp1 = new Hora(12,00);
+        MarcacaoAGInd mAgInd = new MarcacaoAGInd(dat2,tmp1,)
         gym.listaInstrutores();
         gym.listarSocios(input);
         gym.listarAtividades(input);
