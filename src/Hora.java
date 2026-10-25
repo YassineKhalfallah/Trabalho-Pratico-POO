@@ -20,8 +20,8 @@ public class Hora {
 
     /**
      * The constructor of the class Hora, where we give the parameters the given values
-     * @param horas
-     * @param minutos
+     * @param horas time
+     * @param minutos time
      */
     public Hora(int horas, int minutos) {
         this.horas = horas;
@@ -39,7 +39,7 @@ public class Hora {
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setHoras}
-     * @param horas
+     * @param horas time
      */
     public void setHoras(int horas) {
         this.horas = horas;
@@ -56,7 +56,7 @@ public class Hora {
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setMinutos}
-     * @param minutos
+     * @param minutos time
      */
     public void setMinutos(int minutos) {
         this.minutos = minutos;
@@ -64,7 +64,7 @@ public class Hora {
 
     /**
      * The function makes sure that the activity hour is a valid one.
-     * @param horas
+     * @param horas time
      * @return true if the hour is valid
      */
     public boolean isHoraValida(int horas){
@@ -73,7 +73,7 @@ public class Hora {
     }
     /**
      * The function makes sure that the activity minutes are valid.
-     * @param minutos
+     * @param minutos time
      * @return true if the minutes are valid
      */
     public boolean isMinutoValida(int minutos){
@@ -84,6 +84,7 @@ public class Hora {
     /**
      * Asks the user to give the hour and minutes of the activity, However these two infos will get checked at the functions {@link isHoraValida} & {@link isMinutoValida}
      * if after the verification the hours and the minutes of the activity are valid, you will get it at the return, otherwise it will keep asking you again.
+     * @param input hora
      * @return Hour tempo
      * */
     public Hora setHoraDaAtividade(Scanner input){
