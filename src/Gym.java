@@ -59,8 +59,8 @@ public class Gym {
 
     /**
      * Menu to help the user indicate and chose the operation he would like to do.
-     * @param input
-     * @param gym
+     * @param input Scanner name
+     * @param gym gym
      */
     public void menu(Scanner input, Gym gym) {
         System.out.println("\n---- MENU ----\n");
@@ -363,6 +363,7 @@ public class Gym {
     /**
      * Asks the user to identify the type of activity and then lists all the elements in that list
      * using {@link toString} created in the specified type of activity ({@code AulasDeGrupo} or {@code PersonalTraining}).
+     * @param input Scanner name
      */
     public void listarAtividades(Scanner input) {
         String tipoAtividade;

@@ -25,9 +25,9 @@ public class Data {
 
     /**
      * The constructor of the class Data, where we give the parameters the given values
-     * @param dia
-     * @param mes
-     * @param ano
+     * @param dia day
+     * @param mes month
+     * @param ano year
      */
     public Data(int dia, int mes, int ano) {
         this.dia = dia;
@@ -46,7 +46,7 @@ public class Data {
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setDia}
-     * @param dia
+     * @param dia day
      */
     public void setDia(int dia) {
         this.dia = dia;
@@ -63,7 +63,7 @@ public class Data {
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setMes}
-     * @param mes
+     * @param mes month
      */
     public void setMes(int mes) {
         this.mes = mes;
@@ -82,7 +82,7 @@ public class Data {
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setAno}
      *
-     * @param ano
+     * @param ano year
      */
     public void setAno(int ano) {
         this.ano = ano;
@@ -92,7 +92,7 @@ public class Data {
     /**
      * The function makes sure that the activity date is a valid one.
      *
-     * @param date
+     * @param date date
      * @return true if the date is valid
      */
     public boolean isDataValida(Data date) {
@@ -126,7 +126,7 @@ public class Data {
      * Asks the user to give the date of the activity, However it will get checked at the function {@link isDataValida},
      * if after the verification the date of the activity is valid, you will get it at the return, otherwise it will keep asking you again.
      *
-     * @param input
+     * @param input scanner name
      * @return String data
      *
      */
