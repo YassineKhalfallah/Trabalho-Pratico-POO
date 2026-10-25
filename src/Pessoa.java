@@ -78,6 +78,7 @@ public class Pessoa {
      * Asks the user to give his full name, However it will get checked at the function {@link isNomeSeguro},
      * if after the verification the name is valid, you will get it at the return, otherwise it will keep asking you again.
      * @return String nomePessoa
+     * @param input name
      */
     public String setNome(Scanner input) {
         boolean validarNome = true;
