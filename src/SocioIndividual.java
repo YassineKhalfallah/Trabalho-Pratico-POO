@@ -13,11 +13,11 @@ public class SocioIndividual extends Socio {
     public SocioIndividual(){}
     /**
      * The constructor of the class SocioIndividual, where we give the parameters the given values
-     * @param idadeSocio
-     * @param nomeSocio
-     * @param numeroSocio
-     * @param emailSocio
-     * @param desconto
+     * @param idadeSocio age of member
+     * @param nomeSocio name of member
+     * @param numeroSocio id number of member
+     * @param emailSocio email of member
+     * @param desconto discount
      */
     public SocioIndividual(int idadeSocio,String nomeSocio, int numeroSocio, String emailSocio,double desconto){
         super(nomeSocio, numeroSocio, emailSocio,desconto);
@@ -34,7 +34,7 @@ public class SocioIndividual extends Socio {
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setIdadeSocio(int idadeSocio)}
-     * @param idadeSocio
+     * @param idadeSocio age of member
      */
     public void setIdadeSocio(int idadeSocio) {
         this.idadeSocio = idadeSocio;
@@ -63,7 +63,7 @@ public class SocioIndividual extends Socio {
 
     /**
      * The function makes sure that the age of the person is not a negative number.
-     * @param idade
+     * @param idade age of member
      * @return true if the age is positive
      */
     private boolean isIdadeNaoNega(int idade){

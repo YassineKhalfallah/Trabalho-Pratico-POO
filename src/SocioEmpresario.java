@@ -20,11 +20,11 @@ public class SocioEmpresario extends Socio{
 
     /**
      * The constructor of the class SocioEmpresario, where we give the parameters the given values
-     * @param nomeEmpresa
-     * @param nifEmpresa
-     * @param nomeSocio
-     * @param numeroSocio
-     * @param emailSocio
+     * @param nomeEmpresa company name
+     * @param nifEmpresa company taxpayer number
+     * @param nomeSocio name of member
+     * @param numeroSocio id number of member
+     * @param emailSocio email of member
      */
     public SocioEmpresario(String nomeEmpresa, int nifEmpresa, String nomeSocio, int numeroSocio, String emailSocio) {
         super(nomeSocio, numeroSocio, emailSocio,20);
@@ -43,7 +43,7 @@ public class SocioEmpresario extends Socio{
     /**
      * Once we did set the variable as private, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setNomeEmpresa(String nomeEmpresa)}
-     * @param nomeEmpresa
+     * @param nomeEmpresa company name
      */
     public void setNomeEmpresa(String nomeEmpresa) {
         this.nomeEmpresa = nomeEmpresa;
@@ -60,7 +60,7 @@ public class SocioEmpresario extends Socio{
     /**
      * Once we did set the variable as private, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setNifEmpresa(int nifEmpresa)}
-     * @param nifEmpresa
+     * @param nifEmpresa company taxpayer number
      */
     public void setNifEmpresa(int nifEmpresa) {
         this.nifEmpresa = nifEmpresa;
