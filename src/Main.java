@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Gym gym = new Gym();
-        //gym.addPessoa(input);
         gym.resumoAtividades();
         for (int i = 0 ; i<5 ;i++) {
             gym.menu(input, gym);
