@@ -422,7 +422,7 @@ public class Gym {
                             aulaG1.setAulaG(atividadeEscolhida);
                             aulaG1.setSocioInd(socioInd);
                             //inserir o valor final
-                            aulaG1.setCusto(atividadeEscolhida.getPreco());
+                            aulaG1.setCustoFinal();
                             //indicar que ha mais uma pessoa na atividade escolhida
                             atividadeEscolhida.setNumeroDePessoasNaAtividade(atividadeEscolhida.getNumeroDePessoasNaAtividade()+1);
                             marcacaoAGInd.add(aulaG1);
@@ -446,7 +446,7 @@ public class Gym {
                             sessaoP1.setSessaoP(SessaoEscolhida);
                             sessaoP1.setSocioInd(socioInd);
                             //inserir o valor final
-                            sessaoP1.setCusto(SessaoEscolhida.getPreco());
+                            sessaoP1.setCustoFinal();
                             //guardar marcaçao na lista de marcacoes
                             marcacaoPTInd.add(sessaoP1);
                         }
@@ -482,7 +482,7 @@ public class Gym {
                         aulaG1.setAulaG(atividadeEscolhida);
                         aulaG1.setSocioEmp(socioEmp);
                         //inserir o valor final
-                        aulaG1.setCusto(atividadeEscolhida.getPreco());
+                        aulaG1.setCustoFinal();
                         //indicar que ha mais uma pessoa na atividade escolhida
                         atividadeEscolhida.setNumeroDePessoasNaAtividade(atividadeEscolhida.getNumeroDePessoasNaAtividade()+1);
 
@@ -503,7 +503,7 @@ public class Gym {
                         sessaoP1.setSessaoP(SessaoEscolhida);
                         sessaoP1.setSocioEmp(socioEmp);
                         //inserir o valor final
-                        sessaoP1.setCusto(SessaoEscolhida.getPreco());
+                        sessaoP1.setCustoFinal();
 
                         //guardar marcaçao na lista de marcacoes
                         marcacaoPTEmp.add(sessaoP1);
@@ -786,53 +786,81 @@ public class Gym {
                 "\nSessões de Personal Training: "+personalTraining.size());
     }
 
-    public void valoresSocio(Scanner input){
+    public void valoresSocio(Scanner input) {
         System.out.print("Indica o seu numero identificador : ");
         int numSocio = Integer.parseInt(input.nextLine());
-        Socio socioEncontrado = encontrarSocioPorNumero(numSocio);
-        if (socioEncontrado == null) {
-            System.out.println("--- SÓCIO NÃO ENCONTRADO ---");
-            return;
+        // check Socio is which kind
+        SocioIndividual socioIndEncontrado = null;
+        SocioEmpresario socioEmpEncontrado = null;
+        boolean isIndividual = false;
+
+        for (SocioIndividual s : sociosIndividuais) {
+            if (s.getNumeroSocio() == numSocio) {
+                socioIndEncontrado = s;
+                isIndividual = true;
+                break;
+            }
+        }
+
+        if (!isIndividual) {
+            for (SocioEmpresario s : sociosEmpresarios) {
+                if (s.getNumeroSocio() == numSocio) {
+                    socioEmpEncontrado = s;
+                    break;
+                }
+            }
         }
         double totalGasto = 0.0;
         double totalPoupado = 0.0;
         int contadorMarcacoes = 0;
-        //pesguisar em marcacoes do socio individual
-        for (MarcacaoAGInd m : marcacaoAGInd) {
-            if (m.getSocioInd().getNumeroSocio() == numSocio) {
-                totalGasto += m.custo;
-                totalPoupado += m.custo - (m.custo * (socioEncontrado.desconto/100));
-                contadorMarcacoes++;
-            }
-        }
-        for (MarcacaoPTInd m : marcacaoPTInd) {
-            if (m.getSocioInd().getNumeroSocio() == numSocio) {
-                totalGasto += m.custo;
-                totalPoupado += m.custo - (m.custo * (socioEncontrado.desconto/100));
-                contadorMarcacoes++;
-            }
-        }
-        // Imprimir Resultado
-        System.out.print("\n=== VALORES DO SÓCIO ===\n");
-        System.out.println("Nome: " + socioEncontrado.getNomePessoa()+
-                "\nNúmero: " + numSocio +
-                "\nTotal de marcações: "+contadorMarcacoes+
-                "\nTotal de gastos: "+totalGasto+
-                "\nTotal de poupados: "+totalPoupado);
-    }
 
-    /**
-     * Looks in both lists {@link sociosIndividuais} and {@link sociosEmpresarios} if there is a member with his identification number.
-     * @param num
-     * @return in case of finding the person in a list, all of his information will get passed down
-     */
-    public Socio encontrarSocioPorNumero(int num) {
-        for (SocioIndividual s : sociosIndividuais) {
-            if (s.getNumeroSocio() == num) return s;
+        if (isIndividual) {
+            //pesguisar em marcacoes do socio individual
+            for (MarcacaoAGInd m : marcacaoAGInd) {
+                if (m.getSocioInd().getNumeroSocio() == numSocio) {
+                    totalGasto += m.custoFinal;
+                    totalPoupado += m.getAula().preco - m.custoFinal;
+                    contadorMarcacoes++;
+                }
+            }
+            for (MarcacaoPTInd m : marcacaoPTInd) {
+                if (m.getSocioInd().getNumeroSocio() == numSocio) {
+                    totalGasto += m.custoFinal;
+                    totalPoupado += m.getAula().preco - m.custoFinal;
+                    contadorMarcacoes++;
+                }
+            }
+            // Imprimir Resultado
+            System.out.print("\n=== VALORES DO SÓCIO ===\n");
+            System.out.println("Nome: " + socioIndEncontrado.getNomePessoa() +
+                    "\nNúmero: " + numSocio +
+                    "\nTotal de marcações: " + contadorMarcacoes +
+                    "\nTotal de gastos: " + totalGasto +
+                    "\nTotal de poupados: " + totalPoupado);
         }
-        for (SocioEmpresario s : sociosEmpresarios) {
-            if (s.getNumeroSocio() == num) return s;
+        else{
+            //pesguisar em marcacoes do socio individual
+            for (MarcacaoAGEmp m : marcacaoAGEmp) {
+                if (m.getSocioEmp().getNumeroSocio() == numSocio) {
+                    totalGasto += m.custoFinal;
+                    totalPoupado += m.getAula().preco - m.custoFinal;
+                    contadorMarcacoes++;
+                }
+            }
+            for (MarcacaoPTEmp m : marcacaoPTEmp) {
+                if (m.getSocioInd().getNumeroSocio() == numSocio) {
+                    totalGasto += m.custoFinal;
+                    totalPoupado += m.getAula().preco - m.custoFinal;
+                    contadorMarcacoes++;
+                }
+            }
+            // Imprimir Resultado
+            System.out.print("\n=== VALORES DO SÓCIO ===\n");
+            System.out.println("Nome: " + socioIndEncontrado.getNomePessoa() +
+                    "\nNúmero: " + numSocio +
+                    "\nTotal de marcações: " + contadorMarcacoes +
+                    "\nTotal de gastos: " + totalGasto +
+                    "\nTotal de poupados: " + totalPoupado);
         }
-        return null;
     }
 }

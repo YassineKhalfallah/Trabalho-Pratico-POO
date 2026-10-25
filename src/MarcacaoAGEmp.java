@@ -19,6 +19,9 @@ public class MarcacaoAGEmp extends Marcacao{
     public void setSocioEmp(SocioEmpresario socioEmp) {
         this.socioEmp = socioEmp;
     }
+    public void setCustoFinal() {
+        this.custoFinal = aula.getPreco()-(aula.getPreco()*((socioEmp.getDesconto())/100));
+    }
     public String toString(){
         return "A aula de grupo marcada tem este informacao:\n"+aula.toString()+
                 "\nE tem o socio com as informcaoes seguintes:\n"+aula.toString()+

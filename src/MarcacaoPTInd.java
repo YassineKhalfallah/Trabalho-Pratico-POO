@@ -19,6 +19,9 @@ public class MarcacaoPTInd extends Marcacao {
     public void setSocioInd(SocioIndividual socioInd) {
         this.socioInd = socioInd;
     }
+    public void setCustoFinal() {
+        this.custoFinal = aula.getPreco()-(aula.getPreco()*((socioInd.getDesconto())/100));
+    }
     public String toString(){
         return "A seesao PT marcada tem este informacao:\n"+aula.toString()+
                 "\nE tem o socio com as informcaoes seguintes:\n"+socioInd.toString()+

@@ -2,8 +2,8 @@ public class MarcacaoAGInd extends Marcacao {
     private AulasDeGrupo aula;
     private SocioIndividual socioInd;
     public MarcacaoAGInd(){}
-    public MarcacaoAGInd(Data data, Hora hora, double custo,AulasDeGrupo Aula,SocioIndividual socioInd) {
-        super(data, hora, custo);
+    public MarcacaoAGInd(Data data, Hora hora, double custoFinal,AulasDeGrupo Aula,SocioIndividual socioInd) {
+        super(data, hora, custoFinal);
         this.aula = Aula;
         this.socioInd = socioInd;
     }
@@ -20,6 +20,9 @@ public class MarcacaoAGInd extends Marcacao {
     }
     public void setSocioInd(SocioIndividual socioInd) {
         this.socioInd = socioInd;
+    }
+    public void setCustoFinal() {
+        this.custoFinal = aula.getPreco()-(aula.getPreco()*((socioInd.getDesconto())/100));
     }
 
     public String toString(){
