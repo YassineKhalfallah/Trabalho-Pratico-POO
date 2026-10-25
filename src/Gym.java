@@ -436,7 +436,7 @@ public class Gym {
                             aulaG1.setAulaG(atividadeEscolhida);
                             aulaG1.setSocioInd(socioInd);
                             //inserir o valor final
-                            aulaG1.setCustoFinal();
+                            aulaG1.setCustoFinal(atividadeEscolhida.getPreco()-(atividadeEscolhida.getPreco()*((socioInd.getDesconto())/100)));
                             //indicar que ha mais uma pessoa na atividade escolhida
                             atividadeEscolhida.setNumeroDePessoasNaAtividade(atividadeEscolhida.getNumeroDePessoasNaAtividade()+1);
                             marcacaoAGInd.add(aulaG1);
@@ -463,7 +463,8 @@ public class Gym {
                             sessaoP1.setSessaoP(SessaoEscolhida);
                             sessaoP1.setSocioInd(socioInd);
                             //inserir o valor final
-                            sessaoP1.setCustoFinal();
+                            sessaoP1.setCustoFinal(SessaoEscolhida.getPreco()-(SessaoEscolhida.getPreco()*((socioInd.getDesconto())/100)));
+
                             //guardar marcaçao na lista de marcacoes
                             marcacaoPTInd.add(sessaoP1);
                         }
@@ -502,7 +503,7 @@ public class Gym {
                         aulaG1.setAulaG(atividadeEscolhida);
                         aulaG1.setSocioEmp(socioEmp);
                         //inserir o valor final
-                        aulaG1.setCustoFinal();
+                        aulaG1.setCustoFinal(atividadeEscolhida.getPreco()-(atividadeEscolhida.getPreco()*((socioEmp.getDesconto())/100)));
                         //indicar que ha mais uma pessoa na atividade escolhida
                         atividadeEscolhida.setNumeroDePessoasNaAtividade(atividadeEscolhida.getNumeroDePessoasNaAtividade()+1);
 
@@ -526,7 +527,7 @@ public class Gym {
                         sessaoP1.setSessaoP(SessaoEscolhida);
                         sessaoP1.setSocioEmp(socioEmp);
                         //inserir o valor final
-                        sessaoP1.setCustoFinal();
+                        sessaoP1.setCustoFinal(SessaoEscolhida.getPreco()-(SessaoEscolhida.getPreco()*((socioEmp.getDesconto())/100)));
                         //guardar marcaçao na lista de marcacoes
                         marcacaoPTEmp.add(sessaoP1);
                         vld= false;

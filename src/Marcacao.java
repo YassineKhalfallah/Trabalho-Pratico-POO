@@ -31,10 +31,20 @@ public class Marcacao {
         this.custoFinal = custoFinal;
     }
 
-
+    /**
+     * Once we did set the variable as protected, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setData}
+     * @param data
+     */
     public void setData(Data data) {
         this.data = data;
     }
+
+    /**
+     * Once we did set the variable as protected, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setHora}
+     * @param hora
+     */
     public void setHora(Hora hora) {
         this.hora = hora;
     }
@@ -61,5 +71,14 @@ public class Marcacao {
      */
     public double getCustoFinal() {
         return custoFinal;
+    }
+
+    /**
+     * Once we did set the variable as protected, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setCustoFinal}
+     * @param custoFinal
+     */
+    public void setCustoFinal(double custoFinal) {
+        this.custoFinal = custoFinal;
     }
 }

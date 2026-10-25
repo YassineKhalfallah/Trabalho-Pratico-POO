@@ -50,7 +50,7 @@ public class SocioIndividual extends Socio {
      *     <li>Discount</li>
      *     <li>Money spent</li>
      * </ul>
-     * @return info do Socio Individual
+     * @return info of the Individual member
      */
     public String toString() {
         return "Socio Individual:\n Nome: "+getNomePessoa()+

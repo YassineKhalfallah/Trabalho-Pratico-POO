@@ -37,6 +37,12 @@ public class MarcacaoPTInd extends Marcacao {
     public PersonalTraining getSessaoP() {
         return aula;
     }
+
+    /**
+     * Once we did set the variable as private, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setSessaoP}
+     * @param aula
+     */
     public void setSessaoP(PersonalTraining aula) {
         this.aula = aula;
     }
@@ -48,13 +54,25 @@ public class MarcacaoPTInd extends Marcacao {
     public SocioIndividual getSocioInd() {
         return socioInd;
     }
+
+    /**
+     * Once we did set the variable as private, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setSocioInd}
+     * @param socioInd
+     */
     public void setSocioInd(SocioIndividual socioInd) {
         this.socioInd = socioInd;
     }
-    public void setCustoFinal() {
-        this.custoFinal = aula.getPreco()-(aula.getPreco()*((socioInd.getDesconto())/100));
-    }
 
+    /**
+     *A String representation of this Individual member's Personal Training Session booking.
+     *  <ul>
+     *   <li>Complete details of the scheduled Personal Training Session</li>
+     *   <li>Individual member's full identification </li>
+     *   <li>Final discounted price to be paid (in euros)</li>
+     *  </ul>
+     * @return a multi-line string with activity, member, and pricing information
+     */
     public String toString(){
         return "A seesao PT marcada tem este informacao:\n"+aula.toString()+
                 "E tem o socio com as informcaoes seguintes:\n"+socioInd.toString()+

@@ -77,7 +77,7 @@ public class SocioEmpresario extends Socio{
      *     <li>Discount</li>
      *     <li>Money spent</li>
      * </ul>
-     * @return info do Socio Empresario
+     * @return info of the corporate member
      */
     public String toString(){
         return "Socio Empresario:\n Nome: "+getNomePessoa()+

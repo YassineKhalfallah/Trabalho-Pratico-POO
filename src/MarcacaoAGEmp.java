@@ -29,6 +29,7 @@ public class MarcacaoAGEmp extends Marcacao{
         this.aula = aula;
         this.socioEmp = socioEmp;
     }
+
     /**
      * Gets you all info of the group lesson in this class
      * @return aula
@@ -37,8 +38,13 @@ public class MarcacaoAGEmp extends Marcacao{
         return aula;
     }
 
-    public void setAulaG(AulasDeGrupo Aula) {
-        this.aula = Aula;
+    /**
+     * Once we did set the variable as private, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setAulaG}
+     * @param aula
+     */
+    public void setAulaG(AulasDeGrupo aula) {
+        this.aula = aula;
     }
 
     /**
@@ -48,17 +54,28 @@ public class MarcacaoAGEmp extends Marcacao{
     public SocioEmpresario getSocioEmp() {
         return socioEmp;
     }
+
+    /**
+     * Once we did set the variable as private, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setSocioEmp}
+     * @param socioEmp
+     */
     public void setSocioEmp(SocioEmpresario socioEmp) {
         this.socioEmp = socioEmp;
     }
 
-    public void setCustoFinal() {
-        this.custoFinal = aula.getPreco()-(aula.getPreco()*((socioEmp.getDesconto())/100));
-    }
-
+    /**
+     *  A String representation of this corporate member's group class booking.
+     * <ul>
+     *   <li>Complete details of the scheduled group activity</li>
+     *   <li>Corporate member's full identification and company data</li>
+     *   <li>Final discounted price to be paid (in euros)</li>
+     * </ul>
+     * @return  a multi-line string with activity, member, and pricing information
+     */
     public String toString(){
         return "A aula de grupo marcada tem este informacao:\n"+aula.toString()+
-                "E tem o socio com as informcaoes seguintes:\n"+aula.toString()+
+                "E tem o socio com as informcaoes seguintes:\n"+socioEmp.toString()+
                 "\ne o socio vai pagar no final :"+(aula.getPreco()-(aula.getPreco()*((socioEmp.getDesconto())/100))+"€.\n");
     }
 }
