@@ -788,6 +788,11 @@ public class Gym {
                 "\nSessões de Personal Training: "+personalTraining.size());
     }
 
+    /**
+     * This method asks for the identification number of the member and goes to fetch that member in the list of {@code sociosIndividuais} in case it's an Individual member
+     * other wise
+     * @param input
+     */
     public void valoresSocio(Scanner input) {
         System.out.print("Indica o seu numero identificador : ");
         int numSocio = Integer.parseInt(input.nextLine());
@@ -812,6 +817,11 @@ public class Gym {
                 }
             }
         }
+        if (socioIndEncontrado == null && socioEmpEncontrado == null) {
+            System.out.println("--- NUMERO DE SOCIO NAO ENCONTRADO ---");
+            return; // Stop execution here
+        }
+
         double totalGasto = 0.0;
         double totalPoupado = 0.0;
         int contadorMarcacoes = 0;
@@ -858,7 +868,7 @@ public class Gym {
             }
             // Imprimir Resultado
             System.out.print("\n=== VALORES DO SÓCIO ===\n");
-            System.out.println("Nome: " + socioIndEncontrado.getNomePessoa() +
+            System.out.println("Nome: " + socioEmpEncontrado.getNomePessoa() +
                     "\nNúmero: " + numSocio +
                     "\nTotal de marcações: " + contadorMarcacoes +
                     "\nTotal de gastos: " + totalGasto +
