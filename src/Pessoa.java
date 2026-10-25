@@ -1,8 +1,4 @@
 import  java.util.Scanner;
-
-/**
- *
- */
 public class Pessoa {
     /**
      * Will I'll be using nomePessoa in other class, I'll need it to be as protected
