@@ -1,13 +1,38 @@
 import java.security.SecureRandom;
 import java.util.ArrayList;
 
+/**
+ * @see Pessoa
+ */
 public class Socio extends Pessoa {
+    /**
+     * Will I'll be using numeroSocio in other class, I'll need it to be as protected
+     */
     protected int numeroSocio;
+    /**
+     * Will I'll be using emailSocio in other class, I'll need it to be as protected
+     */
     protected String emailSocio;
+    /**
+     * Will I'll be using despesas in other class, I'll need it to be as protected
+     */
     protected double despesas;
+    /**
+     * Will I'll be using desconto in other class, I'll need it to be as protected
+     */
     protected double desconto;
-
+    /**
+     * The constructor of an empty class Socio
+     */
     public Socio(){};
+
+    /**
+     * The constructor of the class Socio, where we give the parameters the given values
+     * @param nome
+     * @param numeroSocio
+     * @param emailSocio
+     * @param desconto
+     */
     public Socio(String nome, int numeroSocio, String emailSocio, double desconto) {
         super(nome);
         this.numeroSocio = numeroSocio;
@@ -16,36 +41,74 @@ public class Socio extends Pessoa {
         this.desconto = desconto;
     }
 
+    /**
+     * Gets you the number of the member in this class
+     * @return numeroSocio
+     */
     public int getNumeroSocio() {
         return numeroSocio;
     }
+
+    /**
+     * Once we did set the variable as protected, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setNumeroSocio}
+     * @param numeroSocio
+     */
     public void setNumeroSocio(int numeroSocio) {
         this.numeroSocio = numeroSocio;
     }
+
+    /**
+     * Gets you the email of the member in this class
+     * @return emailSocio
+     */
     public String getEmailSocio() {
         return emailSocio;
     }
+
+    /**
+     * Once we did set the variable as protected, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setEmailSocio}
+     * @param emailSocio
+     */
     public void setEmailSocio(String emailSocio) {
         this.emailSocio = emailSocio;
     }
+
+    /**
+     * Gets you how much member spent in this class
+     * @return despesas
+     */
     public double getDespesas() {
         return despesas;
     }
+
+    /**
+     * Once we did set the variable as protected, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setDespesas}
+     * @param despesas
+     */
     public void setDespesas(double despesas) {
         this.despesas = despesas;
     }
+
+    /**
+     * Gets you the discount of the member in this class
+     * @return desconto
+     */
     public double getDesconto() {
         return desconto;
     }
+
+    /**
+     * Once we did set the variable as protected, in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setDesconto}
+     * @param desconto
+     */
     public void setDesconto(double desconto) {
         this.desconto = desconto;
     }
-    public Boolean equal (Object obj){
-        if(obj == null || getClass() != obj.getClass()) return false;
-        Socio outro = (Socio) obj;
-        
-        return java.util.Objects.equals(getNumeroSocio(), outro.getNumeroSocio()) && java.util.Objects.equals(getEmailSocio(), outro.getEmailSocio()) && java.util.Objects.equals(getDespesas(), outro.getDespesas()) && java.util.Objects.equals(getDesconto(), outro.getDesconto());
-    }
+
     /**
      * the function generates a random 6 digit number with a secure method:
      * <ol>

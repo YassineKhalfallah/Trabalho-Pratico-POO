@@ -51,6 +51,7 @@ public class MarcacaoAGEmp extends Marcacao{
     public void setSocioEmp(SocioEmpresario socioEmp) {
         this.socioEmp = socioEmp;
     }
+
     public void setCustoFinal() {
         this.custoFinal = aula.getPreco()-(aula.getPreco()*((socioEmp.getDesconto())/100));
     }

@@ -66,7 +66,7 @@ public class SocioIndividual extends Socio {
      * @param idade
      * @return true if the age is positive
      */
-    public boolean isIdadeNaoNega(int idade){
+    private boolean isIdadeNaoNega(int idade){
         if ((idade<14) || (idade>130)) return false;
         else return true;
     }

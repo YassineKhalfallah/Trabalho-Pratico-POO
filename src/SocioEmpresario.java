@@ -2,18 +2,22 @@
  * @see Socio
  */
 public class SocioEmpresario extends Socio{
+
     /**
      * I set {@code nomeEmpresa} as private because it's in the last subclass
      */
     private String nomeEmpresa;
+
     /**
      * I set {@code nifEmpresa} as private because it's in the last subclass
      */
     private int nifEmpresa;
+
     /**
      * The constructor of an empty class SocioEmpresario
      */
     public SocioEmpresario(){}
+
     /**
      * The constructor of the class SocioEmpresario, where we give the parameters the given values
      * @param nomeEmpresa
@@ -27,6 +31,7 @@ public class SocioEmpresario extends Socio{
         this.nomeEmpresa = nomeEmpresa;
         this.nifEmpresa = nifEmpresa;
     }
+
     /**
      * Gets you the name of the company in this class
      * @return nomeEmpresa
@@ -34,6 +39,7 @@ public class SocioEmpresario extends Socio{
     public String getNomeEmpresa() {
         return nomeEmpresa;
     }
+
     /**
      * Once we did set the variable as private, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setNomeEmpresa(String nomeEmpresa)}
@@ -42,6 +48,7 @@ public class SocioEmpresario extends Socio{
     public void setNomeEmpresa(String nomeEmpresa) {
         this.nomeEmpresa = nomeEmpresa;
     }
+
     /**
      * Gets you the NIF of the company in this class
      * @return nifEmpresa
@@ -49,6 +56,7 @@ public class SocioEmpresario extends Socio{
     public int getNifEmpresa() {
         return nifEmpresa;
     }
+
     /**
      * Once we did set the variable as private, in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setNifEmpresa(int nifEmpresa)}
@@ -57,6 +65,7 @@ public class SocioEmpresario extends Socio{
     public void setNifEmpresa(int nifEmpresa) {
         this.nifEmpresa = nifEmpresa;
     }
+
     /**
      * Gets the info about the instructor:
      * <ul>
@@ -81,7 +90,7 @@ public class SocioEmpresario extends Socio{
     }
 
     /**
-     *
+     * This function makes sure that the user types exactly 9 digits for the NIF of the company he works for.
      * @return true in case companies contains
      */
     public boolean isNIFValido() {

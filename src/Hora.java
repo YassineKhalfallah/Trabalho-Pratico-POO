@@ -1,23 +1,63 @@
 import java.util.Scanner;
-
+/**
+ * This class {@code Hora} represents a specific time.
+ */
 public class Hora {
+    /**
+     * I set {@code dia} as private to be protected
+     */
     private int horas;
+
+    /**
+     * I set {@code dia} as private to be protected
+     */
     private  int minutos;
 
+    /**
+     * The constructor of an empty class Data
+     */
     public Hora(){}
+
+    /**
+     * The constructor of the class Hora, where we give the parameters the given values
+     * @param horas
+     * @param minutos
+     */
     public Hora(int horas, int minutos) {
         this.horas = horas;
         this.minutos = minutos;
     }
+
+    /**
+     * Gets you the value of hour of time in this class
+     * @return dia
+     */
     public int getHoras() {
         return horas;
     }
+
+    /**
+     * Once we did set the variable as private in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setHoras}
+     * @param horas
+     */
     public void setHoras(int horas) {
         this.horas = horas;
     }
+
+    /**
+     * Gets you the value of minutes of time in this class
+     * @return dia
+     */
     public int getMinutos() {
         return minutos;
     }
+
+    /**
+     * Once we did set the variable as private in case of willing to change the value of this parameter
+     * in a class where we have no access to it, use this function {@link setMinutos}
+     * @param minutos
+     */
     public void setMinutos(int minutos) {
         this.minutos = minutos;
     }

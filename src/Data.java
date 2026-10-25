@@ -3,13 +3,32 @@ import java.util.Scanner;
  * This class {@code Data} represents a specific date in the year with day, month and year precision.
  */
 public class Data {
+    /**
+     * I set {@code dia} as private to be protected
+     */
     private int dia;
+
+    /**
+     * I set {@code mes} as private to be protected
+     */
     private int mes;
+
+    /**
+     * I set {@code ano} as private to be protected
+     */
     private int ano;
 
-    public Data() {
-    }
+    /**
+     * The constructor of an empty class Data
+     */
+    public Data() {}
 
+    /**
+     * The constructor of the class Data, where we give the parameters the given values
+     * @param dia
+     * @param mes
+     * @param ano
+     */
     public Data(int dia, int mes, int ano) {
         this.dia = dia;
         this.mes = mes;
@@ -18,7 +37,6 @@ public class Data {
 
     /**
      * Gets you the value of day of date in this class
-     *
      * @return dia
      */
     public int getDia() {
@@ -28,7 +46,6 @@ public class Data {
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setDia}
-     *
      * @param dia
      */
     public void setDia(int dia) {
@@ -37,7 +54,6 @@ public class Data {
 
     /**
      * Gets you the value of month of date in this class
-     *
      * @return mes
      */
     public int getMes() {
@@ -47,7 +63,6 @@ public class Data {
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setMes}
-     *
      * @param mes
      */
     public void setMes(int mes) {

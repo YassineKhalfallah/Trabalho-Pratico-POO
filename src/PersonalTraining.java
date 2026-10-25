@@ -14,7 +14,7 @@ public class PersonalTraining extends Atividade{
     public PersonalTraining(){};
 
     /**
-     * The constructor of the class PersonalTraining, where we give the paramaters the given values
+     * The constructor of the class PersonalTraining, where we give the parameters the given values
      * @param preco
      * @param tempo
      * @param tipoTraining

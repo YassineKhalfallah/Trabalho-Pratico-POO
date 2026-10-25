@@ -4,10 +4,12 @@ public class Pessoa {
      * Will I'll be using nomePessoa in other class, I'll need it to be as protected
      */
     protected String nomePessoa;
+
     /**
      * The constructor of an empty class Pessoa
      */
     public Pessoa(){}
+
     /**
      * The constructor of the class Pessoa, where we give the parameters the given values
      * @param nomePessoa
@@ -15,6 +17,7 @@ public class Pessoa {
     public Pessoa(String nomePessoa) {
         this.nomePessoa = nomePessoa;
     }
+
     /**
      * Gets you a string with the name in this class
      * @return nomePessoa
@@ -22,6 +25,7 @@ public class Pessoa {
     public String getNomePessoa() {
         return nomePessoa;
     }
+
     /**
      * Once we did set the variable as protected in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@code setNomePessoa()}
@@ -75,7 +79,6 @@ public class Pessoa {
      * if after the verification the name is valid, you will get it at the return, otherwise it will keep asking you again.
      * @return String nomePessoa
      */
-
     public String setNome(Scanner input) {
         boolean validarNome = true;
         String nome;

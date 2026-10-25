@@ -102,6 +102,7 @@ public class AulasDeGrupo extends Atividade{
     public void setNumeroDePessoasNaAtividade(int numeroDePessoasNaAtividade) {
         this.numeroDePessoasNaAtividade = numeroDePessoasNaAtividade;
     }
+
     /**
      * Gets the info about the scheduled group lesson:
      * <ul>
@@ -139,11 +140,12 @@ public class AulasDeGrupo extends Atividade{
         }
         return false;
     }
-/**
- * Asks the user to give the type of lesson, However it will get checked at the function {@link isTipoAulaValido},
- * if after the verification the type of lesson is valid, you will get it at the return, otherwise it will keep asking you again.
- * @return String aula
- * */
+
+    /**
+    * Asks the user to give the type of lesson, However it will get checked at the function {@link isTipoAulaValido},
+    * if after the verification the type of lesson is valid, you will get it at the return, otherwise it will keep asking you again.
+    * @return String aula
+    */
     public String setAula(Scanner input){
         boolean validarAula = true;
         String aula = null;

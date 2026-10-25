@@ -2,7 +2,7 @@ import  java.util.Scanner;
 import java.util.ArrayList;
 
 /**
- * This class {@code Gym}
+ * This class {@code Gym} contains all the information and methods to manage a gym
  */
 public class Gym {
     /**
