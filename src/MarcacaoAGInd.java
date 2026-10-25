@@ -65,8 +65,8 @@ public class MarcacaoAGInd extends Marcacao {
 
     public String toString(){
         return "A aula de grupo marcada tem este informacao:\n"+aula.toString()+
-                "\nE tem o socio com as informcaoes seguintes:\n"+socioInd.toString()+
-                "e o socio vai pagar no final :"+(aula.getPreco()-(aula.getPreco()*((socioInd.getDesconto())/100)));
+                "E tem o socio com as informcaoes seguintes:\n"+socioInd.toString()+
+                "\ne o socio vai pagar no final :"+(aula.getPreco()-(aula.getPreco()*((socioInd.getDesconto())/100))+"€.\n");
     }
 
 }

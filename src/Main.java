@@ -5,11 +5,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Gym gym = new Gym();
+
         gym.resumoAtividades();
-        for (int i = 0 ; i<5 ;i++) {
-            gym.menu(input, gym);
-        }
-        gym.resumoAtividades();
+
+
         // Adicionar Instutor
         String[] formacoes1 = {"Engenharia", "Mestrado", "Doutorado"};
         Instrutor instrutor1 = new Instrutor("Yassine","M", formacoes1);
@@ -34,9 +33,6 @@ public class Main {
         SocioEmpresario soEmp6 = new SocioEmpresario("C&A",482739156,"Francisca Oliveira",234561,"francisca@gmail.com");
         gym.sociosEmpresarios.add(soEmp6);
 
-        gym.listaInstrutores();
-        gym.listarSocios(input);
-        gym.listarAtividades(input);
         //Adicionar atividades
         //1)
         Hora tmp1 = new Hora(12,00);
@@ -87,26 +83,36 @@ public class Main {
         System.out.println(AG8.toString());
         gym.aulasDeGrupo.add(AG8);
         //marcacoes
+        for (int i = 0; i<3 ; i++){
+            gym.menu(input,gym);
+        }
         //1)
-        MarcacaoAGInd mAgInd1 = new MarcacaoAGInd(dat1,tmp2,AG7.getPreco()*(soInd1.getDesconto()/100),AG7,soInd1);
+        MarcacaoAGInd mAgInd1 = new MarcacaoAGInd(dat1,tmp2,AG7.getPreco()-(AG7.getPreco()*(soInd1.getDesconto()/100)),AG7,soInd1);
         gym.marcacaoAGInd.add(mAgInd1);
         //2)
-        MarcacaoAGEmp mAgEmp2 = new MarcacaoAGEmp(dat1,tmp2,AG6.getPreco()*(soEmp4.getDesconto()/100),AG6,soEmp4);
+        MarcacaoAGEmp mAgEmp2 = new MarcacaoAGEmp(dat1,tmp2,AG6.getPreco()-(AG6.getPreco()*(soEmp4.getDesconto()/100)),AG6,soEmp4);
         gym.marcacaoAGEmp.add(mAgEmp2);
         //3)
-        MarcacaoAGInd mAgInd3 = new MarcacaoAGInd(dat1,tmp2,Pt1.getPreco()*(soInd2.getDesconto()/100),AG7,soInd2);
+        MarcacaoAGInd mAgInd3 = new MarcacaoAGInd(dat1,tmp2,Pt1.getPreco()-(Pt1.getPreco()*(soInd2.getDesconto()/100)),AG7,soInd2);
         gym.marcacaoAGInd.add(mAgInd3);
         //4)
-        MarcacaoPTEmp mPtEmp4 = new MarcacaoPTEmp(dat1,tmp2,Pt3.getPreco()*(soEmp4.getDesconto()/100),Pt3,soEmp4);
+        MarcacaoPTEmp mPtEmp4 = new MarcacaoPTEmp(dat1,tmp2,Pt3.getPreco()-(Pt3.getPreco()*(soEmp4.getDesconto()/100)),Pt3,soEmp4);
         gym.marcacaoPTEmp.add(mPtEmp4);
         //5)
-        MarcacaoPTEmp mPtEmp5 = new MarcacaoPTEmp(dat1,tmp2,Pt2.getPreco()*(soEmp6.getDesconto()/100),Pt2,soEmp6);
+        MarcacaoPTEmp mPtEmp5 = new MarcacaoPTEmp(dat1,tmp2,Pt2.getPreco()-(Pt2.getPreco()*(soEmp6.getDesconto()/100)),Pt2,soEmp6);
         gym.marcacaoPTEmp.add(mPtEmp5);
         //6)
-        MarcacaoAGInd mPtInd6 = new MarcacaoAGInd(dat1,tmp2,AG8.getPreco()*(soInd3.getDesconto()/100),AG8,soInd3);
+        MarcacaoAGInd mPtInd6 = new MarcacaoAGInd(dat1,tmp2,AG8.getPreco()-(AG8.getPreco()*(soInd3.getDesconto()/100)),AG8,soInd3);
         gym.marcacaoAGInd.add(mPtInd6);
 
         gym.resumoAtividades();
+        gym.listarMarcacoes(input);
+        gym.listaInstrutores();
+        gym.listarSocios(input);
+        gym.listarAtividades(input);
+        gym.listarMarcacoes(input);
+        gym.valoresSocio(input);
+        gym.maisPopular();
         input.close();
     }
 }

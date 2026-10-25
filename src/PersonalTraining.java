@@ -65,9 +65,9 @@ public class PersonalTraining extends Atividade{
     public String toString() {
         return "Sessao de treino marcada para " + getTempo().getHoras() +
                 "h e " + getTempo().getMinutos() +
-                "min no dia " + getDate().getDia() + "/" + getDate().getMes() + "/" + getDate().getAno() +
-                " do tipo "+ getTipoTraining()+
-                ", custa "+getPreco()+"€";
+                "min\nno dia " + getDate().getDia() + "/" + getDate().getMes() + "/" + getDate().getAno() +
+                "\ndo tipo "+ getTipoTraining()+
+                ", custa "+getPreco()+"€\n";
     }
 
     /**

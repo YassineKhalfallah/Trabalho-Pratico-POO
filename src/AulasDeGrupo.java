@@ -120,7 +120,7 @@ public class AulasDeGrupo extends Atividade{
                 "\ndo tipo " + getTipoAula() +
                 ",\ncusta " + getPreco() +
                 "€ esta na aula " + getNumeroDePessoasNaAtividade() +
-                " pessoas e o limite maximo de pessoas é " + getCapacidadeMaxima();
+                " pessoas e o limite maximo de pessoas é " + getCapacidadeMaxima()+".\n";
     }
 
     /**

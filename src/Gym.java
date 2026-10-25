@@ -42,6 +42,9 @@ public class Gym {
      */
     protected ArrayList<MarcacaoPTInd> marcacaoPTInd;
 
+    /**
+     *The constructor of the class Gym, where in it will have lists of every element of the class
+     */
     public Gym() {
         this.instrutores = new ArrayList<>();
         this.sociosIndividuais = new ArrayList<>();
@@ -54,6 +57,11 @@ public class Gym {
         this.marcacaoPTInd = new ArrayList<>();
     }
 
+    /**
+     * Menu to help the user indicate and chose the operation he would like to do.
+     * @param input
+     * @param gym
+     */
     public void menu(Scanner input, Gym gym) {
         System.out.println("\n---- MENU ----\n");
         System.out.println("1 - Add Pessoa");// pessoa serve para socios e instrutores
@@ -65,6 +73,7 @@ public class Gym {
         System.out.println("7 - Resumo De Atividades");
         System.out.println("8 - Atividade mais popular");
         System.out.println("9 - Vantagens que tem com o desconto");
+        System.out.println("\nDigite o indice para o metodo que quer aplicar :");
         int n = Integer.parseInt(input.nextLine());
         if(n == 1) gym.addPessoa(input);
         else if(n == 2) gym.addActivity(input);
@@ -76,8 +85,8 @@ public class Gym {
         else if (n == 8) gym.maisPopular();
         else if (n == 9) gym.valoresSocio(input);
         else System.out.println("--- NUMERO INVALIDO ----");
-
     }
+
     /**
      * This function is mainly used to add people according to their type.
      * {@code Socio}:
@@ -267,22 +276,21 @@ public class Gym {
         String tipoSocio;
         boolean valid = true;
         while (valid) {
-            System.out.println("--- Que tipo de Socio quere listar ---");
+            System.out.println("--- Que tipo de Socio quer listar ---");
             tipoSocio = input.nextLine();
             tipoSocio = tipoSocio.toUpperCase();
             if (tipoSocio.equals("INDIVIDUAL")) {
                 if (sociosIndividuais.isEmpty()) System.out.println("--- AINDA NAO TEM SOCIOS INDIVIDUAIS ---");
                 else {
-                    for (SocioIndividual socioInd : sociosIndividuais) System.out.println(socioInd.toString());
+                    for (SocioIndividual socioInd : sociosIndividuais) System.out.println(socioInd.toString()+"\n");
                 }
                 valid = false;
             }
             else if (tipoSocio.equals("EMPRESARIO")) {
                 if (sociosEmpresarios.isEmpty()) System.out.println("--- AINDA NAO TEM SOCIOS EMPRESARIOS ---");
                 else {
-                    for (SocioEmpresario socioEmp : sociosEmpresarios) {
-                        System.out.println(socioEmp.toString());
-                    }
+                    for (SocioEmpresario socioEmp : sociosEmpresarios) System.out.println(socioEmp.toString()+"\n");
+
                 }
                 valid = false;
             }
@@ -351,6 +359,7 @@ public class Gym {
             }
         }
     }
+
     /**
      * Asks the user to identify the type of activity and then lists all the elements in that list
      * using {@link toString} created in the specified type of activity ({@code AulasDeGrupo} or {@code PersonalTraining}).
@@ -389,6 +398,7 @@ public class Gym {
      */
     public void marcarAtividade(Scanner input) {
         String tipoAtividade, tipoSocio;
+        int i = 1;
         boolean valid = true;
         while (valid) {
             System.out.println("--Indica se es um Socio Individual ou Empresarial--");
@@ -414,12 +424,14 @@ public class Gym {
                             System.out.println("Aulas de grupo disponiveis :");
 
                             for (AulasDeGrupo aulaG : aulasDeGrupo) {
-
-                                System.out.println(aulaG.toString()+"\n");
+                                System.out.println(i+")\n"+aulaG.toString()+"\n");
+                                i++;
                             }
                             System.out.print("Indique o índice da atividade desejada: ");
                             int idx = Integer.parseInt(input.nextLine().trim()) - 1;
                             AulasDeGrupo atividadeEscolhida = aulasDeGrupo.get(idx);
+                            //adicionar o dinheira nas despesas do socio
+                            socioInd.setDespesas(socioInd.getDespesas() + (atividadeEscolhida.getPreco()-(atividadeEscolhida.getPreco()*(socioInd.getDesconto()/100))));
                             //atribuir informacoes
                             aulaG1.setAulaG(atividadeEscolhida);
                             aulaG1.setSocioInd(socioInd);
@@ -439,11 +451,14 @@ public class Gym {
                             // listar aulas de grupo
                             System.out.println("Sessoes de Personal Training disponiveis :");
                             for (PersonalTraining aulaP : personalTraining) {
-                                System.out.println(aulaP.toString()+"\n");
+                                System.out.println(i+")\n"+aulaP.toString()+"\n");
+                                i++;
                             }
                             System.out.print("Indique o indice da atividade desejada: ");
                             int idx = Integer.parseInt(input.nextLine().trim()) - 1;
                             PersonalTraining SessaoEscolhida = personalTraining.get(idx);
+                            //adicionar o dinheira nas despesas do socio
+                            socioInd.setDespesas(socioInd.getDespesas() + (SessaoEscolhida.getPreco()-(SessaoEscolhida.getPreco()*(socioInd.getDesconto()/100))));
                             //atribuir informacoes
                             sessaoP1.setSessaoP(SessaoEscolhida);
                             sessaoP1.setSocioInd(socioInd);
@@ -475,11 +490,14 @@ public class Gym {
                         // listar aulas de grupo
                         System.out.println("Aulas de grupo disponiveis :");
                         for (AulasDeGrupo aulaG : aulasDeGrupo) {
-                            System.out.println(aulaG.toString());
+                            System.out.println(i+")\n"+aulaG.toString()+"\n");
+                            i++;
                         }
                         System.out.print("Indique o índice da atividade desejada: ");
                         int idx = Integer.parseInt(input.nextLine().trim()) - 1;
                         AulasDeGrupo atividadeEscolhida = aulasDeGrupo.get(idx);
+                        //adicionar o dinheira nas despesas do socio
+                        socioEmp.setDespesas(socioEmp.getDespesas() + (atividadeEscolhida.getPreco()-(atividadeEscolhida.getPreco()*(socioEmp.getDesconto()/100))));
                         //atribuir informacoes
                         aulaG1.setAulaG(atividadeEscolhida);
                         aulaG1.setSocioEmp(socioEmp);
@@ -496,17 +514,19 @@ public class Gym {
                         // listar aulas de grupo
                         System.out.println("Sessoes de Personal Training disponiveis :");
                         for (PersonalTraining aulaP : personalTraining) {
-                            System.out.println(aulaP.toString());
+                            System.out.println(i+")\n"+aulaP.toString()+"\n");
+                            i++;
                         }
                         System.out.print("Indique o indice da atividade desejada: ");
                         int idx = Integer.parseInt(input.nextLine().trim()) - 1;
                         PersonalTraining SessaoEscolhida = personalTraining.get(idx);
+                        //adicionar o dinheira nas despesas do socio
+                        socioEmp.setDespesas(socioEmp.getDespesas() + (SessaoEscolhida.getPreco()-(SessaoEscolhida.getPreco()*(socioEmp.getDesconto()/100))));
                         //atribuir informacoes
                         sessaoP1.setSessaoP(SessaoEscolhida);
                         sessaoP1.setSocioEmp(socioEmp);
                         //inserir o valor final
                         sessaoP1.setCustoFinal();
-
                         //guardar marcaçao na lista de marcacoes
                         marcacaoPTEmp.add(sessaoP1);
                         vld= false;
@@ -537,7 +557,7 @@ public class Gym {
             tipoSocio = tipoSocio.toUpperCase();
             if (tipoSocio.equals("INDIVIDUAL")) {
                 while (vld) {
-                    System.out.println("--- Que tipo de Atividades quer marcar ---");
+                    System.out.println("--- Que tipo de Atividades marcadas quer listar ---");
                     tipoAtividade = input.nextLine();
                     tipoAtividade = tipoAtividade.toUpperCase();
                     if (tipoAtividade.equals("AULAS DE GRUPO")) {
@@ -567,7 +587,7 @@ public class Gym {
             }
             else if (tipoSocio.equals("EMPRESARIO")) {
                 while (vld) {
-                    System.out.println("--- Que tipo de Atividades quer marcar ---");
+                    System.out.println("--- Que tipo de Atividades marcadas quer listar ---");
                     tipoAtividade = input.nextLine();
                     tipoAtividade = tipoAtividade.toUpperCase();
                     if (tipoAtividade.equals("AULAS DE GRUPO")) {
@@ -635,14 +655,14 @@ public class Gym {
             }
             if (contagemPT > maxMarcacoes){
                 maxMarcacoes = contagemPT;
-                atividadeMaisPopular = "Personal Training" + pt.getTipoTraining() + " (Marcacoes:" + maxMarcacoes + ")";
+                atividadeMaisPopular = "Personal Training " + pt.getTipoTraining() + " (Marcacoes:" + maxMarcacoes + ")";
             }
         }
         if (maxMarcacoes <= 0){
             System.out.println("Ainda nao existem marcacoes.");
         }
         else{
-            System.out.println("A atividade mais popular e" + atividadeMaisPopular);
+            System.out.println("A atividade mais popular e " + atividadeMaisPopular);
         }
     }
 
@@ -651,7 +671,7 @@ public class Gym {
      * @param numId
      * @return if the IdNumber exist in the list the info of that person will be provided
      */
-    public SocioIndividual infoSocioInd(int numId){
+    private SocioIndividual infoSocioInd(int numId){
         for (SocioIndividual sociosInd : sociosIndividuais) {
             if(sociosInd.numeroSocio == numId){
                 return sociosInd;
@@ -665,7 +685,7 @@ public class Gym {
      * @param numId
      * @return if the IdNumber exist in the list the info of that person will be provided
      */
-    public SocioEmpresario infoSocioEmp(int numId){
+    private SocioEmpresario infoSocioEmp(int numId){
         for (SocioEmpresario sociosEmp : sociosEmpresarios) {
             if(sociosEmp.numeroSocio == numId){
                 return sociosEmp;
@@ -679,7 +699,7 @@ public class Gym {
      * @param numID
      * @return true if number exists in the list of Individual members
      */
-    public boolean doesIdExistInd(int numID) {
+    private boolean doesIdExistInd(int numID) {
         for (SocioIndividual sociosInd : sociosIndividuais) {
             if(sociosInd.numeroSocio == numID){
                 return true;
@@ -687,12 +707,13 @@ public class Gym {
         }
         return false;
     }
+
     /**
      * Makes sure that the Id number given exists in the list of Company members
      * @param numID
      * @return true if number exists in the list of Company members
      */
-    public boolean doesIdExistEmp(int numID) {
+    private boolean doesIdExistEmp(int numID) {
         for (SocioEmpresario sociosEmp : sociosEmpresarios) {
             if(sociosEmp.numeroSocio == numID){
                 return true;
@@ -706,25 +727,26 @@ public class Gym {
      * if after the verification the Id number given exist in the list of Individual members, you will get it at the return, otherwise it will keep asking you again.
      * @return Id number of socio Individual
      * */
-    public int pedirIdNumInd(Scanner input) {
+    private int pedirIdNumInd(Scanner input) {
         boolean valid = true;
         int numID = 0;
         int i = 0;
         while (valid) {
             if(i == 0) System.out.println("Indica o seu numero identificador :");
-            else {System.out.println("Numero nao existe na lista de socio!!!");}
+            else {System.out.println("Numero nao existe na lista de socio!!!\nTenta novamente :");}
             numID = Integer.parseInt(input.nextLine());
             valid = !doesIdExistInd(numID);
             i++;
         }
         return numID;
     }
+
     /**
      * Asks the user to give his Id number, However this info will get checked at the functions {@link doesIdExistEmp}
      * if after the verification the Id number given exist in the list of members that work in a Company, you will get it at the return, otherwise it will keep asking you again.
      * @return Id number of socio Individual
      * */
-    public int pedirIdNumEmp(Scanner input) {
+    private int pedirIdNumEmp(Scanner input) {
         boolean valid = true;
         int numID = 0;
         int i = 0;
@@ -745,7 +767,7 @@ public class Gym {
      * @param tipoSocio
      * @return true if user willing to continue
      */
-    public boolean tipoSocioErrado(Scanner input,String tipoSocio) {
+    private boolean tipoSocioErrado(Scanner input,String tipoSocio) {
         System.out.println("--- TIPO DE SOCIO ERRADO ---");
         System.out.println("-- Quer sair de este metodo--");
         tipoSocio = input.nextLine().toUpperCase();
@@ -764,7 +786,7 @@ public class Gym {
      * @param tipoAtividade
      * @return
      */
-    public boolean tipoAtividadeErrada(Scanner input,String tipoAtividade) {
+    private boolean tipoAtividadeErrada(Scanner input,String tipoAtividade) {
         System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
         System.out.println("-- Quer sair de este metodo--");
         tipoAtividade = input.nextLine().toUpperCase();
@@ -785,12 +807,22 @@ public class Gym {
         System.out.println("No nosso ginasio existem:\nSocios Individuais: "+sociosIndividuais.size()+
                 "\nSocios Empresarios: "+sociosEmpresarios.size()+
                 "\nAulas de Grupo: "+aulasDeGrupo.size()+
-                "\nSessões de Personal Training: "+personalTraining.size());
+                "\nSessões de Personal Training: "+personalTraining.size()+"\n");
     }
 
     /**
+     * Function
+     * <p>
      * This method asks for the identification number of the member and goes to fetch that member in the list of {@code sociosIndividuais} in case it's an Individual member
-     * other wise
+     * otherwise it look at the list of {@code sociosEmpresarios}.<br>In Case of the number not existing in either of theses lists it will send a message.<br>
+     * If found, it aggregates all associated
+     * bookings to compute:
+     * <ul>
+     *   <li>Total amount spent (sum of discounted final costs)</li>
+     *   <li>Total amount saved (difference between base prices and final costs)</li>
+     *   <li>Total number of bookings made</li>
+     * </ul>
+     * Results are printed in a formatted summary including the member's name and ID.</p>
      * @param input
      */
     public void valoresSocio(Scanner input) {

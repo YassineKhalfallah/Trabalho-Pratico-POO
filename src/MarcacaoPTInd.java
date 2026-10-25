@@ -57,7 +57,7 @@ public class MarcacaoPTInd extends Marcacao {
 
     public String toString(){
         return "A seesao PT marcada tem este informacao:\n"+aula.toString()+
-                "\nE tem o socio com as informcaoes seguintes:\n"+socioInd.toString()+
-                "e o socio vai pagar no final :"+(aula.getPreco()-(aula.getPreco()*((socioInd.getDesconto())/100)));
+                "E tem o socio com as informcaoes seguintes:\n"+socioInd.toString()+
+                "\ne o socio vai pagar no final :"+(aula.getPreco()-(aula.getPreco()*((socioInd.getDesconto())/100))+"€.\n");
     }
 }
