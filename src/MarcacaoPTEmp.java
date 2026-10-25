@@ -68,7 +68,7 @@ public class MarcacaoPTEmp extends Marcacao {
      *A String representation of this corporate member's Personal Training Session booking.
      * <ul>
      *    <li>Complete details of the scheduled Personal Training Session</li>
-     *    <li>corporate member's full identification </li>
+     *    <li>corporate member's full identification and company data</li>
      *    <li>Final discounted price to be paid (in euros)</li>
      *  </ul>
      * @return a multi-line string with activity, member, and pricing information
