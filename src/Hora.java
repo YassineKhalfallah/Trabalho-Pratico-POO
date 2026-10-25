@@ -20,8 +20,8 @@ public class Hora {
 
     /**
      * The constructor of the class Hora, where we give the parameters the given values
-     * @param horas
-     * @param minutos
+     * @param horas hours
+     * @param minutos minutes
      */
     public Hora(int horas, int minutos) {
         this.horas = horas;
@@ -39,7 +39,7 @@ public class Hora {
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setHoras}
-     * @param horas
+     * @param horas hours
      */
     public void setHoras(int horas) {
         this.horas = horas;
@@ -56,7 +56,7 @@ public class Hora {
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setMinutos}
-     * @param minutos
+     * @param minutos minutes
      */
     public void setMinutos(int minutos) {
         this.minutos = minutos;
@@ -64,7 +64,7 @@ public class Hora {
 
     /**
      * The function makes sure that the activity hour is a valid one.
-     * @param horas
+     * @param horas hours
      * @return true if the hour is valid
      */
     public boolean isHoraValida(int horas){
@@ -73,7 +73,7 @@ public class Hora {
     }
     /**
      * The function makes sure that the activity minutes are valid.
-     * @param minutos
+     * @param minutos minutes
      * @return true if the minutes are valid
      */
     public boolean isMinutoValida(int minutos){

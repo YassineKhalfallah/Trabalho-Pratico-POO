@@ -19,9 +19,9 @@ public class Instrutor extends Pessoa{
     public Instrutor(){}
     /**
      * The constructor of the class Instrutor, where we give the parameters the given values
-     * @param nome
-     * @param genero
-     * @param formacao
+     * @param nome name
+     * @param genero gender
+     * @param formacao formation
      */
     public Instrutor(String nome, String genero, String formacao[]){
         super(nome);
@@ -38,7 +38,7 @@ public class Instrutor extends Pessoa{
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setGenero(String genero)}
-     * @param genero
+     * @param genero gender
      */
     public void setGenero(String genero){
         this.genero = genero;
@@ -53,7 +53,7 @@ public class Instrutor extends Pessoa{
     /**
      * Once we did set the variable as private in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setFormacao}
-     * @param formacao
+     * @param formacao formation
      */
     public void setFormacao(String formacao[]){
         this.formacao = formacao;
@@ -76,7 +76,7 @@ public class Instrutor extends Pessoa{
 
     /**
      * The function makes sure that the gender of the person is not a negative number.
-     * @param genero
+     * @param genero gender
      * @return true if the gender was M or F
      */
     public boolean isGeneroValido(String genero){
