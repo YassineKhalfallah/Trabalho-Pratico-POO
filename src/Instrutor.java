@@ -89,6 +89,7 @@ public class Instrutor extends Pessoa{
      * Asks the user to give his gender, However it will get checked at the function {@link isGeneroValido},
      * if after the verification the gender is valid, you will get it at the return, otherwise it will keep asking you again.
      * @return String genero
+     * @param input Scanner name
      */
     public String setSex(Scanner input){
         boolean validarGender = true;

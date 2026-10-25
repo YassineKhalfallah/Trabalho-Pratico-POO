@@ -82,9 +82,10 @@ public class Hora {
     }
 
     /**
-     * Asks the user to give the hour and minutes of the activity, However these two infos will get checked at the functions {@link isHoraValida} & {@link isMinutoValida}
+     * Asks the user to give the hour and minutes of the activity, However these two infos will get checked at the functions {@link isHoraValida} &amp; {@link isMinutoValida}
      * if after the verification the hours and the minutes of the activity are valid, you will get it at the return, otherwise it will keep asking you again.
      * @return Hour tempo
+     * @param input Scanner name
      * */
     public Hora setHoraDaAtividade(Scanner input){
         boolean validarHora , validarMin ;

@@ -92,7 +92,6 @@ public class Gym {
      * {@code Socio}:
      * <ul>
      *     <li>Socio Individual</li>
-     *     or
      *     <li>Socio Empresario</li>
      * </ul>
      * or<br>
@@ -106,6 +105,7 @@ public class Gym {
      * System.out.println(socioInd.toString());
      * }</pre>
      * And at the end shows the info in the terminal{@link toString}.
+     * @param input Scanner name
      */
     public void addPessoa(Scanner input){
         String tipoSocio, tipoPessoa;
@@ -728,6 +728,7 @@ public class Gym {
      * Asks the user to give his Id number, However this info will get checked at the functions {@link doesIdExistInd}
      * if after the verification the Id number given exist in the list of Individual members, you will get it at the return, otherwise it will keep asking you again.
      * @return Id number of socio Individual
+     * @param input Scanner name
      * */
     private int pedirIdNumInd(Scanner input) {
         boolean valid = true;
@@ -747,6 +748,7 @@ public class Gym {
      * Asks the user to give his Id number, However this info will get checked at the functions {@link doesIdExistEmp}
      * if after the verification the Id number given exist in the list of members that work in a Company, you will get it at the return, otherwise it will keep asking you again.
      * @return Id number of socio Individual
+     * @param input Scanner name
      * */
     private int pedirIdNumEmp(Scanner input) {
         boolean valid = true;
@@ -786,7 +788,7 @@ public class Gym {
      * If user types SIM or S user get out from the method.
      * @param input Scanner name
      * @param tipoAtividade type of activity
-     * @return
+     * @return true if willing to continue
      */
     private boolean tipoAtividadeErrada(Scanner input,String tipoAtividade) {
         System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
@@ -801,8 +803,8 @@ public class Gym {
     }
 
     /**
-     * This function is mainly used to get a hole idea and view about number of merber of the two kinds({@link SocioIndividual}&{@link SocioEmpresario}).<br>
-     * And also and idea of the numbers of all the activities of the two kind ({@link AulasDeGrupo} & {@link PersonalTraining}).
+     * This function is mainly used to get a hole idea and view about number of merber of the two kinds({@link SocioIndividual}&amp;{@link SocioEmpresario}).<br>
+     * And also and idea of the numbers of all the activities of the two kind ({@link AulasDeGrupo} &amp; {@link PersonalTraining}).
      */
     public void resumoAtividades(){
         System.out.println("\n--- RESUMO DE ATIVIDADES ---\n");
@@ -813,8 +815,6 @@ public class Gym {
     }
 
     /**
-     * Function
-     * <p>
      * This method asks for the identification number of the member and goes to fetch that member in the list of {@code sociosIndividuais} in case it's an Individual member
      * otherwise it look at the list of {@code sociosEmpresarios}.<br>In Case of the number not existing in either of theses lists it will send a message.<br>
      * If found, it aggregates all associated
@@ -824,7 +824,7 @@ public class Gym {
      *   <li>Total amount saved (difference between base prices and final costs)</li>
      *   <li>Total number of bookings made</li>
      * </ul>
-     * Results are printed in a formatted summary including the member's name and ID.</p>
+     * Results are printed in a formatted summary including the member's name and ID.
      * @param input Scanner name
      */
     public void valoresSocio(Scanner input) {
