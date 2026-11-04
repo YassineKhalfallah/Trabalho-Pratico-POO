@@ -106,7 +106,5 @@ public class Main {
         while (true) {
             gym.menu(input, gym);
         }
-
-        input.close();
     }
 }

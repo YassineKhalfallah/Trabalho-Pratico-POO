@@ -73,6 +73,7 @@ public class Gym {
         System.out.println("7 - Resumo De Atividades");
         System.out.println("8 - Atividade mais popular");
         System.out.println("9 - Vantagens que tem com o desconto");
+        System.out.println("0 - Sai da função menu");
         System.out.println("\nDigite o indice para o metodo que quer aplicar :");
         int n = Integer.parseInt(input.nextLine());
         if(n == 1) gym.addPessoa(input);
@@ -84,6 +85,11 @@ public class Gym {
         else if (n == 7) gym.resumoAtividades();
         else if (n == 8) gym.maisPopular();
         else if (n == 9) gym.valoresSocio(input);
+        else if(n == 0){
+            System.out.println("Programa finalizado");
+            input.close();
+            System.exit(0);
+        }
         else System.out.println("--- NUMERO INVALIDO ----");
     }
 
