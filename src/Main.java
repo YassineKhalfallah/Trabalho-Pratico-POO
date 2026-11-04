@@ -103,6 +103,7 @@ public class Main {
         MarcacaoAGInd mPtInd6 = new MarcacaoAGInd(dat1,tmp2,AG8.getPreco()-(AG8.getPreco()*(soInd3.getDesconto()/100)),AG8,soInd3);
         gym.marcacaoAGInd.add(mPtInd6);
 
+        //Meter o codigo a rodar para sempre
         while (true) {
             gym.menu(input, gym);
         }
