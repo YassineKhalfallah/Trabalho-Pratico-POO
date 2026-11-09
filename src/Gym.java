@@ -62,7 +62,7 @@ public class Gym {
      * @param input Scanner name
      * @param gym gym
      */
-    public void menu(Scanner input, Gym gym) {
+    public void menu(Scanner input) {
         System.out.println("\n---- MENU ----\n");
         System.out.println("1 - Add Pessoa");// pessoa serve para socios e instrutores
         System.out.println("2 - Add Atividade");
@@ -76,15 +76,15 @@ public class Gym {
         System.out.println("0 - Sai da função menu");
         System.out.println("\nDigite o indice para o metodo que quer aplicar :");
         int n = Integer.parseInt(input.nextLine());
-        if(n == 1) gym.addPessoa(input);
-        else if(n == 2) gym.addActivity(input);
-        else if (n == 3) gym.listarSocios(input);
-        else if (n == 4) gym.listarAtividades(input);
-        else if (n == 5) gym.marcarAtividade(input);
-        else if (n == 6) gym.listarMarcacoes(input);
-        else if (n == 7) gym.resumoAtividades();
-        else if (n == 8) gym.maisPopular();
-        else if (n == 9) gym.valoresSocio(input);
+        if(n == 1) this.addPessoa(input);
+        else if(n == 2) this.addActivity(input);
+        else if (n == 3) this.listarSocios(input);
+        else if (n == 4) this.listarAtividades(input);
+        else if (n == 5) this.marcarAtividade(input);
+        else if (n == 6) this.listarMarcacoes(input);
+        else if (n == 7) this.resumoAtividades();
+        else if (n == 8) this.maisPopular();
+        else if (n == 9) this.valoresSocio(input);
         else if(n == 0){
             System.out.println("Programa finalizado");
             input.close();
