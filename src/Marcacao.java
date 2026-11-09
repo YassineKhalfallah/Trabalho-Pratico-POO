@@ -143,6 +143,19 @@ public class Marcacao {
     public void setCustoFinal(double custoFinal) {
         this.custoFinal = custoFinal;
     }
+
+    public Socio getSocio() {
+        return socio;
+    }
+    public void setSocio(Socio socio) {
+        this.socio = socio;
+    }
+    public Atividade getAtividade() {
+        return atividade;
+    }
+    public void setAtividade(Atividade atividade) {
+        this.atividade = atividade;
+    }
     /**
      *  A String representation of the member's activity booking.
      * <ul>
@@ -154,7 +167,7 @@ public class Marcacao {
      */
     @Override
     public String toString(){
-        return "A aula de grupo marcada tem este informacao:\n"+atividade.toString()+
+        return "A atividade marcada tem este informacao:\n"+atividade.toString()+
                 "E tem o socio com as informcaoes seguintes:\n"+socio.toString()+
                 "\ne o socio vai pagar no final :"+(atividade.getPreco()-(atividade.getPreco()*((socio.getDesconto())/100))+"€.\n");
     }

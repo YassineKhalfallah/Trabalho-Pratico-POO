@@ -128,29 +128,17 @@ public class Socio extends Pessoa {
 
     /**
      *This func will be used to check if the randomly generated number exists in the list of the specified type of member.
-     * @param tipoSocio Type of member
      * @param numeroSocio Id number of member
-     * @param listaEmp list of Corporate Members
-     * @param listaInd list of Individual Members
+     * @param lista list of Members
      * @return true if the number already exists in the list
      */
-    public boolean doesItExisteInList (String tipoSocio,int numeroSocio,ArrayList<SocioEmpresario> listaEmp,ArrayList<SocioIndividual> listaInd){
+    public boolean doesItExisteInList (int numeroSocio,ArrayList<Socio> lista){
         boolean existe = false;
 
-        if(tipoSocio.equals("EMPRESA")){
-            for (SocioEmpresario socioEmpresario : listaEmp) {
-                if (socioEmpresario.getNumeroSocio() == numeroSocio) {
-                    existe = true;
-                    break;
-                }
-            }
-        }
-        else if(tipoSocio.equals("INDIVIDUAL")){
-            for (SocioIndividual socioIndividual : listaInd) {
-                if (socioIndividual.getNumeroSocio() == numeroSocio) {
-                    existe = true;
-                    break;
-                }
+        for (Socio socio : lista) {
+            if (socio.getNumeroSocio() == numeroSocio) {
+                existe = true;
+                break;
             }
         }
 
