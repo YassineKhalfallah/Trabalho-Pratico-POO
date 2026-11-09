@@ -707,12 +707,13 @@ public class Gym {
      * @return true if number exists in the list of Individual members
      */
     private boolean doesIdExistInd(int numID) {
+        boolean ids = false;
         for (SocioIndividual sociosInd : sociosIndividuais) {
             if(sociosInd.numeroSocio == numID){
-                return true;
+                ids = true;
             }
         }
-        return false;
+        return ids;
     }
 
     /**
@@ -721,12 +722,13 @@ public class Gym {
      * @return true if number exists in the list of Company members
      */
     private boolean doesIdExistEmp(int numID) {
+        bool ids = false;
         for (SocioEmpresario sociosEmp : sociosEmpresarios) {
             if(sociosEmp.numeroSocio == numID){
-                return true;
+                ids = true;
             }
         }
-        return false;
+        return ids;
     }
 
     /**
@@ -777,15 +779,15 @@ public class Gym {
      * @return true if user willing to continue
      */
     private boolean tipoSocioErrado(Scanner input,String tipoSocio) {
+        boolean soc = true;
         System.out.println("--- TIPO DE SOCIO ERRADO ---");
         System.out.println("-- Quer sair de este metodo--");
         tipoSocio = input.nextLine().toUpperCase();
         if (tipoSocio.equals("SIM") || tipoSocio.equals("S")) {
             System.out.println("--- MARCAÇÃO CANCELADA ---");
-            return false;
-        } else {
-            return true;
+            soc = false;
         }
+        return soc;
     }
 
     /**
@@ -796,15 +798,15 @@ public class Gym {
      * @return true if willing to continue
      */
     private boolean tipoAtividadeErrada(Scanner input,String tipoAtividade) {
+        boolean at = true;
         System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
         System.out.println("-- Quer sair de este metodo--");
         tipoAtividade = input.nextLine().toUpperCase();
         if (tipoAtividade.equals("SIM") || tipoAtividade.equals("S")) {
             System.out.println("--- MARCAÇÃO CANCELADA ---");
-            return false;
-        } else {
-            return true;
+            at = false;
         }
+        return at;
     }
 
     /**
