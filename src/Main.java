@@ -105,7 +105,7 @@ public class Main {
 
         //Meter o codigo a rodar para sempre
         while (true) {
-            gym.menu(input, gym);
+            gym.menu(input);
         }
     }
 }
