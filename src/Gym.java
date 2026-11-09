@@ -900,7 +900,7 @@ public class Gym {
                 }
             }
             for (MarcacaoPTEmp m : marcacaoPTEmp) {
-                if (m.getSocioInd().getNumeroSocio() == numSocio) {
+                if (m.getSocioEmp().getNumeroSocio() == numSocio) {
                     totalGasto += m.custoFinal;
                     totalPoupado += m.getSessaoP().preco - m.custoFinal;
                     contadorMarcacoes++;
