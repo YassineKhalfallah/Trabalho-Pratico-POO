@@ -96,13 +96,10 @@ public class Data {
      * @return true if the date is valid
      */
     public boolean isDataValida(Data date) {
-        if (date == null) {
-            return false;
-        }
         int d = this.dia;
         int m = this.mes;
         int a = this.ano;
-        if (d < 1 || d > 31 || m < 1 || m > 12 || a < 2025 || a > 3000) {
+        if ((date == null) || (d < 1 || d > 31 || m < 1 || m > 12 || a < 2025 || a > 3000)) {
             return false;
         }
 

@@ -113,14 +113,13 @@ public class Socio extends Pessoa {
      * the function generates a random 6 digit number with a secure method:
      * <ol>
      * <li>Constructs a secure random number generator</li>
-     * <li>Generates a number from 0 to 999999</li>
-     * <li>formats the number to always have 6 digits (ex: 0 becomes 000000)</li>
+     * <li>Generates a number from 100000 to 999999</li>
      * </ol>
      * @return random 6 digit number
      */
     public int gerarNumSocio() {
         SecureRandom random = new SecureRandom();
-        // Gera um número aleatório entre 0 e 999999
+        // Gera um número aleatório entre 100000 e 999999
         int numero = random.nextInt(100000,1000000);
 
         // Formata para 6 dígitos
@@ -136,22 +135,25 @@ public class Socio extends Pessoa {
      * @return true if the number already exists in the list
      */
     public boolean doesItExisteInList (String tipoSocio,int numeroSocio,ArrayList<SocioEmpresario> listaEmp,ArrayList<SocioIndividual> listaInd){
+        boolean existe = false;
+
         if(tipoSocio.equals("EMPRESA")){
             for (SocioEmpresario socioEmpresario : listaEmp) {
                 if (socioEmpresario.getNumeroSocio() == numeroSocio) {
-                    return true;
+                    existe = true;
+                    break;
                 }
             }
-            return false;
         }
         else if(tipoSocio.equals("INDIVIDUAL")){
             for (SocioIndividual socioIndividual : listaInd) {
                 if (socioIndividual.getNumeroSocio() == numeroSocio) {
-                    return true;
+                    existe = true;
+                    break;
                 }
             }
-            return false;
         }
-        else return false;
+
+        return existe;
     }
 }
