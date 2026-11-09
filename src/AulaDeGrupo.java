@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * @see Atividade
  */
-public class AulasDeGrupo extends Atividade{
+public class AulaDeGrupo extends Atividade{
     /**
      * I set {@code tipoAula} as private because it's in the last subclass
      */
@@ -22,7 +22,7 @@ public class AulasDeGrupo extends Atividade{
     /**
      * The constructor of an empty class AulasDeGrupo
      */
-    public AulasDeGrupo(){}
+    public AulaDeGrupo(){}
 
     /**
      * The constructor of the class AulasDeGrupo, where we set the given values to each parameter
@@ -32,7 +32,7 @@ public class AulasDeGrupo extends Atividade{
      * @param capacidadeMaxima maximum capacity
      * @param data date
      */
-    public AulasDeGrupo(String tipoAula,Data data, double preco, Hora tempo, int capacidadeMaxima) {
+    public AulaDeGrupo(String tipoAula, Data data, double preco, Hora tempo, int capacidadeMaxima) {
         super(preco, tempo, data);
         this.tipoAula = tipoAula;
         this.capacidadeMaxima = capacidadeMaxima;

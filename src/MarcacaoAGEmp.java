@@ -5,7 +5,7 @@ public class MarcacaoAGEmp extends Marcacao{
     /**
      * I set {@code aula} as private because it's in the last subclass
      */
-    private AulasDeGrupo aula;
+    private AulaDeGrupo aula;
     /**
      * I set {@code socioEmp} as private because it's in the last subclass
      */
@@ -24,7 +24,7 @@ public class MarcacaoAGEmp extends Marcacao{
      * @param aula group lesson
      * @param socioEmp corporate member
      */
-    public MarcacaoAGEmp(Data data, Hora hora, double custoFinal,AulasDeGrupo aula,SocioEmpresario socioEmp) {
+    public MarcacaoAGEmp(Data data, Hora hora, double custoFinal, AulaDeGrupo aula, SocioEmpresario socioEmp) {
         super(data, hora, custoFinal);
         this.aula = aula;
         this.socioEmp = socioEmp;
@@ -34,7 +34,7 @@ public class MarcacaoAGEmp extends Marcacao{
      * Gets you all info of the group lesson in this class
      * @return aula
      */
-    public AulasDeGrupo getAulaG() {
+    public AulaDeGrupo getAulaG() {
         return aula;
     }
 
@@ -43,7 +43,7 @@ public class MarcacaoAGEmp extends Marcacao{
      * in a class where we have no access to it, use this function {@link setAulaG}
      * @param aula group lesson
      */
-    public void setAulaG(AulasDeGrupo aula) {
+    public void setAulaG(AulaDeGrupo aula) {
         this.aula = aula;
     }
 

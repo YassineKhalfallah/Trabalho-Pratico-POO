@@ -1,18 +1,28 @@
 public class Marcacao {
     /**
-     * Will I'll be using data in other class, I'll need it to be as protected
+     * I set {@code data} as private to be protected
      */
-    protected Data data;
+    private Data data;
 
     /**
-     * Will I'll be using hora in other class, I'll need it to be as protected
+     * I set {@code hora} as private to be protected
      */
-    protected Hora hora;
+    private Hora hora;
 
     /**
-     * Will I'll be using custoFinal in other class, I'll need it to be as protected
+     * I set {@code custoFinal} as private to be protected
      */
-    protected double custoFinal;
+    private double custoFinal;
+
+    /**
+     * I set {@code aula} as private to be protected
+     */
+    private Atividade atividade;
+
+    /**
+     * I set {@code socioEmp} as private to be protected
+     */
+    private Socio socio;
 
     /**
      * The constructor of an empty class Marcacao
@@ -24,11 +34,63 @@ public class Marcacao {
      * @param data date
      * @param hora time
      * @param custoFinal final cost
+     * @param socioEmp corporate member
+     * @param aula group lesson
      */
-    public Marcacao( Data data, Hora hora, double custoFinal) {
+    public Marcacao( Data data, Hora hora, double custoFinal,SocioEmpresario socioEmp, AulaDeGrupo aula) {
         this.data = data;
         this.hora = hora;
         this.custoFinal = custoFinal;
+        this.socio = socioEmp;
+        this.atividade = aula;
+    }
+
+    /**
+     * The constructor of the class Marcacao, where we set the given values to each parameter
+     * @param data date
+     * @param hora time
+     * @param custoFinal final cost
+     * @param socioInd Individual member
+     * @param aula group lesson
+     */
+    public Marcacao(Data data, Hora hora, double custoFinal, SocioIndividual socioInd, AulaDeGrupo aula) {
+        this.data = data;
+        this.hora = hora;
+        this.custoFinal = custoFinal;
+        this.socio = socioInd;
+        this.atividade = aula;
+    }
+
+    /**
+     * The constructor of the class Marcacao, where we set the given values to each parameter
+     * @param data date
+     * @param hora time
+     * @param custoFinal final cost
+     * @param socioEmp corporate member
+     * @param sessao group lesson
+     */
+    public Marcacao(Data data, Hora hora, double custoFinal, SocioEmpresario socioEmp, PersonalTraining sessao) {
+        this.data = data;
+        this.hora = hora;
+        this.custoFinal = custoFinal;
+        this.socio = socioEmp;
+        this.atividade = sessao;
+    }
+
+    /**
+     * The constructor of the class Marcacao, where we set the given values to each parameter
+     * @param data date
+     * @param hora time
+     * @param custoFinal final cost
+     * @param socioInd Individual member
+     * @param sessao group lesson
+     */
+    public Marcacao(Data data, Hora hora, double custoFinal, SocioIndividual socioInd, PersonalTraining sessao) {
+        this.data = data;
+        this.hora = hora;
+        this.custoFinal = custoFinal;
+        this.socio = socioInd;
+        this.atividade = sessao;
     }
 
     /**
@@ -80,5 +142,20 @@ public class Marcacao {
      */
     public void setCustoFinal(double custoFinal) {
         this.custoFinal = custoFinal;
+    }
+    /**
+     *  A String representation of the member's activity booking.
+     * <ul>
+     *   <li>Complete details of the scheduled activity</li>
+     *   <li>Member's full identification </li>
+     *   <li>Final discounted price to be paid (in euros)</li>
+     * </ul>
+     * @return  a multi-line string with activity, member, and pricing information
+     */
+    @Override
+    public String toString(){
+        return "A aula de grupo marcada tem este informacao:\n"+atividade.toString()+
+                "E tem o socio com as informcaoes seguintes:\n"+socio.toString()+
+                "\ne o socio vai pagar no final :"+(atividade.getPreco()-(atividade.getPreco()*((socio.getDesconto())/100))+"€.\n");
     }
 }

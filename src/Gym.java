@@ -20,7 +20,7 @@ public class Gym {
     /**
      * I set {@code aulasDeGrupo} as protected because it will be used in other classes
      */
-    protected ArrayList<AulasDeGrupo> aulasDeGrupo;
+    protected ArrayList<AulaDeGrupo> aulasDeGrupo;
     /**
      * I set {@code personalTraining} as protected because it will be used in other classes
      */
@@ -306,7 +306,7 @@ public class Gym {
     }
 
     /**
-     * This method is mainly responsible to add activities in a list depending on the type of the activity({@code AulasDeGrupo} or {@code PersonalTraining}).
+     * This method is mainly responsible to add activities in a list depending on the type of the activity({@code AulaDeGrupo} or {@code PersonalTraining}).
      * <br>The user will be asked to give name, the hours and minutes of the activity and then the date, and finally the maximum capacity of that activity in case of being a group lesson.
      * @param input Scanner name
      */
@@ -319,7 +319,7 @@ public class Gym {
             tipoAtividade = input.nextLine();
             tipoAtividade = tipoAtividade.toUpperCase();
             if(tipoAtividade.equals("AULAS DE GRUPO")){
-                AulasDeGrupo aulaGrupo = new AulasDeGrupo();
+                AulaDeGrupo aulaGrupo = new AulaDeGrupo();
 
                 // set tipo de aula
                 aulaGrupo.setTipoAula(aulaGrupo.setAula(input));
@@ -367,7 +367,7 @@ public class Gym {
 
     /**
      * Asks the user to identify the type of activity and then lists all the elements in that list
-     * using {@link toString} created in the specified type of activity ({@code AulasDeGrupo} or {@code PersonalTraining}).
+     * using {@link toString} created in the specified type of activity ({@code AulaDeGrupo} or {@code PersonalTraining}).
      * @param input Scanner name
      */
     public void listarAtividades(Scanner input) {
@@ -380,7 +380,7 @@ public class Gym {
             if (tipoAtividade.equals("AULAS DE GRUPO")) {
                 if (aulasDeGrupo.isEmpty()) System.out.println("--- AINDA NAO TEM AULAS DE GRUPO MARCADA ---");
                 else {
-                    for (AulasDeGrupo aulaG : aulasDeGrupo) System.out.println(aulaG.toString()+"\n");
+                    for (AulaDeGrupo aulaG : aulasDeGrupo) System.out.println(aulaG.toString()+"\n");
                 }
                 valid = false;
             }
@@ -429,13 +429,13 @@ public class Gym {
                             MarcacaoAGInd aulaG1 = new MarcacaoAGInd();
                             System.out.println("Aulas de grupo disponiveis :");
 
-                            for (AulasDeGrupo aulaG : aulasDeGrupo) {
+                            for (AulaDeGrupo aulaG : aulasDeGrupo) {
                                 System.out.println(i+")\n"+aulaG.toString()+"\n");
                                 i++;
                             }
                             System.out.print("Indique o índice da atividade desejada: ");
                             int idx = Integer.parseInt(input.nextLine().trim()) - 1;
-                            AulasDeGrupo atividadeEscolhida = aulasDeGrupo.get(idx);
+                            AulaDeGrupo atividadeEscolhida = aulasDeGrupo.get(idx);
                             //adicionar o dinheira nas despesas do socio
                             socioInd.setDespesas(socioInd.getDespesas() + (atividadeEscolhida.getPreco()-(atividadeEscolhida.getPreco()*(socioInd.getDesconto()/100))));
                             //atribuir informacoes
@@ -496,13 +496,13 @@ public class Gym {
                         MarcacaoAGEmp aulaG1 = new MarcacaoAGEmp();
                         // listar aulas de grupo
                         System.out.println("Aulas de grupo disponiveis :");
-                        for (AulasDeGrupo aulaG : aulasDeGrupo) {
+                        for (AulaDeGrupo aulaG : aulasDeGrupo) {
                             System.out.println(i+")\n"+aulaG.toString()+"\n");
                             i++;
                         }
                         System.out.print("Indique o índice da atividade desejada: ");
                         int idx = Integer.parseInt(input.nextLine().trim()) - 1;
-                        AulasDeGrupo atividadeEscolhida = aulasDeGrupo.get(idx);
+                        AulaDeGrupo atividadeEscolhida = aulasDeGrupo.get(idx);
                         //adicionar o dinheira nas despesas do socio
                         socioEmp.setDespesas(socioEmp.getDespesas() + (atividadeEscolhida.getPreco()-(atividadeEscolhida.getPreco()*(socioEmp.getDesconto()/100))));
                         //atribuir informacoes
@@ -551,7 +551,7 @@ public class Gym {
 
     /**
      * Asks the user to identify the type of member he is ({@code Individual} or {@code Empresario}) ,
-     * and then to identify what kind of activities he is willing to check({@code AulasDeGrupo} or {@code PersonalTraining}).
+     * and then to identify what kind of activities he is willing to check({@code AulaDeGrupo} or {@code PersonalTraining}).
      * Depending on having elements in the list wanted or not, the user will get to see the list asked.
      * @param input Scanner name
      */
@@ -641,7 +641,7 @@ public class Gym {
         }
         String atividadeMaisPopular = "Nenhuma";
         int maxMarcacoes = -1; //sempre menor que 0
-        for (AulasDeGrupo aula : aulasDeGrupo){
+        for (AulaDeGrupo aula : aulasDeGrupo){
             int count = aula.getNumeroDePessoasNaAtividade();
             if (count > maxMarcacoes){
                 maxMarcacoes = count;
@@ -722,7 +722,7 @@ public class Gym {
      * @return true if number exists in the list of Company members
      */
     private boolean doesIdExistEmp(int numID) {
-        bool ids = false;
+        boolean ids = false;
         for (SocioEmpresario sociosEmp : sociosEmpresarios) {
             if(sociosEmp.numeroSocio == numID){
                 ids = true;
@@ -811,7 +811,7 @@ public class Gym {
 
     /**
      * This function is mainly used to get a hole idea and view about number of merber of the two kinds({@link SocioIndividual}&amp;{@link SocioEmpresario}).<br>
-     * And also and idea of the numbers of all the activities of the two kind ({@link AulasDeGrupo} &amp; {@link PersonalTraining}).
+     * And also and idea of the numbers of all the activities of the two kind ({@link AulaDeGrupo} &amp; {@link PersonalTraining}).
      */
     public void resumoAtividades(){
         System.out.println("\n--- RESUMO DE ATIVIDADES ---\n");
@@ -871,15 +871,15 @@ public class Gym {
             //pesguisar em marcacoes do socio individual
             for (MarcacaoAGInd m : marcacaoAGInd) {
                 if (m.getSocioInd().getNumeroSocio() == numSocio) {
-                    totalGasto += m.custoFinal;
-                    totalPoupado += m.getAulaG().preco - m.custoFinal;
+                    totalGasto += m.getCustoFinal();
+                    totalPoupado += m.getAulaG().preco - m.getCustoFinal();
                     contadorMarcacoes++;
                 }
             }
             for (MarcacaoPTInd m : marcacaoPTInd) {
                 if (m.getSocioInd().getNumeroSocio() == numSocio) {
-                    totalGasto += m.custoFinal;
-                    totalPoupado += m.getSessaoP().preco - m.custoFinal;
+                    totalGasto += m.getCustoFinal();
+                    totalPoupado += m.getSessaoP().preco - m.getCustoFinal();
                     contadorMarcacoes++;
                 }
             }
@@ -895,15 +895,15 @@ public class Gym {
             //pesguisar em marcacoes do socio individual
             for (MarcacaoAGEmp m : marcacaoAGEmp) {
                 if (m.getSocioEmp().getNumeroSocio() == numSocio) {
-                    totalGasto += m.custoFinal;
-                    totalPoupado += m.getAulaG().preco - m.custoFinal;
+                    totalGasto += m.getCustoFinal();
+                    totalPoupado += m.getAulaG().preco - m.getCustoFinal();
                     contadorMarcacoes++;
                 }
             }
             for (MarcacaoPTEmp m : marcacaoPTEmp) {
                 if (m.getSocioEmp().getNumeroSocio() == numSocio) {
-                    totalGasto += m.custoFinal;
-                    totalPoupado += m.getSessaoP().preco - m.custoFinal;
+                    totalGasto += m.getCustoFinal();
+                    totalPoupado += m.getSessaoP().preco - m.getCustoFinal();
                     contadorMarcacoes++;
                 }
             }
