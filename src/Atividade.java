@@ -25,9 +25,9 @@ public class Atividade {
 
     /**
      * The constructor of the class Atividades, where we give the parameters the given values
-     * @param preco
-     * @param tempo
-     * @param date
+     * @param preco price
+     * @param tempo time
+     * @param date date
      */
     public Atividade(double preco, Hora tempo, Data date){
         this.preco = preco;
@@ -46,7 +46,7 @@ public class Atividade {
     /**
      * Once we did set the variable as protected in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setPreco}
-     * @param preco
+     * @param preco price
      */
     public void setPreco(double preco) {
         this.preco = preco;
@@ -63,7 +63,7 @@ public class Atividade {
     /**
      * Once we did set the variable as protected in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setTempo}
-     * @param tempo
+     * @param tempo time
      */
     public void setTempo(Hora tempo) {
         this.tempo = tempo;
@@ -79,7 +79,7 @@ public class Atividade {
 
     /**Once we did set the variable as protected in case of willing to change the value of this parameter
      * in a class where we have no access to it, use this function {@link setDate}
-     * @param date
+     * @param date date
      */
     public void setDate(Data date){
         this.date = date;

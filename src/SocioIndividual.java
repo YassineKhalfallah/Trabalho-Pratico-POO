@@ -74,8 +74,8 @@ public class SocioIndividual extends Socio {
     /**
      * Asks the user to give his age, However it will get checked at the function {@link isIdadeNaoNega},
      * if after the verification the age is valid, you will get it at the return, otherwise it will keep asking you again.
-     * @param input idade
      * @return int idadeSocio
+     * @param input Scanner name
      */
     public int setIdade(Scanner input){
         boolean validarIdade = true;

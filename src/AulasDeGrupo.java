@@ -26,10 +26,11 @@ public class AulasDeGrupo extends Atividade{
 
     /**
      * The constructor of the class AulasDeGrupo, where we set the given values to each parameter
-     * @param tipoAula
-     * @param preco
-     * @param tempo
-     * @param capacidadeMaxima
+     * @param tipoAula type of group lesson
+     * @param preco price
+     * @param tempo time
+     * @param capacidadeMaxima maximum capacity
+     * @param data date
      */
     public AulasDeGrupo(String tipoAula,Data data, double preco, Hora tempo, int capacidadeMaxima) {
         super(preco, tempo, data);
@@ -50,7 +51,7 @@ public class AulasDeGrupo extends Atividade{
      * Once we did set the variable as private, in case of willing to change the value of this paramater
      * in a class where we have no access to it, use this function {@link setTipoAula}.<br>
      * Also depending on the input we are setting the cost of the lesson.
-     * @param tipoAula
+     * @param tipoAula type of group lesson
      */
     public void setTipoAula(String tipoAula) {
         this.tipoAula = tipoAula;
@@ -80,7 +81,7 @@ public class AulasDeGrupo extends Atividade{
     /**
      * Once we did set the variable as private, in case of willing to change the value of this paramater
      *in a class where we have no access to it, use this function {@link setCapacidadeMaxima}.
-     *@param capacidadeMaxima
+     *@param capacidadeMaxima maximum capacity
      */
     public void setCapacidadeMaxima(int capacidadeMaxima) {
         this.capacidadeMaxima = capacidadeMaxima;
@@ -97,7 +98,7 @@ public class AulasDeGrupo extends Atividade{
     /**
      * Once we did set the variable as private, in case of willing to change the value of this paramater
      * in a class where we have no access to it, use this function {@link setNumeroDePessoasNaAtividade}.
-     * @param numeroDePessoasNaAtividade
+     * @param numeroDePessoasNaAtividade number of people in activity
      */
     public void setNumeroDePessoasNaAtividade(int numeroDePessoasNaAtividade) {
         this.numeroDePessoasNaAtividade = numeroDePessoasNaAtividade;
@@ -126,7 +127,7 @@ public class AulasDeGrupo extends Atividade{
 
     /**
      * The function makes sure that the type lesson is one of the activities that they have in the gym.
-     * @param tipoAula
+     * @param tipoAula group lesson
      * @return true if type of lesson is one of the activities in the array
      */
     public boolean isTipoAulaValido(String tipoAula) {
@@ -145,6 +146,7 @@ public class AulasDeGrupo extends Atividade{
     * Asks the user to give the type of lesson, However it will get checked at the function {@link isTipoAulaValido},
     * if after the verification the type of lesson is valid, you will get it at the return, otherwise it will keep asking you again.
     * @return String aula
+     * @param input Scanner name
     */
     public String setAula(Scanner input){
         boolean validarAula = true;
@@ -163,7 +165,7 @@ public class AulasDeGrupo extends Atividade{
 
     /**
      * The function makes sure that the maximum capacity of the lesson is not a negative number.
-     * @param capacidade
+     * @param capacidade Capacity
      * @return true maximum capacity of the lesson is positive
      */
     public boolean isCapacidadeValida(int capacidade){
@@ -174,7 +176,8 @@ public class AulasDeGrupo extends Atividade{
     /**
      * Asks the user to give maximum capacity of the lesson, However it will get checked at the function {@link isCapacidadeValida},
      * if after the verification the maximum capacity is valid, you will get it at the return, otherwise it will keep asking you again.
-     * @return
+     * @return maximum capacity value
+     * @param input Scanner name
      */
     public int setCapDaAula(Scanner input){
         boolean validarCap = true;
