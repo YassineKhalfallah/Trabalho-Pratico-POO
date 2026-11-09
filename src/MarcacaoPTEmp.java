@@ -51,7 +51,7 @@ public class MarcacaoPTEmp extends Marcacao {
      * Gets you all info of member registered in the Personal Session in this class
      * @return socioEmp
      */
-    public SocioEmpresario getSocioInd() {
+    public SocioEmpresario getSocioEmp() {
         return socioEmp;
     }
 

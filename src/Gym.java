@@ -60,7 +60,6 @@ public class Gym {
     /**
      * Menu to help the user indicate and chose the operation he would like to do.
      * @param input Scanner name
-     * @param gym gym
      */
     public void menu(Scanner input) {
         System.out.println("\n---- MENU ----\n");
