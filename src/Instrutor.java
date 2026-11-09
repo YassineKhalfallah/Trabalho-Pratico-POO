@@ -112,5 +112,5 @@ public class Instrutor extends Pessoa{
         
         return java.util.Objects.equals(getNomePessoa(), outro.getNomePessoa()) && java.util.Objects.equals(genero, outro.genero) && java.util.Objects.equals(formacao, outro.formacao);
     }
-    //Fazer clone??????
 }
+//

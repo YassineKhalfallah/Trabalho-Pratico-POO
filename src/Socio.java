@@ -146,7 +146,7 @@ public class Socio extends Pessoa {
         }
         else if(tipoSocio.equals("INDIVIDUAL")){
             for (SocioIndividual socioIndividual : listaInd) {
-                if (socioIndividual.getNumeroSocio() ==numeroSocio) {
+                if (socioIndividual.getNumeroSocio() == numeroSocio) {
                     return true;
                 }
             }
