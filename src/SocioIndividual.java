@@ -91,4 +91,9 @@ public class SocioIndividual extends Socio {
         }while (!validarIdade);
         return idade;
     }
+
+    @Override
+    public String getTipoSocio(){
+        return "SOCIO INDIVIDUAL";
+    }
 }

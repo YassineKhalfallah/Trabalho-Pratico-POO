@@ -196,7 +196,7 @@ public class Gym {
                     valid = false;
                 }
                 else {
-                    valid = tipoSocioErrado(input, tipoSocio);
+                    valid = tipoErrado(input);
                 }
             }
 
@@ -317,7 +317,7 @@ public class Gym {
                 valid = false;
             }
             else {
-                valid = tipoSocioErrado(input, tipoAtividade);
+                valid = tipoErrado(input);
             }
         }
     }
@@ -366,7 +366,9 @@ public class Gym {
         //inserir o valor final
         marcacao.setCustoFinal(atividadeEscolhida.getPreco()-(atividadeEscolhida.getPreco()*((socio.getDesconto())/100)));
         //indicar que ha mais uma pessoa na atividade escolhida
-        atividadeEscolhida.setNumeroDePessoasNaAtividade(atividadeEscolhida.getNumeroDePessoasNaAtividade()+1);
+        if (atividadeEscolhida.getTipoAtividade().equals("AULAS DE GRUPO")) {
+            ((AulaDeGrupo)atividadeEscolhida).setNumeroDePessoasNaAtividade(((AulaDeGrupo)atividadeEscolhida).getNumeroDePessoasNaAtividade() + 1);
+        }
         marcacoes.add(marcacao);
     }
 
@@ -391,41 +393,41 @@ public class Gym {
      */
     public void maisPopular() {
         System.out.println("--- Atividade mais popular ---");
+
         if (atividades.isEmpty()) {
-            System.out.println("Nao há atividades registadas.");
+            System.out.println("Não há atividades registadas.");
             return;
         }
+
         String atividadeMaisPopular = "Nenhuma";
-        int maxMarcacoes = -1; //sempre menor que 0
-        for (Atividade aula : atividades) {
-            int count = aula.getNumeroDePessoasNaAtividade();
-            if (count > maxMarcacoes){
-                maxMarcacoes = count;
-                atividadeMaisPopular = "Aula de Grupo: " + aula.getTipoAula() + " (Participantes: " + maxMarcacoes + ")";
+        int maxCount = -1;
+
+        // Loop through ALL activities once
+        for (Atividade a : atividades) {
+            int count = 0;
+
+            if (a.getTipoAtividade().equals("AULAS DE GRUPO")) {
+                AulaDeGrupo ag = (AulaDeGrupo) a;
+                count = ag.getNumeroDePessoasNaAtividade();
             }
-        }
-        for (PersonalTraining pt : personalTraining) {
-            int contagemPT = 0;
-            for (Marcacao m : marcacaoPTInd) {
-                if (m.getSessaoP() == pt) {
-                    contagemPT++;
+            else if (a.getTipoAtividade().equals("PERSONAL TRAINING")) {
+                for (Marcacao m : marcacoes) {
+                    if (m.getAtividade() == a) {
+                        count++;
+                    }
                 }
             }
-            for (Marcacao m : marcacaoPTEmp){
-                if (m.getSessaoP() == pt){
-                    contagemPT++;
-                }
-            }
-            if (contagemPT > maxMarcacoes){
-                maxMarcacoes = contagemPT;
-                atividadeMaisPopular = "Personal Training " + pt.getTipoTraining() + " (Marcacoes:" + maxMarcacoes + ")";
+
+            if (count > maxCount) {
+                maxCount = count;
+                atividadeMaisPopular = a.toString() + " (" + count + ")";
             }
         }
-        if (maxMarcacoes <= 0){
-            System.out.println("Ainda nao existem marcacoes.");
-        }
-        else{
-            System.out.println("A atividade mais popular e " + atividadeMaisPopular);
+
+        if (maxCount <= 0) {
+            System.out.println("Ainda não existem marcações.");
+        } else {
+            System.out.println("A atividade mais popular é: " + atividadeMaisPopular);
         }
     }
 
@@ -460,7 +462,7 @@ public class Gym {
     }
 
     /**
-     * Asks the user to give his Id number, However this info will get checked at the functions {@link doesIdExistInd}
+     * Asks the user to give his Id number, However this info will get checked at the functions {@link doesIdExist}
      * if after the verification the Id number given exist in the list of Individual members, you will get it at the return, otherwise it will keep asking you again.
      * @return Id number of socio Individual
      * @param input Scanner name
@@ -484,50 +486,45 @@ public class Gym {
      * This function will tell the user that his input for the type of member was wrong and asks him if he is  willing to get out of the function.
      * If user types SIM or S user get out from the method.
      * @param input Scanner name
-     * @param tipoSocio type of member
-     * @return true if user willing to continue
+     * @return trerue if user willing to continue
      */
-    private boolean tipoSocioErrado(Scanner input,String tipoSocio) {
+    private boolean tipoErrado(Scanner input) {
         boolean soc = true;
-        System.out.println("--- TIPO DE SOCIO ERRADO ---");
+        String ver = "";
+        System.out.println("--- TIPO PEDIDO ERRADO ---");
         System.out.println("-- Quer sair de este metodo--");
-        tipoSocio = input.nextLine().toUpperCase();
-        if (tipoSocio.equals("SIM") || tipoSocio.equals("S")) {
-            System.out.println("--- MARCAÇÃO CANCELADA ---");
+        ver = input.nextLine().toUpperCase();
+        if (ver.equals("SIM") || ver.equals("S")) {
+            System.out.println("--- METODO CANCELADO ---");
             soc = false;
         }
         return soc;
     }
 
-    /**
-     * This function will tell the user that his input for the type of activity was wrong and asks him if he is  willing to get out of the function.
-     * If user types SIM or S user get out from the method.
-     * @param input Scanner name
-     * @param tipoAtividade type of activity
-     * @return true if willing to continue
-     */
-    private boolean tipoAtividadeErrada(Scanner input,String tipoAtividade) {
-        boolean at = true;
-        System.out.println("--- TIPO DE ATIVIDADES ERRADO ---");
-        System.out.println("-- Quer sair de este metodo--");
-        tipoAtividade = input.nextLine().toUpperCase();
-        if (tipoAtividade.equals("SIM") || tipoAtividade.equals("S")) {
-            System.out.println("--- MARCAÇÃO CANCELADA ---");
-            at = false;
-        }
-        return at;
-    }
 
     /**
      * This function is mainly used to get a hole idea and view about number of merber of the two kinds({@link SocioIndividual}&amp;{@link SocioEmpresario}).<br>
      * And also and idea of the numbers of all the activities of the two kind ({@link AulaDeGrupo} &amp; {@link PersonalTraining}).
      */
     public void resumoAtividades(){
+        int Ind=0,Emp=0,AG=0,PT=0;
+        for  (Socio socio: socios) {
+            if(socio.getTipoSocio().equals("SOCIO INDIVIDUAL")) Ind++;
+            else if(socio.getTipoSocio().equals("SOCIO EMPRESARIO")) Emp++;
+            else continue;
+        }
+
+        for (Atividade atividade: atividades) {
+            if(atividade.getTipoAtividade().equals("PERSONAL TRAINING")) PT++;
+            else if (atividade.getTipoAtividade().equals("AULA DE GRUPO")) Ind++;
+            else continue;
+        }
+
         System.out.println("\n--- RESUMO DE ATIVIDADES ---\n");
-        System.out.println("No nosso ginasio existem:\nSocios Individuais: "+sociosIndividuais.size()+
-                "\nSocios Empresarios: "+sociosEmpresarios.size()+
-                "\nAulas de Grupo: "+aulasDeGrupo.size()+
-                "\nSessões de Personal Training: "+personalTraining.size()+"\n");
+        System.out.println("No nosso ginasio existem:\nSocios Individuais: "+Ind+
+                "\nSocios Empresarios: "+Emp+
+                "\nAulas de Grupo: "+AG+
+                "\nSessões de Personal Training: "+PT+"\n");
     }
 
     /**
@@ -545,10 +542,9 @@ public class Gym {
      */
     public void valoresSocio(Scanner input) {
         System.out.print("Indica o seu numero identificador : ");
-        int numSocio = Integer.parseInt(input.nextLine());
-        // check Socio is which kind
-        Socio socioEncontrado = null;
+        int numSocio = Integer.parseInt(input.nextLine().trim());
 
+        Socio socioEncontrado = null;
         for (Socio s : socios) {
             if (s.getNumeroSocio() == numSocio) {
                 socioEncontrado = s;
@@ -556,64 +552,31 @@ public class Gym {
             }
         }
 
-        if (socioEncontrado == null ) {
+        if (socioEncontrado == null) {
             System.out.println("--- NUMERO DE SOCIO NAO ENCONTRADO ---");
-            return; // Stop execution here
+            return;
         }
 
         double totalGasto = 0.0;
         double totalPoupado = 0.0;
         int contadorMarcacoes = 0;
 
-        if (isIndividual) {
-            //pesguisar em marcacoes do socio individual
-            for (Marcacao m : marcacoes) {
-                if (m.getSocioInd().getNumeroSocio() == numSocio) {
-                    totalGasto += m.getCustoFinal();
-                    totalPoupado += m.getAulaG().preco - m.getCustoFinal();
-                    contadorMarcacoes++;
-                }
+        for (Marcacao m : marcacoes) {
+            if (m.getSocio().getNumeroSocio() == numSocio) {
+                totalGasto += m.getCustoFinal();
+                totalPoupado += m.getAtividade().getPreco() - m.getCustoFinal();
+
+                contadorMarcacoes++;
             }
-            for (Marcacao m : marcacoes) {
-                if (m.getSocioInd().getNumeroSocio() == numSocio) {
-                    totalGasto += m.getCustoFinal();
-                    totalPoupado += m.getSessaoP().preco - m.getCustoFinal();
-                    contadorMarcacoes++;
-                }
-            }
-            // Imprimir Resultado
-            System.out.print("\n=== VALORES DO SÓCIO ===\n");
-            System.out.println("Nome: " + socioIndEncontrado.getNomePessoa() +
-                    "\nNúmero: " + numSocio +
-                    "\nTotal de marcações: " + contadorMarcacoes +
-                    "\nTotal de gastos: " + totalGasto +
-                    "\nTotal de poupados: " + totalPoupado);
         }
-        else{
-            //pesguisar em marcacoes do socio individual
-            for (Marcacao m : marcacoes) {
-                if (m.getSocioEmp().getNumeroSocio() == numSocio) {
-                    totalGasto += m.getCustoFinal();
-                    totalPoupado += m.getAulaG().preco - m.getCustoFinal();
-                    contadorMarcacoes++;
-                }
-            }
-            for (Marcacao m : marcacoes) {
-                if (m.getSocioEmp().getNumeroSocio() == numSocio) {
-                    totalGasto += m.getCustoFinal();
-                    totalPoupado += m.getSessaoP().preco - m.getCustoFinal();
-                    contadorMarcacoes++;
-                }
-            }
-            // Imprimir Resultado
-            System.out.print("\n=== VALORES DO SÓCIO ===\n");
-            System.out.println("Nome: " + socioEmpEncontrado.getNomePessoa() +
-                    "\nNúmero: " + numSocio +
-                    "\nTotal de marcações: " + contadorMarcacoes +
-                    "\nTotal de gastos: " + totalGasto +
-                    "\nTotal de poupados: " + totalPoupado);
-        }
+
+        System.out.println("\n=== VALORES DO SÓCIO ===");
+        System.out.println("Nome: " + socioEncontrado.getNomePessoa());
+        System.out.println("Número: " + numSocio);
+        System.out.printf("Total de marcações: %d%n", contadorMarcacoes);
+        System.out.printf("Total de gastos: %.2f€%n", totalGasto);
+        System.out.printf("Total poupado: %.2f€%n", totalPoupado);
     }
 }
-}
+
 

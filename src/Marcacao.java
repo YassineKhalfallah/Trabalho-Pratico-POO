@@ -85,7 +85,7 @@ public class Marcacao {
      * @param socioInd Individual member
      * @param sessao group lesson
      */
-    public Marcacao(Data data, Hora hora, double custoFinal, SocioIndividual socioInd, PersonalTraining sessao) {
+     public Marcacao(Data data, Hora hora, double custoFinal, SocioIndividual socioInd, PersonalTraining sessao) {
         this.data = data;
         this.hora = hora;
         this.custoFinal = custoFinal;

@@ -102,4 +102,9 @@ public class SocioEmpresario extends Socio{
             return false;
         }
     }
+
+    @Override
+    public String getTipoSocio(){
+        return "SOCIO EMPRESARIO";
+    }
 }

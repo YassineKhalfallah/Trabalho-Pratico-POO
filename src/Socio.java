@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * @see Pessoa
  */
-public class Socio extends Pessoa {
+public abstract class Socio extends Pessoa {
     /**
      * Will I'll be using numeroSocio in other class, I'll need it to be as protected
      */
@@ -141,7 +141,8 @@ public class Socio extends Pessoa {
                 break;
             }
         }
-
         return existe;
     }
+
+    public abstract String getTipoSocio();
 }

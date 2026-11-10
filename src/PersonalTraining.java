@@ -107,5 +107,17 @@ public class PersonalTraining extends Atividade{
         }while (!validarSessao);
         return sessao;
     }
+    @Override
+    public String getTipoAtividade() {
+        return "PERSONAL TRAINING";
+    }
 
+    @Override
+    public String getResumoCurto() {
+        return String.format("PT %s | %02d:%02d | %.2f€",
+                tipoTraining,
+                tempo.getHoras(),
+                tempo.getMinutos(),
+                preco);
+    }
 }

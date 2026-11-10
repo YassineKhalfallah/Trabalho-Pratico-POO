@@ -2,7 +2,7 @@
  * @see Hora
  * @see Data
  */
-public class Atividade {
+public abstract class Atividade {
     /**
      * I'll be using {@code preco} in other class, I'll need it to be as protected
      */
@@ -85,4 +85,6 @@ public class Atividade {
         this.date = date;
     }
 
+    public abstract String getTipoAtividade();
+    public abstract String getResumoCurto();
 }

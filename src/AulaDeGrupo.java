@@ -193,4 +193,17 @@ public class AulaDeGrupo extends Atividade{
         return capacidade;
     }
 
+    @Override
+    public String getTipoAtividade() {
+        return "AULA DE GRUPO";
+    }
+
+    @Override
+    public String getResumoCurto() {
+        return String.format("AG %s | %02d:%02d | %.2f€",
+                tipoAula,
+                tempo.getHoras(),
+                tempo.getMinutos(),
+                preco);
+    }
 }
