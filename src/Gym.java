@@ -399,35 +399,32 @@ public class Gym {
             return;
         }
 
-        String atividadeMaisPopular = "Nenhuma";
+        Atividade maisPopular = null;
         int maxCount = -1;
 
-        // Loop through ALL activities once
         for (Atividade a : atividades) {
-            int count = 0;
+            int count = ((AulaDeGrupo)a).getNumeroDePessoasNaAtividade();
 
-            if (a.getTipoAtividade().equals("AULAS DE GRUPO")) {
-                AulaDeGrupo ag = (AulaDeGrupo) a;
-                count = ag.getNumeroDePessoasNaAtividade();
-            }
-            else if (a.getTipoAtividade().equals("PERSONAL TRAINING")) {
+            // For PT, override count with actual bookings from unified list
+            if (a.getTipoAtividade().equals("PERSONAL TRAINING")) {
+                count = 0;
                 for (Marcacao m : marcacoes) {
-                    if (m.getAtividade() == a) {
-                        count++;
-                    }
+                    if (m.getAtividade() == a) count++;
                 }
             }
 
             if (count > maxCount) {
                 maxCount = count;
-                atividadeMaisPopular = a.toString() + " (" + count + ")";
+                maisPopular = a;
             }
         }
 
         if (maxCount <= 0) {
             System.out.println("Ainda não existem marcações.");
         } else {
-            System.out.println("A atividade mais popular é: " + atividadeMaisPopular);
+            System.out.println("A atividade mais popular é: " +
+                    maisPopular.getResumoCurto() +
+                    " (" + maxCount + ")");
         }
     }
 
