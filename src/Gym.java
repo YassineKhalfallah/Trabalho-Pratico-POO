@@ -513,13 +513,13 @@ public class Gym {
 
         for (Atividade atividade: atividades) {
             if(atividade.getTipoAtividade().equals("PERSONAL TRAINING")) PT++;
-            else if (atividade.getTipoAtividade().equals("AULA DE GRUPO")) Ind++;
+            else if (atividade.getTipoAtividade().equals("AULA DE GRUPO")) AG++;
             else continue;
         }
 
         System.out.println("\n--- RESUMO DE ATIVIDADES ---\n");
-        System.out.println("No nosso ginasio existem:\nSocios Individuais: "+Ind+
-                "\nSocios Empresarios: "+Emp+
+        System.out.println("No nosso ginasio existem:\nSocios Individuais: "+ Ind +
+                "\nSocios Empresarios: "+ Emp +
                 "\nAulas de Grupo: "+AG+
                 "\nSessões de Personal Training: "+PT+"\n");
     }
