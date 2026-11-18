@@ -86,9 +86,12 @@ public class Main {
 
         //1)
         Marcacao mAgInd1 = new Marcacao(dat1,tmp2,AG7.getPreco()-(AG7.getPreco()*(soInd1.getDesconto()/100)),soInd1,AG7);
+        AG7.setNumeroDePessoasNaAtividade(AG7.getNumeroDePessoasNaAtividade() + 1);
         gym.marcacoes.add(mAgInd1);
+
         //2)
         Marcacao mAgEmp2 = new Marcacao(dat1,tmp2,AG6.getPreco()-(AG6.getPreco()*(soEmp4.getDesconto()/100)),soEmp4,AG6);
+        AG6.setNumeroDePessoasNaAtividade(AG6.getNumeroDePessoasNaAtividade()+1);
         gym.marcacoes.add(mAgEmp2);
         //3)
         Marcacao mAgInd3 = new Marcacao(dat1,tmp2,Pt1.getPreco()-(Pt1.getPreco()*(soInd2.getDesconto()/100)),soInd2,AG7);

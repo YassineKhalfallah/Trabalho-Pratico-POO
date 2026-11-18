@@ -403,8 +403,10 @@ public class Gym {
         int maxCount = -1;
 
         for (Atividade a : atividades) {
-            int count = ((AulaDeGrupo)a).getNumeroDePessoasNaAtividade();
-
+            int count = 0;
+            if (a.getTipoAtividade().equals("AULAS DE GRUPO")){
+                count = ((AulaDeGrupo) a).getNumeroDePessoasNaAtividade();
+            }
             // For PT, override count with actual bookings from unified list
             if (a.getTipoAtividade().equals("PERSONAL TRAINING")) {
                 count = 0;
